@@ -1,0 +1,39 @@
+{
+  "label": "2026-05-26",
+  "date": "2026-05-26",
+  "generated_at": "2026-05-26T20:42:17",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202605/26/2605.18464v1-perl-parameter-efficient-reasoning-in-clip-latent-space",
+      "section": "quick",
+      "title_en": "PERL: Parameter Efficient Reasoning in CLIP Latent Space",
+      "authors": "Simone Carnemolla, Salvatore Calcagno, Daniela Giordano, Concetto Spampinato, Matteo Pennisi",
+      "date": "2026-05-18",
+      "pdf": "https://arxiv.org/pdf/2605.18464v1",
+      "score": "7.0",
+      "evidence": "通过潜在推理改进CLIP的零样本迁移能力，可应用于零样本动作识别",
+      "tldr": "CLIP等视觉语言模型在下游任务适应时易损失开放词汇泛化能力，现有参数高效方法主要依赖增加额外参数。受语言模型潜在推理启发，PERL提出在冻结的CLIP上添加紧凑共享推理模块，通过多步迭代在潜在空间中逐步细化表示：每步基于当前表示生成推理token并注入中间编码器层。在15个基准（含base-to-novel泛化、跨数据集迁移和OOD图像）上，PERL仅用约6K可训练参数（最多比最大方法少817倍）即取得最优参数-性能权衡，并保持强新类准确性与迁移能力。该结果表明，迭代潜在推理可作为参数缩放的有效互补适应机制。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Contrastively trained vision-language models such as CLIP provide strong zero-shot transfer by aligning images and text in a shared embedding space. However, adapting these models to downstream tasks without degrading their open-vocabulary generalization remains challenging. Existing parameter-efficient adaptation methods typically improve task specialization through learned prompts, adapters, or multimodal transformations, where adaptation capacity is primarily expressed through additional trainable parameters. Inspired by recent latent reasoning methods in language models, we investigate a complementary perspective: can adaptation emerge from iterative reasoning on latent representations rather than from increasing parameter count alone? We introduce PERL (Parameter-Efficient Reasoning in CLIP Latent Space), a lightweight adaptation framework that augments a frozen CLIP model with a compact shared reasoning module applied recurrently across refinement steps. At each step, PERL generates a latent reasoning token conditioned on the current representation and injects it into an intermediate encoder layer, progressively refining higher-level semantic representations while preserving CLIP's pretrained multimodal structure. Across 15 benchmarks spanning base-to-novel generalization, cross-dataset transfer, and out-of-distribution ImageNet variants, PERL achieves the best parameter-performance trade-off among the compared methods under a fast-adaptation few-shot setting, combining strong novel-class accuracy and competitive transfer performance with only about 6K trainable parameters, up to 817x fewer than the largest compared approach. Overall, our results suggest that iterative latent reasoning provides a complementary adaptation mechanism to parameter scaling in discriminative vision-language models.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202605/26/2605.22679v1-conceptualizing-embeddings-sparse-disentanglement-for-vision-language-models",
+      "section": "quick",
+      "title_en": "Conceptualizing Embeddings: Sparse Disentanglement for Vision-Language Models",
+      "authors": "Piotr Kubaty, Patryk Marszałek, Łukasz Struski, Adam Wróbel, Jacek Tabor, Marek Śmieja",
+      "date": "2026-05-21",
+      "pdf": "https://arxiv.org/pdf/2605.22679v1",
+      "score": "6.0",
+      "evidence": "揭示嵌入的组合结构，可应用于零样本组合动作识别",
+      "tldr": "视觉语言模型的多模态嵌入具有强大能力，但其内部语义不透明。现有稀疏自编码器需扩展维度，牺牲了几何结构。本文提出CEDAR方法，通过可逆变换与top-k稀疏瓶颈，在不增加维度的情况下实现轴对齐的分离坐标。实验表明该方法在重建与稀疏性之间取得良好平衡，生成的解释更可解释且符合人类感知。研究证明通过合适的基变换即可解决表征纠缠，无需过完备扩展。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Vision-language models learn powerful multimodal embeddings, yet their internal semantics remain opaque. While sparse autoencoders (SAEs) can extract interpretable features, they rely on expanding the representation dimension, which compromises the original geometry and introduces redundancy. We introduce CEDAR (Conceptual Embedding Disentanglement via Adaptive Rotation), a post-hoc method that reveals the compositional structure of pretrained embeddings without increasing dimensionality. By learning an invertible transformation with a top-$k$ sparsity bottleneck, CEDAR concentrates semantic information into axis-aligned disentangled coordinates. In CLIP-like architecture, individual coordinates can be interpreted with textual concepts, while for generative models such as BLIP, they can be decoded into natural language descriptions. Experiments demonstrate that CEDAR achieves a competitive reconstruction-sparsity trade-off while producing explanations that are more interpretable and better aligned with human perception. Our results suggest that the apparent entanglement in vision-language representations can be resolved through a suitable change of basis, eliminating the need for overcomplete expansions.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

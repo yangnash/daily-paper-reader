@@ -1,0 +1,97 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-05-26T20:40:02.223378+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2605.18464v1",
+      "source": "arxiv",
+      "title": "PERL: Parameter Efficient Reasoning in CLIP Latent Space",
+      "abstract": "Contrastively trained vision-language models such as CLIP provide strong zero-shot transfer by aligning images and text in a shared embedding space. However, adapting these models to downstream tasks without degrading their open-vocabulary generalization remains challenging. Existing parameter-efficient adaptation methods typically improve task specialization through learned prompts, adapters, or multimodal transformations, where adaptation capacity is primarily expressed through additional trainable parameters. Inspired by recent latent reasoning methods in language models, we investigate a complementary perspective: can adaptation emerge from iterative reasoning on latent representations rather than from increasing parameter count alone? We introduce PERL (Parameter-Efficient Reasoning in CLIP Latent Space), a lightweight adaptation framework that augments a frozen CLIP model with a compact shared reasoning module applied recurrently across refinement steps. At each step, PERL generates a latent reasoning token conditioned on the current representation and injects it into an intermediate encoder layer, progressively refining higher-level semantic representations while preserving CLIP's pretrained multimodal structure. Across 15 benchmarks spanning base-to-novel generalization, cross-dataset transfer, and out-of-distribution ImageNet variants, PERL achieves the best parameter-performance trade-off among the compared methods under a fast-adaptation few-shot setting, combining strong novel-class accuracy and competitive transfer performance with only about 6K trainable parameters, up to 817x fewer than the largest compared approach. Overall, our results suggest that iterative latent reasoning provides a complementary adaptation mechanism to parameter scaling in discriminative vision-language models.",
+      "authors": [
+        "Simone Carnemolla",
+        "Salvatore Calcagno",
+        "Daniela Giordano",
+        "Concetto Spampinato",
+        "Matteo Pennisi"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-05-18T14:25:25+00:00",
+      "link": "https://arxiv.org/pdf/2605.18464v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "improves zero-shot transfer of CLIP via latent reasoning, applicable to zero-shot action recognition",
+      "llm_evidence_cn": "通过潜在推理改进CLIP的零样本迁移能力，可应用于零样本动作识别",
+      "llm_evidence": "通过潜在推理改进CLIP的零样本迁移能力，可应用于零样本动作识别",
+      "canonical_evidence": "通过潜在推理改进CLIP的零样本迁移能力，可应用于零样本动作识别",
+      "llm_tldr_en": "PERL introduces iterative reasoning in latent space for CLIP to enhance zero-shot transfer without increasing parameters, offering a method applicable to zero-shot action recognition.",
+      "llm_tldr_cn": "现有参数高效微调方法通常增加可训练参数以适应下游任务，但可能损害零样本泛化能力。本文提出PERL，在CLIP潜在空间中进行迭代推理，通过增强表示而非增加参数来提升下游性能。实验表明PERL在多个任务上提升了零样本迁移效果，其方法可直接应用于零样本动作识别场景，无需针对动作识别做特殊调整。",
+      "llm_tldr": "现有参数高效微调方法通常增加可训练参数以适应下游任务，但可能损害零样本泛化能力。本文提出PERL，在CLIP潜在空间中进行迭代推理，通过增强表示而非增加参数来提升下游性能。实验表明PERL在多个任务上提升了零样本迁移效果，其方法可直接应用于零样本动作识别场景，无需针对动作识别做特殊调整。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2605.22679v1",
+      "source": "arxiv",
+      "title": "Conceptualizing Embeddings: Sparse Disentanglement for Vision-Language Models",
+      "abstract": "Vision-language models learn powerful multimodal embeddings, yet their internal semantics remain opaque. While sparse autoencoders (SAEs) can extract interpretable features, they rely on expanding the representation dimension, which compromises the original geometry and introduces redundancy. We introduce CEDAR (Conceptual Embedding Disentanglement via Adaptive Rotation), a post-hoc method that reveals the compositional structure of pretrained embeddings without increasing dimensionality. By learning an invertible transformation with a top-$k$ sparsity bottleneck, CEDAR concentrates semantic information into axis-aligned disentangled coordinates. In CLIP-like architecture, individual coordinates can be interpreted with textual concepts, while for generative models such as BLIP, they can be decoded into natural language descriptions. Experiments demonstrate that CEDAR achieves a competitive reconstruction-sparsity trade-off while producing explanations that are more interpretable and better aligned with human perception. Our results suggest that the apparent entanglement in vision-language representations can be resolved through a suitable change of basis, eliminating the need for overcomplete expansions.",
+      "authors": [
+        "Piotr Kubaty",
+        "Patryk Marszałek",
+        "Łukasz Struski",
+        "Adam Wróbel",
+        "Jacek Tabor",
+        "Marek Śmieja"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-05-21T16:23:34+00:00",
+      "link": "https://arxiv.org/pdf/2605.22679v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "reveals compositional structure of embeddings, applicable to zero-shot compositional action recognition",
+      "llm_evidence_cn": "揭示嵌入的组合结构，可应用于零样本组合动作识别",
+      "llm_evidence": "揭示嵌入的组合结构，可应用于零样本组合动作识别",
+      "canonical_evidence": "揭示嵌入的组合结构，可应用于零样本组合动作识别",
+      "llm_tldr_en": "CEDAR learns a sparse disentangled representation for vision-language embeddings, enabling interpretable compositional semantics that could benefit zero-shot compositional action recognition.",
+      "llm_tldr_cn": "当前视觉语言模型的内部语义不透明，且稀疏自编码器扩展维度会破坏原始几何结构。本文提出CEDAR，通过可逆变换和top-k稀疏瓶颈在后处理中揭示嵌入的组合结构，将语义信息集中到轴对齐的可解释坐标上。该方法无需增加维度即可得到可解释的组合表示，为理解零样本组合动作识别中的语义组合提供了工具。",
+      "llm_tldr": "当前视觉语言模型的内部语义不透明，且稀疏自编码器扩展维度会破坏原始几何结构。本文提出CEDAR，通过可逆变换和top-k稀疏瓶颈在后处理中揭示嵌入的组合结构，将语义信息集中到轴对齐的可解释坐标上。该方法无需增加维度即可得到可解释的组合表示，为理解零样本组合动作识别中的语义组合提供了工具。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
