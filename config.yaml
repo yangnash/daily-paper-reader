@@ -25,5 +25,51 @@ subscriptions:
     stage: A
     diff_threshold_pct: 15
   keyword_recall_mode: or
-  intent_profiles: []
-source_backends: {}
+  intent_profiles:
+    - tag: zsc-action
+      description: 零样本组合动作识别
+      enabled: true
+      paper_sources:
+        - arxiv
+      keywords:
+        - keyword: zero-shot learning
+          keyword_cn: 零样本学习
+          query: zero-shot learning for action recognition
+        - keyword: compositional action recognition
+          keyword_cn: 组合动作识别
+          query: compositional action recognition methods
+        - keyword: zero-shot action recognition
+          keyword_cn: 零样本动作识别
+          query: zero-shot action recognition with composition
+      intent_queries:
+        - query: zero shot compositional action recognition methods
+          query_cn: 零样本组合动作识别方法
+          enabled: true
+          source: manual
+          note: ''
+        - query: learning to recognize unseen action compositions
+          query_cn: 学习识别未见过的动作组合
+          enabled: true
+          source: manual
+          note: ''
+        - query: compositional action recognition without training samples
+          query_cn: 无训练样本的组合动作识别
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-05-26T08:43:59.579Z'
+source_backends:
+  arxiv:
+    papers_table: arxiv_papers
+    use_vector_rpc: true
+    vector_rpc: match_arxiv_papers
+    vector_rpc_exact: match_arxiv_papers_exact
+    use_bm25_rpc: true
+    bm25_rpc: match_arxiv_papers_bm25
+    sync_table: arxiv_sync_status
+    sync_success_value: success
+    schema: public
+    kind: supabase
+    enabled: true
+    url: https://lyucdwgefyfbmaiopjbk.supabase.co
+    anon_key: sb_publishable_lX-oi64Uxyd7SIVv3_w2Uw_MTOojeKq
