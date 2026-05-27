@@ -6,29 +6,24 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-05-26
-- 运行时间：2026-05-26 20:42:13 UTC
+- 最新运行日期：2026-05-27
+- 运行时间：2026-05-27 20:48:59 UTC
 - 运行状态：成功
-- 本次总论文数：2
+- 本次总论文数：1
 - 精读区：0
-- 速读区：2
+- 速读区：1
 
 ### 今日简报（AI）
-今日速读两篇视觉-语言模型论文，聚焦参数高效推理与嵌入可解释性。  
-PERL在CLIP隐空间实现高效推理，Conceptualizing Embeddings提出稀疏解缠方法，均值得关注。  
-建议进一步了解CLIP隐空间优化思路及稀疏表示在可解释性中的应用。
-- 详情：[/202605/26/README](/202605/26/README)
+今日阅读1篇关于视觉语言模型稀疏解耦嵌入的论文，评分7.0。值得关注的是通过稀疏化分离多模态概念，提升模型可解释性。建议后续尝试将稀疏解耦技术应用于零样本分类或图文检索等任务。
+- 详情：[/202605/27/README](/202605/27/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [PERL: Parameter Efficient Reasoning in CLIP Latent Space](/202605/26/2605.18464v1-perl-parameter-efficient-reasoning-in-clip-latent-space)  
+1. [Conceptualizing Embeddings: Sparse Disentanglement for Vision-Language Models](/202605/27/2605.22679v1-conceptualizing-embeddings-sparse-disentanglement-for-vision-language-models)  
    标签：评分：7.0/10、query:zsc-action
-   evidence：通过潜在推理改进CLIP的零样本迁移能力，可应用于零样本动作识别
-2. [Conceptualizing Embeddings: Sparse Disentanglement for Vision-Language Models](/202605/26/2605.22679v1-conceptualizing-embeddings-sparse-disentanglement-for-vision-language-models)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：揭示嵌入的组合结构，可应用于零样本组合动作识别
+   evidence：提出CEDAR方法进行嵌入组合解耦，可应用于组合动作识别
 
 
 <div class="dpr-home-promo-card">

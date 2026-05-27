@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-05-27 <!--dpr-date:20260527-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202605/27/2605.22679v1-conceptualizing-embeddings-sparse-disentanglement-for-vision-language-models" data-sidebar-item="{&quot;title&quot;: &quot;Conceptualizing Embeddings: Sparse Disentanglement for Vision-Language Models&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2605.22679v1-conceptualizing-embeddings-sparse-disentanglement-for-vision-language-models&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;提出CEDAR方法进行嵌入组合解耦，可应用于组合动作识别&quot;}">Conceptualizing Embeddings: Sparse Disentanglement for Vision-Language Models</a>
   * 2026-05-26 <!--dpr-date:20260526-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202605/26/2605.18464v1-perl-parameter-efficient-reasoning-in-clip-latent-space" data-sidebar-item="{&quot;title&quot;: &quot;PERL: Parameter Efficient Reasoning in CLIP Latent Space&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2605.18464v1-perl-parameter-efficient-reasoning-in-clip-latent-space&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;通过潜在推理改进CLIP的零样本迁移能力，可应用于零样本动作识别&quot;}">PERL: Parameter Efficient Reasoning in CLIP Latent Space</a>

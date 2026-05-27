@@ -1,0 +1,58 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-05-27T20:48:49.846621+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2605.22679v1",
+      "source": "arxiv",
+      "title": "Conceptualizing Embeddings: Sparse Disentanglement for Vision-Language Models",
+      "abstract": "Vision-language models learn powerful multimodal embeddings, yet their internal semantics remain opaque. While sparse autoencoders (SAEs) can extract interpretable features, they rely on expanding the representation dimension, which compromises the original geometry and introduces redundancy. We introduce CEDAR (Conceptual Embedding Disentanglement via Adaptive Rotation), a post-hoc method that reveals the compositional structure of pretrained embeddings without increasing dimensionality. By learning an invertible transformation with a top-$k$ sparsity bottleneck, CEDAR concentrates semantic information into axis-aligned disentangled coordinates. In CLIP-like architecture, individual coordinates can be interpreted with textual concepts, while for generative models such as BLIP, they can be decoded into natural language descriptions. Experiments demonstrate that CEDAR achieves a competitive reconstruction-sparsity trade-off while producing explanations that are more interpretable and better aligned with human perception. Our results suggest that the apparent entanglement in vision-language representations can be resolved through a suitable change of basis, eliminating the need for overcomplete expansions.",
+      "authors": [
+        "Piotr Kubaty",
+        "Patryk Marszałek",
+        "Łukasz Struski",
+        "Adam Wróbel",
+        "Jacek Tabor",
+        "Marek Śmieja"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2026-05-21T16:23:34+00:00",
+      "link": "https://arxiv.org/pdf/2605.22679v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "proposes CEDAR for compositional embedding disentanglement, applicable to compositional action recognition",
+      "llm_evidence_cn": "提出CEDAR方法进行嵌入组合解耦，可应用于组合动作识别",
+      "llm_evidence": "提出CEDAR方法进行嵌入组合解耦，可应用于组合动作识别",
+      "canonical_evidence": "提出CEDAR方法进行嵌入组合解耦，可应用于组合动作识别",
+      "llm_tldr_en": "CEDAR reveals compositional structure in pretrained embeddings via invertible transformation and top-k sparsity, enabling interpretable concept factors for tasks like compositional action recognition.",
+      "llm_tldr_cn": "本文针对预训练嵌入的组合语义不透明问题，提出CEDAR方法，通过可逆变换和稀疏瓶颈实现轴对齐的解耦坐标，揭示嵌入中的组合结构。该方法无需扩展维度，可应用于CLIP等模型，为组合动作识别等任务提供可解释的语义因子。实验表明CEDAR能够提取与文本概念对齐的独立坐标，验证了其有效性和泛化性。",
+      "llm_tldr": "本文针对预训练嵌入的组合语义不透明问题，提出CEDAR方法，通过可逆变换和稀疏瓶颈实现轴对齐的解耦坐标，揭示嵌入中的组合结构。该方法无需扩展维度，可应用于CLIP等模型，为组合动作识别等任务提供可解释的语义因子。实验表明CEDAR能够提取与文本概念对齐的独立坐标，验证了其有效性和泛化性。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

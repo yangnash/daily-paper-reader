@@ -1,0 +1,24 @@
+{
+  "label": "2026-05-27",
+  "date": "2026-05-27",
+  "generated_at": "2026-05-27T20:49:03",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202605/27/2605.22679v1-conceptualizing-embeddings-sparse-disentanglement-for-vision-language-models",
+      "section": "quick",
+      "title_en": "Conceptualizing Embeddings: Sparse Disentanglement for Vision-Language Models",
+      "authors": "Piotr Kubaty, Patryk Marszałek, Łukasz Struski, Adam Wróbel, Jacek Tabor, Marek Śmieja",
+      "date": "2026-05-21",
+      "pdf": "https://arxiv.org/pdf/2605.22679v1",
+      "score": "7.0",
+      "evidence": "提出CEDAR方法进行嵌入组合解耦，可应用于组合动作识别",
+      "tldr": "视觉语言模型的嵌入内部语义不透明，现有稀疏自编码器虽能提取可解释特征，但维度膨胀损害原始几何并引入冗余。本文提出 CEDAR 方法，通过学习可逆变换与 top-k 稀疏瓶颈，将语义信息集中到轴对齐的分离坐标中，无需扩展维度。在 CLIP 和 BLIP 上的实验表明，CEDAR 在保持重构-稀疏权衡的同时，产生更可解释且与人类感知对齐的解释。结果表明，通过合适的基变换即可解决表示的纠缠问题，无需过完备扩展。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Vision-language models learn powerful multimodal embeddings, yet their internal semantics remain opaque. While sparse autoencoders (SAEs) can extract interpretable features, they rely on expanding the representation dimension, which compromises the original geometry and introduces redundancy. We introduce CEDAR (Conceptual Embedding Disentanglement via Adaptive Rotation), a post-hoc method that reveals the compositional structure of pretrained embeddings without increasing dimensionality. By learning an invertible transformation with a top-$k$ sparsity bottleneck, CEDAR concentrates semantic information into axis-aligned disentangled coordinates. In CLIP-like architecture, individual coordinates can be interpreted with textual concepts, while for generative models such as BLIP, they can be decoded into natural language descriptions. Experiments demonstrate that CEDAR achieves a competitive reconstruction-sparsity trade-off while producing explanations that are more interpretable and better aligned with human perception. Our results suggest that the apparent entanglement in vision-language representations can be resolved through a suitable change of basis, eliminating the need for overcomplete expansions.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
