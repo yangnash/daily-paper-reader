@@ -1,0 +1,742 @@
+Title: PoseBridge: Bridging the Skeletonization Gap for Zero-Shot Skeleton-Based Action Recognition
+
+URL Source: https://arxiv.org/pdf/2605.11497v1
+
+Published Time: Wed, 13 May 2026 00:42:42 GMT
+
+Number of Pages: 22
+
+Markdown Content:
+# PoseBridge: Bridging the Skeletonization Gap for Zero-Shot Skeleton-Based Action Recognition 
+
+Sanghyeon Lee Jinwoo Kim Jong Taek Lee 
+
+School of Computer Science and Engineering Kyungpook National University, Daegu, South Korea 
+
+{hyeon1263,kk234556,jongtaeklee}@knu.ac.kr 
+
+## Abstract 
+
+Zero-shot skeleton-based action recognition (ZSSAR) is typically treated as a skeleton-text alignment problem: encode joint-coordinate sequences, align them with language, and classify unseen actions. We argue that this alignment is often too late. Skeletons are not complete action observations, but compressed outputs of human pose estimation (HPE); by the time alignment begins, human-object interactions and pose-relative visual cues may no longer be explicit. We call this upstream semantic loss. To address it, we propose PoseBridge , an HPE-aware ZSSAR framework that bridges intermediate HPE representations to skeleton-text alignment. Rather than adding an RGB action branch or object detector, PoseBridge extracts pose-anchored semantic cues from the same HPE process that produces skeletons, then transfers them through skeleton-conditioned bridging and semantic prototype adaptation. Across NTU-RGB+D 60/120, PKU-MMD, and Kinetics-200/400, PoseBridge improves ZSSAR performance under the evaluated protocols. On the Kinetics-200/400 PURLS benchmark, which contains in-the-wild videos with diverse scenes and action contexts, PoseBridge shows the clearest separation, improving the strongest compared baseline by 13.3–17.4 points across all eight splits. Our code will be publicly released. 
+
+## 1 Introduction 
+
+Skeleton-based action recognition represents actions as compact body-joint trajectories, providing motion-centric cues less tied to appearance variation, background clutter, and illumination changes than raw RGB observations [ 33 , 25 , 6]. These properties are particularly attractive for zero-shot skeleton-based action recognition (ZSSAR), where models recognize unseen actions by transferring knowledge through shared motion patterns and textual action descriptions [ 10 , 8, 35 , 5, 15 ]. Most ZSSAR methods [ 10 , 8 , 34 , 35 , 5, 36 ] follow a skeletonize-then-align (S2A) paradigm: raw visual observations are first reduced to joint coordinates by a human pose estimation (HPE) model, and the resulting skeleton sequences are then aligned with text features in a shared semantic space. However, this paradigm relies on a rarely examined assumption: skeletons preserve sufficient action semantics for language alignment. In practice, a skeleton is a compressed output of an upstream pose estimator rather than a complete action observation. When raw visual evidence is converted into joint coordinates, cues beyond body motion—such as object presence, human-object interaction, and pose-relative object relations—are no longer explicit. Object-sensitive benchmark actions expose this limitation: as shown in Fig. 1(A), “put on a hat/cap”, “put on headphone”, and “put on glasses” can share similar hand-to-head trajectories, but differ in the manipulated object and its configuration with the actor’s hands and head. As a result, S2A may place similar skeleton features near multiple text prototypes, producing ambiguous zero-shot predictions. We call this mismatch between the semantics required by action text and the evidence retained in skeletons the skeletonization gap, and identify its source as upstream semantic loss before skeleton-text alignment begins.   
+
+> Preprint.
+> arXiv:2605.11497v1 [cs.CV] 12 May 2026 Text
+> Encoder
+> “put on a hat/cap”
+> Lost action semantics
+> (B) PoseBridge (Ours)
+> “put on a hat/cap”
+> “put on glasses”
+> “put on headphone”
+> Target  sample Confusing samples
+> Pose
+> Estimator
+> Pose
+> Estimator
+> Predicted skeleton
+> Predicted skeleton
+> Skeleton
+> Encoder
+> Skeleton
+> Encoder
+> Pose -anchored semantics
+> (A) Conventional Skeletonize -then -Align
+> “put on headphone”
+> “put on glasses”
+> ... Action classes
+> Text
+> Encoder
+> RGB
+> Target text prototype
+> Confusing text prototype
+> “put on a hat/cap”
+> “put on headphone”
+> “put on glasses”
+> ... Action classes
+> Semantic space
+> 𝑡
+> 𝑡
+> 𝑡
+> 𝑡
+> 𝑡
+
+…
+
+…
+
+…
+
+> …
+> …
+> Semantic space
+> Prototype
+> Adaptation
+> Semantic
+> Bridge
+
+Figure 1: Motivation of PoseBridge. (A) Conventional S2A aligns text with joint-coordinate skeletons after skeletonization, where object, interaction, and pose-relative cues are not explicit. (B) PoseBridge routes HPE-side cues to the alignment space, disambiguating object-sensitive actions with similar skeleton trajectories. A direct way to mitigate this gap is to augment skeletons with additional context. Language- or prompt-based context can enrich skeleton-text alignment with object and scene descriptions [ 2 , 28 ], but such context is derived from language or skeleton-side inference rather than recovered from the visual evidence available inside the HPE stream. Another option is to introduce an RGB or object-centric visual pathway [ 19 , 26 ]. However, this changes the modality protocol of ZSSAR and typically requires an additional visual representation beyond the HPE pass used to obtain skeletons, while also exposing the model to appearance or scene shortcuts. Reusing HPE features is closer to the skeleton extraction process [ 29 ], but naive feature fusion treats intermediate maps as generic visual features and does not ensure that the retained cues are action-relevant or organized around the human body. The key challenge is therefore not to append generic context after skeletonization, but to retain and transfer semantics from the skeletonization process in a pose-anchored, skeleton-compatible manner. To address this challenge, we propose PoseBridge , a pose-anchored semantic bridge framework for ZSSAR. As shown in Fig. 1(B), PoseBridge intervenes before skeleton-text alignment by deriving bridge cues from intermediate HPE representations produced during skeleton extraction. Instead of treating HPE as a preprocessing step that only outputs joint coordinates, PoseBridge reinterprets its intermediate representations as pose-anchored semantic cues grounded in the body structure that defines the skeleton. These cues provide object- and pose-relative evidence that joint-coordinate skeletons do not explicitly retain. Importantly, PoseBridge uses cues from the same HPE process that produces skeletons, without an independent RGB action-recognition branch or external object detector. PoseBridge consists of two coupled stages. First, it learns pose-anchored semantic cues within HPE. Multi-level HPE features are hierarchically refined so that fine-grained visual evidence from shallow layers is injected into deeper pose-structured representations, and body-aware pooling aggregates the refined responses around predicted joints. Auxiliary semantic alignment further encourages the pooled cues to preserve action-relevant evidence rather than generic appearance. Second, PoseBridge transfers these cues to ZSSAR. A skeleton-conditioned semantic bridge lets motion representations query temporal pose-anchored cues, while semantic prototype adaptation calibrates language prototypes toward the pose-semantic space estimated from seen classes. Together, these stages make HPE an upstream source of skeleton-compatible semantics and carry this evidence into skeleton-text alignment. Experiments evaluate PoseBridge on NTU-RGB+D 60/120, PKU-MMD, and the broader Kinetics-200/400 PURLS benchmark, covering zero-shot learning (ZSL), generalized ZSL harmonic mean (GZSL-H), and random-split protocols. Beyond the commonly used NTU/PKU-style benchmarks, Kinetics tests ZSSAR under larger class diversity and in-the-wild video conditions, where PoseBridge obtains its largest margins. 2Our contributions are summarized as follows: • We identify upstream semantic loss as a limitation of the skeletonize-then-align paradigm, where object, interaction, and pose-relative evidence become non-explicit in joint-coordinate skeletons before skeleton-text alignment begins. • We propose PoseBridge, a pose-anchored semantic bridge framework that addresses this bottleneck through two coupled stages: semantic preservation within HPE via hierarchical re-finement and body-aware pooling, and semantic transfer to ZSSAR via skeleton-conditioned bridging and prototype adaptation. • PoseBridge achieves the best ZSL accuracy on all standard NTU-RGB+D 60/120 splits and the best GZSL-H among methods without an additional RGB pathway. It further improves random-split GZSL-H by 11.9/12.9 points on NTU-RGB+D 120/PKU-MMD and the strongest baseline under the Kinetics-200/400 PURLS benchmark by 13.3–17.4 points. 
+
+## 2 Related Work 
+
+Skeleton-text alignment for ZSSAR . Zero-shot skeleton-based action recognition (ZSSAR) recog-nizes unseen actions by aligning skeleton representations with textual class semantics [ 1, 23 , 31 , 36 ]. Early methods learn skeleton-text compatibility metrics, e.g., Relation Network [ 10 ], while later methods improve the semantic structure of this alignment. SynSE [ 8] decomposes action labels into verb and noun components, and SMIE [ 34 ] uses mutual information estimation for cross-modal matching. Recent methods further refine alignment granularity and robustness: PURLS [ 35 ] aligns part-level skeleton features with textual descriptions, SA-DVAE [ 16 ] separates action-relevant and irrelevant skeleton components, TDSM [ 5] denoises skeleton features toward descriptive latent representations, and Flora [ 3] improves semantic modeling with distribution-aware classification. These methods differ in alignment objectives and semantic representations, but largely operate after skeletonization: joint-coordinate sequences are treated as the primary observation, and semantic alignment is performed only after visual evidence has been compressed into skeletons. 
+
+Contextual and pose-estimation cues for skeleton recognition . Joint-coordinate skeletons encode body motion but do not explicitly represent objects, interactions, or scene context. Language-side methods enrich skeleton recognition with external or generated descriptions: Neuron [ 2 ] uses LLM-generated contextual side information, and SkeletonContext [ 28 ] injects prompt-based object and environment cues. These methods improve class-level semantics, but their context is text-derived and cannot directly recover sample-specific visual evidence made non-explicit during skeleton extraction. Other methods introduce visual information to complement skeletons, such as RGB-skeleton fusion in BSZAR [ 19 ] and vision-language alignment in SKI-Models [ 26 ]; however, such approaches change the modality protocol by adding an additional visual pathway. A related line uses pose-estimation-side representations rather than joint coordinates alone, including pose estimation maps [ 21 ], heatmap volumes [ 6], and intermediate HPE feature maps in PFMESR [ 29 ]. These works show that internal pose-estimation representations can provide richer cues than coordinates, but they are not designed to address the upstream semantic loss in ZSSAR or to align recovered cues with zero-shot text prototypes. PoseBridge instead treats intermediate HPE representations as pose-anchored semantic cues and bridges them to skeleton-text alignment without an independent RGB action-recognition branch or external object detector. 
+
+## 3 PoseBridge 
+
+3.1 Problem Setup, Recognition Protocol, and Overview 
+
+Given an input video V = {It}Tt=1 , a pose estimator ΦHPE predicts joint coordinates st = Φ HPE (It),forming the skeleton sequence Si = {st}Tt=1 for the i-th sample. ZSSAR is trained on seen-class samples Ds = {(Si, y i)}Ns 
+
+> i=1
+
+with yi ∈ Y s and evaluated on disjoint unseen classes Yu, where 
+
+Ys ∩ Y u = ∅. In ZSL, predictions are restricted to Yu; in GZSL, they are made over Ys ∪ Y u.
+
+Recognition protocol . PoseBridge follows an HPE-aware ZSSAR protocol. Raw frames are accessed only through the same HPE process used to obtain skeletons. During ZSSAR training and inference, the HPE model is frozen and provides both skeleton sequence Si and cached intermediate 3cue sequences Pi = {pi,t }Tt=1 , where pi,t denotes a frame-level pose-anchored cue. PoseBridge uses 
+
+Si, Pi, and text descriptions; it does not use an independent RGB action-recognition backbone, object detector, optical-flow branch, or unseen-class visual samples for training or prototype construction. Typical skeletonize-then-align methods encode Si as zs = Es(Si) and align it with text prototypes 
+
+tc = Ed(dc), where Es and Ed denote the pretrained skeleton and text encoders. This alignment occurs after visual evidence has been compressed into joint coordinates. PoseBridge instead learns pose-anchored cues from intermediate HPE representations (Sec. 3.2) and transfers them to skeleton representations and prototypes (Sec. 3.3); training and inference are described in Sec. 3.4. 
+
+3.2 Learning Pose-Anchored Semantics within HPE Predicted pose RGB  Pose estimator   
+
+> Image
+> Backbone
+> Pose
+> head
+> “A boy standing on
+> skis in the snow.”
+> Text
+> Encoder
+> Semantic space
+> Attention
+> pooling
+> 𝑅 𝑅
+> Hierarchical refinement Body -aware pooling
+> Linear
+> 𝐀
+> 𝐳 𝑝
+
+Figure 2: Overview of PoseBridge for learning pose-anchored semantics within HPE. HPE representations contain action-relevant visual evidence that is often lost after skeleton extraction. To preserve it, we convert intermediate HPE fea-tures into pose-anchored semantics, as illustrated in Fig. 2. We refine multi-level features, aggre-gate them around the predicted body structure, and align them with action text semantics while preserving the original pose objective. 
+
+Hierarchical pose-structured refinement . In-termediate HPE layers provide complementary cues: shallow features retain local appearance and fine-grained spatial details, while deep features encode body configuration and keypoint structure. Using only the deepest feature can therefore dis-card visual evidence useful for actions requiring fine-grained visual distinctions. We address this by injecting shallower evidence into deeper pose features before semantic pooling. Let {Fl}Ll=1 denote shallow-to-deep HPE features of frame I, with L = 3 in our experiments. Starting from ˜F1 = F1, each deeper feature is updated as: 
+
+˜Fl+1 = Fl+1 + α Rl ψl(Pl( ˜Fl)) , l = 1 , ..., L − 1, (1) where Pl projects the channel dimension and ψl resizes the feature to the next-level resolution. Rl is a convolutional spatial refinement block applied before residual injection, and we fix α = 0 .5. The final feature ˜FL preserves fine-grained visual evidence while maintaining high-level pose structure. 
+
+Body-aware semantic pooling . The refined feature map ˜FL contains responses over the full spatial map, but useful action semantics should be selected around the actor. We therefore build a body attention map A from the predicted joint probabilities: joint probabilities are converted into joint heatmaps, averaged over joints, and normalized to form a body-aware spatial prior. The frame-level pose-anchored cue p is then obtained by body-aware weighted pooling: 
+
+p = Wp
+
+P 
+
+> h,w
+
+A(h, w ) ˜FL(h, w )
+
+P 
+
+> h,w
+
+A(h, w ) + ε
+
+!
+
+. (2) Here, h, w index spatial locations in ˜FL, Wp projects the pooled feature into the semantic space, and 
+
+ε is used for numerical stability. Body-aware pooling encourages p to emphasize visual evidence near the predicted body structure, including local appearance cues around action-relevant body parts. 
+
+Action-semantic alignment . To align pose-anchored semantics with language, we use image-level captions from MS COCO [ 17 ] as weak image-language supervision. Each paired description d is encoded by a pretrained CLIP text encoder Ed and projected into the same embedding space, yielding 
+
+t = WdEd(d). Given a batch of B pose-text pairs, we optimize a CLIP-style symmetric contrastive loss: 
+
+LHPE sem = − 12B
+
+> B
+
+X
+
+> i=1
+
+"
+
+log exp( p⊤ 
+
+> i
+
+ti/τ )
+
+PBj=1 exp( p⊤ 
+
+> i
+
+tj /τ ) + log exp( p⊤ 
+
+> i
+
+ti/τ )
+
+PBj=1 exp( p⊤ 
+
+> j
+
+ti/τ )
+
+#
+
+, (3) 4“put on a hat/cap” 
+
+> RGB
+> Pose
+> Estimator
+
+...  
+
+> Skeleton
+> Skeleton
+> Encoder
+> 𝐩 1
+
+. . .    
+
+> 𝑲 /𝑽
+> 𝐳 𝑏
+> 𝑡
+> Text
+> Encoder
+> Action class 𝑐
+> Skeleton -conditioned semantic bridge
+> Temporal
+> Pooling
+> Prototype adaptation
+> Seen classes
+> Unseen classes
+> top -𝐾 seen neighbors
+> 𝐳 𝑠
+> 𝐭 𝑐 𝐳 𝑠
+> 𝑸
+> Linear
+> Pose -anchored
+> Semantics 𝐏
+> MHCA
+> Add
+> & LN
+> Add
+> & LN
+> FFN
+> Semantic space
+> 𝑡
+> 𝑡
+
+...          
+
+> 𝐳 𝑝
+> pose centroids
+> 𝐭 𝑐
+> ǁ
+> 𝐭 𝑐 𝝁 𝑐
+> ǁ
+> 𝐭 𝑐
+> 𝚫 1𝚫 𝐾 ...
+> Δ𝑗 =𝝁 𝑗 −𝐭 𝑗
+> ++
+> 𝐭 𝑐
+> 𝝁 1... 𝝁 𝐾
+> 𝐭 𝑐
+> 𝐳 𝑏
+> ǁ
+> 𝐭 𝑐
+> 𝐩 2𝐩 𝑡
+
+Figure 3: Overview of PoseBridge in the ZSSAR. The pose-anchored semantics extracted from HPE are used for both the skeleton-conditioned semantic bridge and semantic prototype adaptation. where pi and ti are L2-normalized embeddings of i-th sample, and τ = 0 .07 . This contrastive objective aligns pose-anchored cues with textual semantics while separating different samples. The pose estimator is trained with both pose and semantic losses: 
+
+LHPE = Lpose + λhpe LHPE sem , (4) where Lpose is the original pose estimation loss and λhpe balances the two objectives. After training, the frozen HPE model extracts skeleton sequences Si and pose-anchored semantic sequences Pi =
+
+{pi,t }Tt=1 , which are passed to the ZSSAR stage as bridge evidence. 
+
+3.3 Bridging Pose-Anchored Semantics to Skeleton-Text Alignment 
+
+As illustrated in Fig. 3, we use the pose-anchored semantics learned within HPE to bridge skeleton representations and text prototypes in ZSSAR. The frozen HPE model extracts both the skeleton sequence Si and the pose-anchored semantic sequence Pi. PoseBridge uses Pi for two purposes: enriching the skeleton representation through a skeleton-conditioned semantic bridge and adapting text prototypes with pose-semantic cues. Thus, PoseBridge recovers action-relevant semantics from the skeleton extraction pipeline itself, without introducing an additional RGB recognition branch. 
+
+Skeleton-conditioned semantic bridge . Given the skeleton sequence Si, we first obtain the skeleton representation as zs = Ws(Es(Si)) , where Es is the skeleton encoder and Ws projects the skeleton feature into the semantic embedding space. We then use zs as a query and the temporal pose-anchored semantic sequence Pi as keys and values: 
+
+zb = LN 2(hi + FFN( hi)) , hi = LN 1(zs + σ(γb) ⊙ MHCA( zs, W bPi)) , (5) where Wb projects pose-anchored semantics into the bridge embedding space, MHCA denotes multi-head cross-attention, LN is layer normalization, σ is the sigmoid function, and γb is a learnable element-wise gate. This injects temporal pose-anchored semantics into the skeleton representation, producing zb that remains grounded in skeleton motion while shifting toward a more semantically aligned space. Thus, the bridge restores semantic information lost in coordinate-only skeleton data. 
+
+Semantic prototype adaptation . Even after enriching the query with the skeleton-conditioned bridge, the target prototypes remain purely language-defined and may still be misaligned with the pose-semantic space. We therefore adapt text prototypes while keeping them as the primary anchors for zero-shot generality. From the temporal pose-anchored semantic sequence Pi, we obtain a video-level pose-semantic representation zp,i using attention-based temporal pooling. This converts frame-level HPE semantics into class-level pose evidence for prototype adaptation. Let tc denote the text prototype of class c. For each seen class, we compute the pose-semantic centroid from its training samples and use it for residual prototype adaptation: 
+
+˜tc = (1 − ρ)tc + ρμc, μc = 1
+
+|D sc |
+
+X 
+
+> 1≤i≤|D sc|
+
+zp,i , c ∈ Y s, (6) 5where Dsc denotes the training samples of seen class c, and ρ is a fixed adaptation coefficient. This preserves the generality of the language prototype while correcting it toward the pose-semantic space. For unseen classes, no pose samples are available. We therefore transfer the text-to-pose displacement from semantically related seen classes. Let NK (c) denote the top-K nearest seen classes to unseen class c in the text prototype space. The unseen prototype is adapted as: 
+
+˜tc = tc + ρ X 
+
+> j∈N K(c)
+
+ωcj (μj − tj ), ωcj = exp( t⊤ 
+
+> c
+
+tj /τ a)
+
+P  
+
+> k∈N K(c)
+
+exp( t⊤ 
+
+> c
+
+tk/τ a) , c ∈ Y u. (7) All centroids and adapted prototypes are L2-normalized. Since unseen adaptation uses only residual shifts from nearby seen classes without accessing unseen visual or pose samples, it preserves the zero-shot constraint while making text prototypes more compatible with the pose-semantic space. 
+
+3.4 Training Objective and Inference Training objective . ZSSAR is trained on seen classes only. We optimize three representations with different roles: the skeleton representation zs, the pose-semantic representation zp, and the bridge representation zb. While zs and zp serve as training anchors for shaping the motion and pose-semantic spaces, zb is used as the final representation for zero-shot matching. Let Ts = [ tc]c∈Y s
+
+denote the seen-class text prototype matrix. We define three basic objectives: 
+
+Lcls (z) = CE( C(z), y ), Lsem (z) = CE( z (Ts)⊤, y ), Lcon (z) = SupCon( z, y ), (8) where C is a seen-class classifier, CE denotes cross-entropy loss, and SupCon denotes supervised contrastive loss [14], which promotes intra-class compactness and inter-class separation. For the skeleton and pose anchors, r ∈ { s, p }, we use all three losses: Lr = λcls  
+
+> r
+
+Lcls (zr ) + 
+
+λsem  
+
+> r
+
+Lsem (zr ) + λcon  
+
+> r
+
+Lcon (zr ). For the bridge representation, we omit the closed-set classifier and use only semantic matching and contrastive learning: Lb = λsem  
+
+> b
+
+Lsem (zb) + λcon  
+
+> b
+
+Lcon (zb).This avoids forcing the inference representation zb into seen-class classifier boundaries, keeping it better suited for prototype matching with unseen classes. To couple the skeleton and pose-semantic representations, we further use cosine consistency and pose-guided distribution distillation: 
+
+Lalign = λs2p (1 − cos( zs, zp)) + λkd KL 
+
+
+
+softmax 
+
+ zp(Ts)⊤
+
+τd
+
+sg 
+
+softmax 
+
+ zs(Ts)⊤
+
+τd
+
+
+
+, (9) where KL denotes Kullback–Leibler divergence loss, τd is the distillation temperature, and sg 
+
+denotes stop-gradient on the pose-guided teacher distribution. The final objective is LZSSAR =
+
+Ls + Lp + Lb + Lalign . Overall, this objective shapes zs and zp into discriminative semantic anchors, while training zb as an open prototype-matching representation for unseen-class transfer. 
+
+Inference . At inference, we use the bridge representation zb as the final query and match it with the adapted prototypes ˜tc. Since both are L2-normalized, similarity is computed by dot product, and ZSL/GZSL predictions are computed as: 
+
+ˆyzsl = arg max  
+
+> c∈Y u
+
+z⊤ 
+
+> b
+
+˜tc, ˆygzsl = arg max 
+
+> c∈Y s∪Y u
+
+ z⊤ 
+
+> b
+
+˜tc − κ 1[c ∈ Y s], (10) where κ is a seen-class calibration coefficient that mitigates seen-class bias in GZSL, following prior work [ 2]. Thus, inference explicitly couples the two sides of our bridge: zb carries pose-anchored semantics recovered from the skeleton extraction process, while ˜t provides skeleton-compatible semantic targets, jointly reducing the skeleton-text semantic gap. 
+
+## 4 Experiments 
+
+4.1 Experimental Setup Datasets . We evaluate PoseBridge on NTU-RGB+D 60 [ 24 ], NTU-RGB+D 120 [ 20 ], PKU-MMD [18 ], and Kinetics-200/400 [ 12 , 35 ]. NTU-RGB+D 60/120 and PKU-MMD are controlled RGB-D skeleton action benchmarks, while Kinetics-200/400 provides in-the-wild videos with diverse scenes and action contexts. For all datasets, we follow the standard seen/unseen class splits used in prior ZSSAR works [8, 34, 35]. Detailed dataset descriptions are provided in Appendix B. 6Table 1: Comparison on NTU-RGB+D 60/120 under standard ZSL/GZSL splits. † denotes methods using an additional RGB pathway with a pretrained CLIP visual encoder. The best results are highlighted in red , and the second-best results are blue.                                                                                                                                                                                                                                                                                             
+
+> Method Venue NTU-RGB+D 60 (Xsub) NTU-RGB+D 120 (Xsub)
+> 55/5 Split 48/12 Split 110/10 Split 96/24 Split ZSL GZSL ZSL GZSL ZSL GZSL ZSL GZSL
+> Acc SUHAcc SUHAcc SUHAcc SUH
+> ReViSE [9] ICCV 2017 53.9 74.2 34.7 29.2 17.5 62.4 20.8 31.2 55.0 48.7 44.8 46.7 32.4 49.7 25.1 33.3 JPoSE [30] ICCV 2019 64.8 64.4 50.3 56.5 28.8 60.5 20.6 30.8 51.9 47.7 46.4 47.0 32.4 38.6 22.8 28.7 CADA-VAE [23] CVPR 2019 76.8 69.4 61.8 65.4 29.0 51.3 27.0 35.4 59.5 47.2 19.8 48.4 35.8 41.1 34.1 37.3 SynSE [8] ICIP 2021 75.8 61.3 56.9 59.0 33.3 52.2 27.9 36.3 62.7 52.5 57.6 54.9 38.7 56.4 32.2 41.0 SMIE [34] ACMMM 2023 78.0 ---40.2 ---65.7 ---45.3 ---PURLS [35] CVPR 2024 79.2 ---41.0 ---72.0 ---52.0 ---SA-DVAE [16] ECCV 2024 82.4 62.3 70.8 66.3 41.4 50.2 36.9 42.6 68.8 61.1 59.8 60.4 46.1 58.8 35.8 44.5 STAR [1] ACMMM 2024 81.4 69.0 69.9 69.4 45.1 62.7 37.0 46.6 63.3 59.9 52.7 56.1 44.3 51.2 36.9 42.9 SCoPLe [36] CVPR 2025 84.1 69.6 71.9 70.8 53.0 54.5 61.8 57.9 74.5 63.5 61.1 62.3 52.2 53.3 51.2 52.2 Neuron [2] CVPR 2025 86.9 69.1 73.8 71.4 62.7 61.6 56.8 59.1 71.5 67.6 59.5 63.3 57.1 67.5 44.4 53.6 TDSM [5] ICCV 2025 86.5 ---56.0 ---74.2 ---65.1 ---FS-VAE [31] ICCV 2025 86.9 77.0 74.5 75.7 57.2 56.2 48.6 52.1 74.4 59.2 67.9 63.3 62.5 57.8 51.9 54.7 BSZSL †[19] ESWA 2025 83.0 85.1 72.0 78.0 53.0 73.9 36.5 48.8 77.7 80.8 71.4 75.8 56.1 72.1 53.8 61.6 SKI-VLM †[26] AAAI 2025 82.2 ---52.0 ---77.5 ---59.3 ---
+> PoseBridge This work 88.8 82.0 84.0 83.0 73.2 75.6 61.9 68.0 80.3 71.3 65.0 68.0 70.9 66.1 59.4 62.6
+
+Table 2: Comparison on NTU-RGB+D 60/120 and PKU-MMD under random ZSL/GZSL splits. 
+
+Method Venue NTU-RGB+D 60 (Xsub) NTU-RGB+D 120 (Xsub) PKU-MMD (Xsub) 
+
+55/5 Split 110/10 Split 46/5 Split ZSL GZSL (H) ZSL GZSL (H) ZSL GZSL (H) 
+
+ReViSE [9] ICCV 2017 60.9 60.3 44.9 40.3 59.3 49.8 JPoSE [30] ICCV 2019 59.4 60.1 46.7 43.7 57.2 51.6 CADA-VAE [23] CVPR 2019 61.8 66.4 45.2 45.6 60.7 45.8 SynSE [8] ICIP 2021 64.2 67.5 47.3 43.5 53.9 49.5 SMIE [34] ACMMM 2023 65.1 - 46.4 - 60.8 -SA-DVAE [16] ECCV 2024 84.2 75.3 50.7 47.5 66.5 54.7 SCoPLe [36] CVPR 2025 83.7 77.7 53.3 54.1 71.4 54.9 TDSM [5] ICCV 2025 88.9 - 69.5 - 70.8 -FS-VAE [31] ICCV 2025 - - - - 71.2 59.0 
+
+PoseBridge This work 90.5 78.2 74.8 66.0 77.5 71.9 
+
+Evaluation protocol . For zero-shot learning (ZSL), we report top-1 accuracy on unseen classes. For generalized zero-shot learning (GZSL), the prediction space contains both seen and unseen classes. Following prior works, we report the seen-class accuracy S, the unseen-class accuracy U , and their harmonic mean H, which measures the balance between seen and unseen recognition. 
+
+Implementation details . We use RTMPose [ 11 ] as the 2D pose estimator. The HPE model is trained with the original pose estimation objective and our action-semantic alignment objective on the MS COCO dataset [ 17 ], and is then frozen to extract both estimated 2D skeleton sequences and pose-anchored semantics used in the ZSSAR stage. Following common ZSSAR evaluation protocols for fair comparison, we adopt Shift-GCN [ 4] as the skeleton encoder and use the pretrained CLIP text encoder [ 22 ] to obtain semantic prototypes from action descriptions. All models are trained only on seen classes and evaluated on disjoint unseen classes. Detailed implementation settings are provided in Appendix A, and hyperparameter/design choice analyses are presented in Appendix D. 
+
+4.2 Comparison with State-of-the-Art Evaluation on standard split benchmark . We compare PoseBridge with state-of-the-art ZSSAR methods on the standard NTU-RGB+D 60/120 Xsub protocols, following [ 8 ]. As shown in Table 1, PoseBridge achieves the best ZSL performance across all settings and substantially improves GZSL performance. The gains are especially clear under harder splits with fewer seen and more unseen classes: on NTU-RGB+D 60 under the 48/12 split, PoseBridge improves the previous best ZSL 7Table 3: Results on Kinetics-200/400 under the PURLS [ 35 ] ZSL benchmark. ∗ indicates the use of multiple text prompts; otherwise, a single text prompt is used.                                                                  
+
+> Method Venue Kinetics-200 Kinetics-400
+> 180/20 Split 160/40 Split 140/60 Split 120/80 Split 360/40 Split 320/80 Split 300/100 Split 280/120 Split DeVISE [7] NeurIPS 2013 22.2 12.3 8.0 5.7 18.4 10.2 9.5 8.3 ReViSE [9] ICCV 2017 25.0 13.3 8.1 6.2 20.8 11.8 9.5 8.2 PURLS [35] CVPR 2024 26.0 15.9 10.2 7.8 22.5 15.1 11.4 11.0 PURLS ∗[35] CVPR 2024 32.2 22.6 12.0 11.8 34.5 24.3 17.0 14.3 TDSM [5] ICCV 2025 38.2 24.4 15.3 13.1 38.9 26.2 18.5 16.1
+> PoseBridge This work 55.6 38.3 28.6 26.4 52.3 39.6 32.9 32.1
+
+Table 4: Accuracy-efficiency comparison on NTU-RGB+D 60/120 at the ZSSAR recognition stage. We report ZSL accuracy under standard splits, with trainable/total parameters, GFLOPs, and FPS.                                                  
+
+> Method Venue NTU-RGB+D 60 (Xsub) NTU-RGB+D 120 (Xsub) Trainable / Total #Params (M) GFLOPs (G) FPS
+> 55/5 Split 48/12 Split 110/10 Split 96/24 Split Neuron [2] CVPR 2025 86.9 62.7 71.5 57.1 2.3 / 126.7 7.5 1165.4 TDSM [5] ICCV 2025 86.5 56.0 74.2 65.1 260.4 / 384.2 10.6 772.5 FS-VAE [31] ICCV 2025 86.9 57.2 74.4 62.5 0.2 / 64.4 3.7 1237.0 SKI-VLM [26] AAAI 2025 82.2 52.0 77.5 59.3 2.8 / 215.9 281.0 22.6
+> PoseBridge This work 88.8 73.2 80.3 70.9 3.8 / 128.2 7.3 1398.0
+
+accuracy by 10.5 points and the GZSL harmonic mean by 8.9 points. The strong results on NTU-RGB+D 120 under the 96/24 split further confirm the effectiveness of pose-anchored semantics for semantically diverse unseen actions. Notably, PoseBridge outperforms recent RGB-assisted methods in almost all settings, despite using no additional RGB recognition branch. Instead, it recovers action-relevant visual semantics from intermediate HPE representations already computed during skeleton extraction, showing that the gain comes from better exploiting the skeletonization process rather than adding heavy RGB-based modules. To address potential concerns about skeleton input formats, Appendix C provides a controlled comparison using the same RTMPose-extracted 2D skeletons, where PoseBridge remains superior, along with additional Xview and Xset results. 
+
+Evaluation on random split benchmark . Table 2 reports results under the random split protocol introduced by SMIE [ 34 ], where three randomly selected seen/unseen splits are evaluated and averaged. PoseBridge again delivers consistent improvements across NTU-RGB+D 60, NTU-RGB+D 120, and PKU-MMD datasets. These results demonstrate that the effectiveness of PoseBridge is consistent across different seen-unseen partitions, indicating that the proposed semantic bridge improves ZSSAR beyond a specific split configuration. 
+
+Evaluation on Kinetics-200/400 dataset . We further evaluate PoseBridge on the more challenging Kinetics-200/400 benchmarks following PURLS [ 35 ]. Unlike NTU-RGB+D and PKU-MMD, Kinetics contains in-the-wild videos with diverse scenes, viewpoints, subjects, and action contexts. As shown in Table 3, PoseBridge substantially outperforms prior methods across all splits. In particular, PoseBridge improves Kinetics-200 under the 180/20 split by 17.4 points, from 38.2% to 55.6%, and Kinetics-400 under the 280/120 split by 16.0 points, from 16.1% to 32.1%. These large gains on in-the-wild videos strongly support our motivation that preserving action-relevant semantics during skeletonization is important for ZSSAR. 
+
+Computational cost . PoseBridge achieves a strong accuracy-efficiency trade-off among recent methods. As shown in Table 4, it obtains the best accuracy on all NTU-RGB+D 60/120 splits while achieving the fastest inference speed under the same ZSSAR recognition-stage evaluation setting. For all methods, trainable/total parameters, GFLOPs, and FPS are measured with the skeleton encoder and text encoder included on a single NVIDIA RTX A6000 GPU. Compared with SKI-VLM [ 26 ], which relies on an additional RGB visual encoder and incurs substantially larger GFLOPs, PoseBridge recovers action-relevant semantics from intermediate HPE representations with a much more compact recognition pipeline. TDSM has the largest parameter count due to its diffusion-based backbone and text-conditioning components. Overall, PoseBridge improves zero-shot recognition while preserving the efficiency of a skeleton-based pipeline. Component-wise costs for the full PoseBridge pipeline, from pose estimation to ZSSAR prediction, are provided in Appendix D.3. 8PoseBridge  (Ours) Baseline typing on a keyboard 
+
+> folding paper
+> typing on a keyboard
+> folding paper
+
+Figure 4: Qualitative comparison between the baseline and PoseBridge on the confusing action pair “folding paper” and “typing on a keyboard”. We visualize predicted skeletons, HPE Grad-CAM maps, and t-SNE embeddings of zero-shot matching features. 
+
+4.3 Ablation Study 
+
+Table 5: Ablation study of PoseBridge compo-nents on NTU-RGB+D 60 (48/12 split).                                                      
+
+> HPE ZSSAR NTU-RGB+D 60 (Xsub, 48/12 Split)
+> HR BP SB PA ZSL GZSL (H)
+> ----54.7 52.0 ---✓56.6 57.3 --✓-60.4 60.7 --✓✓61.4 61.7 -✓✓✓64.0 63.2
+> ✓-✓✓64.8 63.8
+> ✓✓-✓66.9 63.9
+> ✓✓✓-71.0 66.5
+> ✓✓✓✓73.2 68.0
+
+We analyze the contribution of each PoseBridge component in Table 5. The baseline uses only skele-ton sequences from the original pose estimator, with-out HPE intermediate features or pose-anchored semantics. On the ZSSAR side, the skeleton-conditioned semantic bridge (SB) improves perfor-mance by injecting temporal pose-anchored cues, while prototype adaptation (PA) further aligns text prototypes with the pose-semantic space. On the HPE side, hierarchical refinement (HR) and body-aware pooling (BP) provide complementary gains by preserving and selecting body-aware semantics. The full model performs best, confirming the benefit of combining HPE-side semantic preservation with ZSSAR-side semantic transfer. 
+
+4.4 Qualitative Analysis 
+
+We qualitatively verify that PoseBridge recovers semantic cues that are largely missing from skeleton coordinates alone. In Fig. 4, we compare a baseline trained only with the original pose estimation objective and our HPE model trained with action-semantic alignment, hierarchical refinement, and body-aware pooling. For the confusing action pair “folding paper” and “typing on a keyboard”, Grad-CAM shows that the baseline mainly responds to the overall human body, reflecting its bias toward keypoint localization. In contrast, our pose-anchored feature focuses more strongly on action-relevant regions, such as the keyboard, the paper, and hand-object interaction areas. The t-SNE plots show a consistent trend: baseline features are highly mixed, while PoseBridge yields much clearer separation between the two classes. These results show that PoseBridge captures action-relevant semantics during HPE and transfers them effectively to skeleton-text matching in zero-shot recognition. 
+
+## 5 Conclusion 
+
+We presented PoseBridge, an HPE-aware framework for ZSSAR that addresses semantic loss during skeletonization. Instead of treating human pose estimation as a fixed preprocessing step, PoseBridge preserves pose-anchored semantics from intermediate HPE representations and transfers them to skeleton-text alignment through a skeleton-conditioned semantic bridge and semantic prototype adaptation. Experiments on NTU-RGB+D 60/120, PKU-MMD, and Kinetics-200/400 show consis-tent improvements, especially under harder splits and in-the-wild settings. Importantly, PoseBridge achieves these gains without an additional RGB recognition branch, showing that the HPE process itself can serve as an effective upstream semantic source. Overall, our results suggest that stronger ZS-SAR can be achieved by preserving and bridging the semantics already present within skeletonization, rather than adding heavier visual pathways after skeleton extraction. 9References 
+
+[1] Yang Chen, Jingcai Guo, Tian He, Xiaocheng Lu, and Ling Wang. Fine-grained side information guided dual-prompts for zero-shot skeleton action recognition. In Proceedings of the 32nd ACM International Conference on Multimedia , pages 778–786, 2024. [2] Yang Chen, Jingcai Guo, Song Guo, and Dacheng Tao. Neuron: Learning context-aware evolving representations for zero-shot skeleton action recognition. In Proceedings of the Computer Vision and Pattern Recognition Conference , pages 8721–8730, 2025. [3] Yang Chen, Miaoge Li, Zhijie Rao, Deze Zeng, Song Guo, and Jingcai Guo. Learning by neighbor-aware semantics, deciding by open-form flows: Towards robust zero-shot skeleton action recognition. arXiv preprint arXiv:2511.09388 , 2025. [4] Ke Cheng, Yifan Zhang, Xiangyu He, Weihan Chen, Jian Cheng, and Hanqing Lu. Skeleton-based action recognition with shift graph convolutional network. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition , pages 183–192, 2020. [5] Jeonghyeok Do and Munchurl Kim. Bridging the skeleton-text modality gap: Diffusion-powered modality alignment for zero-shot skeleton-based action recognition. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) , pages 12757–12768, October 2025. [6] Haodong Duan, Yue Zhao, Kai Chen, Dahua Lin, and Bo Dai. Revisiting skeleton-based action recognition. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition , pages 2969–2978, 2022. [7] Andrea Frome, Greg S Corrado, Jon Shlens, Samy Bengio, Jeff Dean, Marc’Aurelio Ranzato, and Tomas Mikolov. Devise: A deep visual-semantic embedding model. Advances in neural information processing systems , 26, 2013. [8] Pranay Gupta, Divyanshu Sharma, and Ravi Kiran Sarvadevabhatla. Syntactically guided generative embeddings for zero-shot skeleton action recognition. In 2021 IEEE International Conference on Image Processing (ICIP) , pages 439–443. IEEE, 2021. [9] Yao-Hung Hubert Tsai, Liang-Kang Huang, and Ruslan Salakhutdinov. Learning robust visual-semantic embeddings. In Proceedings of the IEEE International conference on Computer Vision ,pages 3571–3580, 2017. [10] Bhavan Jasani and Afshaan Mazagonwalla. Skeleton based zero shot action recognition in joint pose-language semantic space. arXiv preprint arXiv:1911.11344 , 2019. [11] Tao Jiang, Peng Lu, Li Zhang, Ningsheng Ma, Rui Han, Chengqi Lyu, Yining Li, and Kai Chen. Rtmpose: Real-time multi-person pose estimation based on mmpose. arXiv preprint arXiv:2303.07399 , 2023. [12] Will Kay, Joao Carreira, Karen Simonyan, Brian Zhang, Chloe Hillier, Sudheendra Vijaya-narasimhan, Fabio Viola, Tim Green, Trevor Back, Paul Natsev, et al. The kinetics human action video dataset. arXiv preprint arXiv:1705.06950 , 2017. [13] Rahima Khanam and Muhammad Hussain. Yolov11: An overview of the key architectural enhancements. arXiv preprint arXiv:2410.17725 , 2024. [14] Prannay Khosla, Piotr Teterwak, Chen Wang, Aaron Sarna, Yonglong Tian, Phillip Isola, Aaron Maschinot, Ce Liu, and Dilip Krishnan. Supervised contrastive learning. Advances in neural information processing systems , 33:18661–18673, 2020. [15] Jidong Kuang, Hongsong Wang, Chaolei Han, Yang Zhang, and Jie Gui. Zero-shot skeleton-based action recognition with dual visual-text alignment. Pattern Recognition , page 112342, 2025. [16] Sheng-Wei Li, Zi-Xiang Wei, Wei-Jie Chen, Yi-Hsin Yu, Chih-Yuan Yang, and Jane Yung-jen Hsu. Sa-dvae: Improving zero-shot skeleton-based action recognition by disentangled variational autoencoders. In European conference on computer vision , pages 447–462. Springer, 2024. 10 [17] Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Dollár, and C Lawrence Zitnick. Microsoft coco: Common objects in context. In European conference on computer vision , pages 740–755. Springer, 2014. [18] Chunhui Liu, Yueyu Hu, Yanghao Li, Sijie Song, and Jiaying Liu. Pku-mmd: A large scale benchmark for continuous multi-modal human action understanding. arXiv preprint arXiv:1703.07475 , 2017. [19] Hongjie Liu, Yingchun Niu, Kun Zeng, Chun Liu, Mengjie Hu, and Qing Song. Beyond-skeleton: Zero-shot skeleton action recognition enhanced by supplementary rgb visual informa-tion. Expert Systems with Applications , 273:126814, 2025. [20] Jun Liu, Amir Shahroudy, Mauricio Perez, Gang Wang, Ling-Yu Duan, and Alex C Kot. Ntu rgb+ d 120: A large-scale benchmark for 3d human activity understanding. IEEE transactions on pattern analysis and machine intelligence , 42(10):2684–2701, 2019. [21] Mengyuan Liu and Junsong Yuan. Recognizing human actions as the evolution of pose estimation maps. In Proceedings of the IEEE conference on computer vision and pattern recognition , pages 1159–1168, 2018. [22] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, et al. Learning transferable visual models from natural language supervision. In International conference on machine learning ,pages 8748–8763. PmLR, 2021. [23] Edgar Schonfeld, Sayna Ebrahimi, Samarth Sinha, Trevor Darrell, and Zeynep Akata. General-ized zero-shot learning via aligned variational autoencoders. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops , pages 54–57, 2019. [24] Amir Shahroudy, Jun Liu, Tian-Tsong Ng, and Gang Wang. Ntu rgb+ d: A large scale dataset for 3d human activity analysis. In Proceedings of the IEEE conference on computer vision and pattern recognition , pages 1010–1019, 2016. [25] Lei Shi, Yifan Zhang, Jian Cheng, and Hanqing Lu. Two-stream adaptive graph convolutional networks for skeleton-based action recognition. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition , pages 12026–12035, 2019. [26] Arkaprava Sinha, Dominick Reilly, Francois Bremond, Pu Wang, and Srijan Das. Ski models: Skeleton induced vision-language embeddings for understanding activities of daily living. In 
+
+Proceedings of the AAAI Conference on Artificial Intelligence , volume 39, pages 6931–6939, 2025. [27] Ke Sun, Bin Xiao, Dong Liu, and Jingdong Wang. Deep high-resolution representation learning for human pose estimation. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition , pages 5693–5703, 2019. [28] Ning Wang, Tieyue Wu, Naeha Sharif, Farid Boussaid, Guangming Zhu, Lin Mei, Mohammed Bennamoun, et al. Skeletoncontext: Skeleton-side context prompt learning for zero-shot skeleton-based action recognition. arXiv preprint arXiv:2603.29692 , 2026. [29] Hao Wen, Zhe-Ming Lu, Fengli Shen, Ziqian Lu, Yangming Zheng, and Jialin Cui. Enhancing skeleton-based action recognition with feature maps from pose estimation networks. IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences , page 2024EAP1162, 2025. [30] Michael Wray, Diane Larlus, Gabriela Csurka, and Dima Damen. Fine-grained action retrieval through multiple parts-of-speech embeddings. In Proceedings of the IEEE/CVF international conference on computer vision , pages 450–459, 2019. [31] Wenhan Wu, Zhishuai Guo, Chen Chen, Hongfei Xue, and Aidong Lu. Frequency-semantic en-hanced variational autoencoder for zero-shot skeleton-based action recognition. In Proceedings of the IEEE/CVF International Conference on Computer Vision , pages 11122–11131, 2025. 11 [32] Yufei Xu, Jing Zhang, Qiming Zhang, and Dacheng Tao. Vitpose: Simple vision transformer baselines for human pose estimation. Advances in neural information processing systems , 35: 38571–38584, 2022. [33] Sijie Yan, Yuanjun Xiong, and Dahua Lin. Spatial temporal graph convolutional networks for skeleton-based action recognition. In Proceedings of the AAAI conference on artificial intelligence , volume 32, 2018. [34] Yujie Zhou, Wenwen Qiang, Anyi Rao, Ning Lin, Bing Su, and Jiaqi Wang. Zero-shot skeleton-based action recognition via mutual information estimation and maximization. In Proceedings of the 31st ACM international conference on multimedia , pages 5302–5310, 2023. [35] Anqi Zhu, Qiuhong Ke, Mingming Gong, and James Bailey. Part-aware unified representation of language and skeleton for zero-shot action recognition. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 18761–18770, 2024. [36] Anqi Zhu, Jingmin Zhu, James Bailey, Mingming Gong, and Qiuhong Ke. Semantic-guided cross-modal prompt learning for skeleton-based zero-shot action recognition. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition , pages 13876–13885, 2025. 12 Appendix 
+
+This appendix provides additional details, results, and analyses that support the main paper. Section A describes the implementation details of the HPE and ZSSAR stages. Section B summarizes the datasets, seen/unseen split settings, and action descriptions. Section C reports additional performance comparisons, including challenging splits, Xview/Xset protocols, controlled comparisons with estimated 2D skeleton inputs, and the effect of semantic alignment on pose estimation. Section D analyzes key design choices, including hyperparameters, component-wise computational costs, and different pose estimators. Section E provides additional class-level analyses with confusion matrices. Section F presents additional qualitative results, including t-SNE and Grad-CAM visualizations. Section G discusses limitations and broader impacts. 
+
+## A Implementation Details 
+
+A.1 HPE Details 
+
+We use RTMPose [ 11 ] as the 2D pose estimator and train it on MS COCO [ 17 ]. For the top-down pose estimation pipeline, we use YOLOv11 [ 13 ] as the human detector. Following the standard RTMPose-s setting, we use an input resolution of 256 × 192 and train the model for 420 epochs with AdamW. The base learning rate is set to 4 × 10 −3, the weight decay is set to 0, and the learning rate is adjusted with a linear warm-up followed by cosine annealing. The model is optimized with the original SimCC-based pose estimation loss and our action-semantic alignment loss described in Sec. 3.2. For action-semantic alignment, we use COCO captions as image-level textual supervision. We encode each caption using a frozen CLIP ViT-B/32 text encoder [ 22 ] and map the resulting feature to the pose-semantic embedding space with a lightweight projection head. The projection dimension is set to 512 , and the semantic loss weight is set to λhpe = 0 .1. The CLIP-style contrastive loss for semantic alignment is applied from the beginning of training. For the pose-anchored semantic cue extractor, we use L = 3 feature levels by default. The hierarchical refinement gate is fixed to α = 0 .5. After training, the HPE model is frozen and used to extract both 2D skeleton sequences and pose-anchored semantic cues for the ZSSAR stage. Additional analyses on design choices, including different pose estimators such as HRNet [ 27 ] and ViTPose [ 32 ], are reported in Appendix D. 
+
+A.2 ZSSAR Details 
+
+We use Shift-GCN [ 4 ] as the skeleton encoder and the pretrained CLIP ViT-L/14 text encoder [ 22 ] for semantic prototype extraction. The CLIP text encoder is frozen, and action descriptions are encoded and cached before training. The skeleton feature dimension is 256 , the pose-semantic cue dimension is 512 , and the shared embedding dimension is 512 . The skeleton projector uses two MLP layers, while the pose adapter uses one MLP layer. The dropout ratio is set to 0.1.The skeleton-conditioned semantic bridge uses multi-head cross-attention with 4 heads. For each video, we use 16 temporal pose-anchored cues. The skeleton representation is used as the query, and the temporal pose-anchored cues are used as keys and values. For prototype adaptation, we use the top-K = 5 nearest seen classes in the text-prototype space. The prototype adaptation coefficient is set to ρ = 0 .2.We train PoseBridge with AdamW for 30 epochs. The batch size is 128 , the test batch size is 256 , the learning rate is 1 × 10 −3, and the weight decay is 2 × 10 −3. We use 5 warm-up epochs followed by cosine annealing with a minimum learning rate of 1 × 10 −6. Gradient clipping is applied with a maximum norm of 1.0. We also use an exponential moving average (EMA) with decay 0.999 starting from epoch 5. All experiments are conducted on a single NVIDIA RTX A6000 GPU. For the loss weights, we set λcls  
+
+> s
+
+= 1 .0, λsem  
+
+> s
+
+= 1 .5, λcon  
+
+> s
+
+= 1 .5, λcls  
+
+> p
+
+= 0 .5, λsem  
+
+> p
+
+= 0 .5, λcon  
+
+> p
+
+= 0 .3,
+
+λs2p = 0 .3, λkd = 1 .0, λsem  
+
+> b
+
+= 1 .0, and λcon  
+
+> b
+
+= 0 .5. The supervised contrastive temperature is set to 
+
+0.07 , and the distillation temperature is set to 4.0. Additional analyses on design choices are reported in Appendix D. 13 B Dataset Details 
+
+B.1 Dataset Details NTU-RGB+D 60 . NTU-RGB+D 60 [ 24 ] is a large-scale RGB-D action recognition benchmark containing 56,880 samples from 60 action classes performed by 40 subjects. The dataset was captured by three Kinect V2 cameras and provides multi-modal observations, including RGB videos, depth maps, infrared sequences, and 3D skeleton annotations. The standard evaluation protocols are cross-subject (Xsub) and cross-view (Xview), which evaluate generalization across different subjects and camera viewpoints, respectively. For zero-shot evaluation, we follow the seen/unseen class splits adopted in prior ZSSAR works [8, 34, 35]. 
+
+NTU-RGB+D 120 . NTU-RGB+D 120 [ 20 ] extends NTU-RGB+D 60 to 114,480 samples from 120 action classes. It is also captured with Kinect V2 sensors and provides RGB, depth, infrared, and skeleton modalities. Compared with NTU-RGB+D 60, it contains a larger action vocabulary and more diverse acquisition setups, making it a more challenging benchmark for zero-shot generalization. The standard evaluation protocols are cross-subject (Xsub) and cross-setup (Xset), where Xset evaluates generalization across different camera and environment setups. We follow the standard ZSSAR seen/unseen splits used in previous works [8, 34, 35]. 
+
+PKU-MMD . PKU-MMD [ 18 ] is a multi-modal RGB-D benchmark for human action understanding captured with Kinect v2 sensors. Following prior ZSSAR protocols [ 8, 34 , 35 ], we use the commonly adopted 51-class setting, which contains 1,076 long video sequences and nearly 20,000 action instances performed by 66 subjects from three camera views. The standard evaluation protocols are cross-subject (Xsub) and cross-view (Xview). 
+
+Kinetics-200/400 . Kinetics-400 [ 12 ] is a large-scale in-the-wild video action recognition dataset collected from YouTube videos. Unlike the NTU-RGB-D 60/120 and PKU-MMD datasets above, Kinetics contains larger variations in scene, viewpoint, subject appearance, camera motion, and action context. Following the PURLS benchmark [ 35 ], Kinetics-200 is constructed from the first 200 classes of Kinetics-400 and evaluated under multiple seen/unseen splits. We additionally evaluate on Kinetics-400 using analogous splits to test scalability under a larger action vocabulary. 
+
+Skeleton extraction . For all datasets, we extract 2D skeletons from RGB frames using RTMPose [11]. We also obtain pose-anchored semantic cues from the same pose estimation process. 
+
+Auxiliary HPE training data . We train the 2D pose estimator on MS COCO [ 17 ]. In addition to the original pose estimation supervision, we use image-level textual descriptions from COCO captions as semantic supervision for the proposed action-semantic alignment loss. Specifically, the pose-anchored semantic cue extracted from the HPE representation is aligned with the corresponding caption feature encoded by the pretrained CLIP text encoder [ 22 ]. MS COCO is used only for training the HPE model and is not used for ZSSAR training. 
+
+B.2 Seen/Unseen Split Details 
+
+We follow the seen/unseen class splits used in prior ZSSAR protocols for fair comparison. For NTU-RGB+D 60, we evaluate the 55/5 and 48/12 splits; for NTU-RGB+D 120, we evaluate the 110/10 and 96/24 splits. For PKU-MMD, we use the standard 46/5 split adopted in previous ZSSAR works. For Kinetics-200, we follow the PURLS benchmark [ 35 ] and evaluate the 180/20, 160/40, 140/60, and 120/80 splits. For Kinetics-400, we use analogous 360/40, 320/80, 300/100, and 280/120 splits. All models are trained only on the seen classes of each split, and no samples from unseen classes are used during training. 
+
+B.3 Action Description Details 
+
+We use LLM-generated action descriptions to construct text prototypes for ZSSAR. Following the semantic setting introduced by SMIE [ 34 ], each action category label is expanded into a richer action description using ChatGPT. For example, the category label “drink water” is expanded into “the act of taking in water by mouth to hydrate or quench thirst as a human action.” These action-level descriptions are encoded by the frozen CLIP text encoder [ 22 ] and used as semantic prototypes for both seen and unseen classes. 14 Table 6: Results under more challenging seen/unseen splits on NTU-RGB+D 60 and NTU-RGB+D 120. The best results are highlighted in red , and the second-best results are blue. 
+
+Method Venue NTU-RGB+D 60 (Xsub) NTU-RGB+D 120 (Xsub) 
+
+40/20 Split 30/30 Split 80/40 Split 60/60 Split ReViSE [9] ICCV 2017 24.3 14.8 19.5 8.3 JPoSE [30] ICCV 2019 20.1 12.4 13.7 7.7 CADA-VAE [23] CVPR 2019 16.2 11.5 10.6 5.7 SynSE [8] ICIP 2021 19.9 12.0 13.6 7.7 PURLS [35] CVPR 2024 31.1 23.5 28.4 19.6 ScoPLe [36] CVPR 2025 32.0 18.2 25.3 15.7 TDSM [5] ICCV 2025 36.1 25.9 37.0 27.2 
+
+PoseBridge This work 41.4 37.2 43.7 30.4 
+
+Table 7: Comparison on NTU-RGB+D 60 under the Xview protocol and NTU-RGB+D 120 under the Xset protocol (standard seen/unseen splits). We report ZSL accuracy and GZSL seen accuracy S,unseen accuracy U , and harmonic mean H.                                                                                                                                                                   
+
+> Method Venue NTU-RGB+D 60 (Xview) NTU-RGB+D 120 (Xset)
+> 55/5 Split 48/12 Split 110/10 Split 96/24 Split ZSL GZSL ZSL GZSL ZSL GZSL ZSL GZSL
+> Acc SUHAcc SUHAcc SUHAcc SUH
+> ReViSE [9] ICCV 2017 54.4 25.8 29.3 27.4 17.2 34.2 16.4 22.1 30.2 4.0 23.7 6.8 13.5 2.6 3.4 2.9 JPoSE [30] ICCV 2019 72.0 61.1 59.5 60.3 28.9 29.0 14.7 19.5 52.8 23.6 4.4 7.4 38.5 79.3 2.6 4.9 CADA-VAE [23] CVPR 2019 75.1 65.7 56.1 60.5 32.9 49.7 25.9 34.0 52.5 46.0 44.5 45.2 38.7 47.6 26.8 34.3 SynSE [8] ICIP 2021 68.0 65.5 45.6 53.8 29.9 61.3 24.6 35.1 59.3 58.9 49.2 53.6 41.4 46.8 31.8 37.9 SMIE [34] ACMMM 2023 79.0 ---41.0 ---57.0 ---42.3 ---STAR [1] ACMMM 2024 81.6 71.9 70.3 71.1 42.5 66.2 37.5 47.9 65.3 59.3 59.5 59.4 44.1 53.7 34.1 41.7 Neuron [2] CVPR 2025 87.8 70.6 75.9 73.2 63.3 65.3 58.1 61.5 71.1 67.5 58.9 62.9 54.0 67.0 44.9 53.8
+> PoseBridge This work 87.8 83.9 84.1 84.0 65.9 73.7 57.1 64.4 77.1 70.3 64.5 67.3 65.0 67.9 55.1 60.8
+
+Recent ZSSAR methods further exploit LLM-generated semantics by constructing additional fine-grained descriptions, such as body-part-specific, temporal-phase-specific, or local/global action descriptions [ 35 , 1, 31 ]. In contrast, PoseBridge does not introduce extra fine-grained LLM descrip-tions on the text side. We use the same action-level descriptions following SMIE and instead recover additional action-relevant semantics from the HPE process through pose-anchored semantic cues. This design ensures that the performance gain does not come from stronger text-side description engineering, but from the proposed pose-anchored semantic bridge. 
+
+## C Additional Performance Comparisons 
+
+C.1 Results under More Challenging Seen/Unseen Splits 
+
+We further evaluate PoseBridge under more challenging seen/unseen splits, where the number of unseen classes is substantially increased. As summarized in Table 6, PoseBridge consistently achieves the best performance across all settings. The improvement is especially pronounced on the most challenging NTU-RGB+D 60 30/30 split, where PoseBridge improves the previous best result from 25.9% to 37.2%. These results indicate that recovering pose-anchored semantics is particularly useful when the model must distinguish among a larger and more diverse set of unseen action categories. 
+
+C.2 Results on Xview and Xset Protocols 
+
+We also test whether PoseBridge generalizes beyond the Xsub protocols used in the main paper. Table 7 reports additional results on NTU-RGB+D 60 Xview and NTU-RGB+D 120 Xset. PoseBridge achieves strong performance across both protocols and remains competitive or superior in both ZSL and GZSL settings. These results confirm that the proposed bridge is not limited to subject-based generalization, but also remains effective under viewpoint and setup shifts. 15 Table 8: Controlled comparison under the same estimated 2D skeleton input setting. All methods use the same RTMPose-extracted COCO-17 skeletons as input. We report ZSL accuracy and GZSL harmonic mean H on NTU-RGB+D 60/120 standard splits.                                                     
+
+> Method Venue NTU-RGB+D 60 (Xsub) NTU-RGB+D 120 (Xsub)
+> 55/5 Split 48/12 Split 110/10 Split 96/24 Split ZSL GZSL (H) ZSL GZSL (H) ZSL GZSL (H) ZSL GZSL (H)
+> Neuron [2] CVPR 2025 88.3 61.1 58.8 49.0 66.5 48.2 60.2 45.6 TDSM [5] ICCV 2025 86.9 -64.7 -76.3 -59.7 -FS-VAE [31] ICCV 2025 87.8 32.7 48.8 41.8 62.6 46.9 56.2 48.5
+> PoseBridge This work 88.8 83.0 73.2 68.0 80.3 68.0 70.9 62.6
+
+Table 9: HPE-stage pose estimation quality and efficiency. We compare the standard RTMPose-s with the PoseBridge-enhanced RTMPose-s used to extract both skeletons and pose-anchored semantics. AP is evaluated on the MS COCO validation set, while parameters, GFLOPs, and FPS are measured for the HPE model.                  
+
+> Model Training objective AP #Params (M) GFLOPs (G) FPS
+> RTMPose-s Lpose 70.86 5.47 0.68 4740.71 RTMPose-s + PoseBridge Lpose +LHPE sem 70.24 8.23 0.83 2534.7
+
+C.3 Fair Comparison with Estimated 2D Skeletons 
+
+Most prior ZSSAR methods report results using Kinect-based 3D skeletons with 25 body joints, whereas PoseBridge uses estimated 2D skeletons in the COCO-17 format extracted by RTMPose [ 11 ]. To ensure a fair comparison under the same skeleton input setting, we re-evaluate representative recent methods, including Neuron [ 2], TDSM [ 5 ], and FS-VAE [ 31 ], using the same RTMPose-extracted 2D skeletons as PoseBridge. As shown in Table 8, PoseBridge remains consistently superior under this controlled setting. This confirms that the improvement does not come from an input-format advantage, but from the proposed pose-anchored semantic preservation and transfer mechanism. Even with the same estimated 2D skeleton inputs, PoseBridge effectively recovers action-relevant cues lost during skeleton extraction and transfers them to the semantic prototype space. This further demonstrates that our gains stem from improved skeleton-text alignment rather than stronger input representations. 
+
+C.4 Effect of Semantic Alignment on Pose Estimation 
+
+Since PoseBridge modifies the HPE model by adding semantic alignment during HPE training, we examine its effect on both pose estimation quality and HPE-stage efficiency. We compare the standard RTMPose-s setting with our HPE model trained using the action-semantic alignment objective in Sec. 3.2. We evaluate pose estimation quality using mean Average Precision (AP) on the MS COCO [17] validation set, and report the parameters, GFLOPs, and FPS of the pose estimator. Different from Table 4, which measures only the ZSSAR recognition stage after skeleton extraction, Table 9 isolates the HPE cost. As shown in Table 9, our HPE model maintains comparable pose estimation quality to the original RTMPose-s [ 11 ], with AP changing only from 70.86 to 70.24. The added semantic alignment increases the HPE-stage cost moderately, from 0.68 to 0.83 GFLOPs, while preserving real-time throughput. This indicates that PoseBridge can learn pose-anchored semantic cues without substantially degrading pose estimation quality or HPE efficiency. Thus, the downstream ZSSAR gains are not caused by an improved skeleton format, but by more semantically useful HPE representations. 16 0.3 0.5 0.7 
+
+residual coefficient         
+
+> 60
+> 65
+> 70
+> 75
+> Accuracy (%)
+> ZSL GZSL (H)
+> 0.01 0.05 0.1 0.5
+> hpe
+> 60
+> 65
+> 70
+> 75
+> Accuracy (%)
+> ZSL GZSL (H)
+> 1234
+
+HPE feature level L 
+
+> 60
+> 65
+> 70
+> 75
+> Accuracy (%)
+> ZSL GZSL (H)
+
+Figure 5: HPE-side hyperparameter analysis on NTU-RGB+D 60 under the standard 48/12 split. We vary the hierarchical refinement residual coefficient α, the semantic alignment weight λhpe , and the number of HPE feature levels L, while keeping the other settings fixed. 3 5 7
+
+prototype top-K                               
+
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 0.5 11.5
+> cls
+> s
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 11.5 2
+> sem
+> s
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 11.5 2
+> supcon
+> s
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 0.3 0.5 0.7
+> cls
+> p
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 0.3 0.5 0.7
+> sem
+> p
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 0.1 0.3 0.5
+> supcon
+> p
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 0.1 0.3 0.5
+> s2p
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 0.5 11.5
+> kd
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 0.5 11.5
+> sem
+> b
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+> 0.3 0.5 0.7
+> supcon
+> b
+> 65
+> 70
+> 75
+> 80
+> Accuracy (%)  ZSL GZSL (H)
+
+Figure 6: ZSSAR-side hyperparameter analysis on NTU-RGB+D 60 under the standard 48/12 split. We vary prototype top-K and key loss weights λ while keeping the other settings fixed. 
+
+## D Additional Ablation and Design Studies 
+
+D.1 HPE-side Hyperparameters 
+
+We analyze the HPE-side hyperparameters used in Sec.3.2. Specifically, we vary the residual coefficient α in hierarchical refinement, the semantic alignment weight λhpe , and the number of HPE feature levels L. As shown in Fig. 5, the default setting α = 0 .5, λhpe = 0 .1, and L = 3 
+
+provides the best overall performance. Using a small λhpe weakens semantic alignment, while an overly large value can disturb pose-oriented representation learning. Similarly, using too few HPE feature levels limits access to fine-grained visual cues, whereas adding more levels may introduce less action-relevant low-level responses. These results support our default HPE design for extracting pose-anchored semantic cues. 
+
+D.2 ZSSAR-side Hyperparameters 
+
+We further analyze the ZSSAR-side hyperparameters used in Sec.3.3 and Sec.3.4. Figure 6 shows the sensitivity to prototype adaptation, skeleton-side losses, pose-semantic losses, cross-branch regularization, and bridge-side losses. Overall, PoseBridge is stable across a reasonable range of hyperparameters, and the default values used in our experiments generally provide the best or near-best performance. The model is relatively insensitive to the prototype top-K, while loss weights related to semantic alignment and cross-branch transfer show clearer effects. This is consistent with 17 Table 10: Component-wise computational cost of the full PoseBridge online pipeline. The upper block reports shared pretrained encoders, while the lower block reports the cumulative cost from RTMPose-based skeleton and pose-anchored cue extraction to ZSSAR prediction. The baseline uses original RTMPose skeletons and performs skeleton-only ZSSAR without HPE intermediate features or pose-anchored semantics. GFLOPs and FPS are measured on a single NVIDIA RTX A6000 GPU. 
+
+Component #Params (M) GFLOPs (G) FPS Shared pretrained encoders 
+
+Shift-GCN 0.8 0.778 –CLIP Text Encoder 123.7 6.548 –
+
+Cumulative online pipeline 
+
+Baseline (with pretrained encoders) 131.0 8.009 1101.9 +HR 133.7 8.148 960.9 +HR+BP 133.7 8.153 940.8 +HR+BP+SB 136.4 8.168 935.3 +HR+BP+SB+PA (Full) 136.4 8.168 934.6 
+
+Table 11: Analysis with different HPE settings and 2D pose estimators. RTMPose (original) uses estimated skeletons without HPE intermediate features or pose-anchored semantic cues. For PoseBridge-HRNet, PoseBridge-ViTPose, and PoseBridge-RTMPose, we apply the same PoseBridge framework and report HPE performance, ZSSAR performance, parameters, GFLOPs, and FPS.                                           
+
+> HPE Setting MS COCO (AP) NTU-RGB+D 60 (Xsub) NTU-RGB+D 120 (Xsub) #Params (M) GFLOPs (G) FPS
+> 48/12 Split 96/24 Split ZSL GZSL (H) ZSL GZSL (H)
+> RTMPose (original) 70.9 54.7 52.0 55.1 52.4 5.5 0.7 4740.7
+> PoseBridge-HRNet [27] 70.8 65.3 63.8 71.0 61.7 28.9 7.7 766.9 PoseBridge-ViTPose [32] 73.7 69.2 61.8 69.8 61.7 766.9 6.2 1020.6 PoseBridge-RTMPose [11] 70.2 73.2 68.0 70.9 62.6 8.2 0.8 2534.7
+
+our motivation: the final performance depends not only on skeleton-text matching, but also on how effectively pose-anchored semantics are transferred to the skeleton representation. 
+
+D.3 Component-wise Computational Cost 
+
+We report the component-wise computational cost of PoseBridge in Table 10. The table separates the shared pretrained encoders, i.e., Shift-GCN [ 4] and the CLIP ViT-L/14 text encoder [ 22 ], from the cumulative online pipeline, which starts from the skeleton-only baseline and incrementally adds each PoseBridge component. The baseline uses the original RTMPose for 2D skeleton extraction and performs skeleton-only ZSSAR without HPE intermediate features or pose-anchored semantics. The results show that hierarchical refinement (HR) and the skeleton-conditioned semantic bridge (SB) introduce the main additional parameters, while body-aware pooling (BP) and prototype adaptation (PA) add negligible overhead. Overall, PoseBridge improves recognition performance with moderate additional cost, supporting the efficiency of reusing HPE representations instead of adding a separate RGB recognition branch. 
+
+D.4 Different Pose Estimators 
+
+We evaluate whether PoseBridge is robust to the choice of the 2D pose estimator. We first include RTMPose-s (original) as a skeleton-only baseline, which uses estimated skeleton sequences without HPE intermediate features or pose-anchored semantic cues. In addition to our default RTMPose-s [ 11 ], we experiment with HRNet-w32 [ 27 ] and ViTPose-s [ 32 ]. Each pose estimator is trained on MS COCO using its standard pose-estimation recipe and hyperparameters, while applying the same HPE-side action-semantic alignment objective described in Sec.3.2. As shown in Table 11, PoseBridge consistently improves over the skeleton-only baseline and remains effective across different pose estimators. We also report MS COCO AP, parameter count, GFLOPs, and FPS for 18 Figure 7: Row-normalized confusion matrices of Neuron and PoseBridge on NTU-RGB+D 60 under the standard 55/5 split. 
+
+Figure 8: Row-normalized confusion matrices of Neuron and PoseBridge on NTU-RGB+D 60 under the standard 48/12 split. reference. These results indicate that the proposed pose-anchored semantic bridge is not tied to a specific HPE backbone. 
+
+## E Additional Analyses 
+
+We provide additional confusion matrix visualizations to analyze class-level prediction behavior under the same skeleton input setting. Specifically, we compare Neuron [ 2] and PoseBridge using RTMPose-extracted skeletons on the standard NTU-RGB+D 60/120 splits. As shown in Fig. 7–10, PoseBridge generally produces stronger diagonal responses and fewer off-diagonal confusions than Neuron. This trend is meaningful because both methods use the same estimated 2D skeleton inputs, indicating that the improvement comes from the proposed pose-anchored semantic bridge rather than differences in skeleton format. The results further show that pose-anchored semantics help distinguish semantically similar or motion-ambiguous actions in zero-shot recognition. 19 Figure 9: Row-normalized confusion matrices of Neuron and PoseBridge on NTU-RGB+D 120 under the standard 110/10 split. 
+
+Figure 10: Row-normalized confusion matrices of Neuron and PoseBridge on NTU-RGB+D 120 under the standard 96/24 split. 
+
+## F Additional Qualitative Results 
+
+F.1 t-SNE Visualization Against Neuron 
+
+To further analyze the representation quality of PoseBridge, we visualize zero-shot matching features using t-SNE and compare them with Neuron [ 2 ]. Both methods are evaluated under the same RTMPose-extracted 2D skeleton input setting, so the comparison focuses on the learned representation space rather than differences in skeleton format. As shown in Fig. 11 and Fig. 12, PoseBridge produces more compact intra-class clusters and clearer inter-class separation, whereas Neuron shows more scattered embeddings with noticeable overlap across classes. This indicates that the proposed pose-anchored semantics help organize skeleton features into a more discriminative semantic space. The trend is consistent on both NTU-RGB+D 60 under the 48/12 split and NTU-RGB+D 120 under the 96/24 split, suggesting that PoseBridge remains effective even when the unseen action space becomes larger and more ambiguous. These visualizations further support that bridging HPE-derived semantics to skeleton-text matching improves zero-shot class separability. 20 Figure 11: t-SNE visualization of zero-shot matching features on NTU-RGB+D 60 under the standard 48/12 split. We compare Neuron and PoseBridge using the same RTMPose-extracted 2D skeleton inputs. 
+
+Figure 12: t-SNE visualization of zero-shot matching features on NTU-RGB+D 120 under the standard 96/24 split. We compare Neuron and PoseBridge using the same RTMPose-extracted 2D skeleton inputs. 
+
+F.2 Additional Grad-CAM Visualizations 
+
+We provide additional Grad-CAM examples in Fig. 13. The baseline HPE model, trained only for pose estimation, tends to activate broadly over the human body, reflecting its focus on keypoint localization rather than action semantics. In contrast, PoseBridge produces more localized and action-discriminative responses. For actions such as “pickup,” “take off a shoe,” “take off glasses,” “take off a hat/cap,” “play magic cube,” “play with phone/tablet,” and “writing,” PoseBridge focuses more strongly on action-related visual cues around the manipulated object and the interacting body parts. For fine-grained gestures such as “make OK sign” and “make victory sign,” it also highlights subtle hand and finger regions that are critical for distinguishing the action. These results further show that PoseBridge preserves action-relevant semantics during HPE, rather than relying only on coordinate-level skeleton information, which benefits downstream zero-shot skeleton-text matching. 
+
+## G Limitations and Broader Impacts 
+
+Limitations. PoseBridge reduces the skeletonization gap by reusing pose-anchored semantic cues from the same HPE process that produces skeletons. Its effectiveness therefore depends on the quality 21 Figure 13: Additional qualitative comparison between the baseline and PoseBridge. We show RGB samples, Grad-CAM maps of baseline HPE features, and Grad-CAM maps of PoseBridge pose-anchored semantics for various actions. and semantic coverage of the HPE stream. When the actor is heavily occluded, the manipulated object is very small or outside the body-attended region, or the pose estimator fails under severe motion blur or crowded scenes, both the skeletons and the pose-anchored cues may become unreliable. In addition, PoseBridge is designed for an HPE-aware ZSSAR setting rather than a strictly coordinate-only skeleton protocol, since it assumes access to intermediate HPE representations during skeleton extraction. Future work could further improve robustness under challenging visual conditions and investigate lighter ways to preserve pose-relative semantic cues. 
+
+Broader Impacts. PoseBridge aims to improve zero-shot skeleton action recognition, which can reduce the need for exhaustive action-specific annotation and may benefit applications such as human-computer interaction, rehabilitation analysis, sports motion understanding, and assistive robotics. However, action recognition systems can also raise privacy and fairness concerns when applied to real-world videos, especially in surveillance-like or high-stakes settings. Although PoseBridge does not introduce an independent RGB action-recognition branch, it still relies on videos during skeleton extraction and may inherit biases from the pose estimator, caption supervision, and pretrained language models. We therefore recommend careful dataset-specific validation, privacy-preserving deployment, and human oversight before using such systems in sensitive applications. 22
