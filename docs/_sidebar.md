@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-06-01 <!--dpr-date:20260601-->
+    * 精读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/01/2605.30689v1-contrans-learning-text-enhanced-local-global-temporal-representations-for-zero-shot-temporal-action-localization" data-sidebar-item="{&quot;title&quot;: &quot;ConTrans: Learning Text-enhanced Local-global Temporal Representations for Zero-shot Temporal Action Localization&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2605.30689v1-contrans-learning-text-enhanced-local-global-temporal-representations-for-zero-shot-temporal-action-localization&quot;, &quot;score&quot;: &quot;9.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;零样本时间动作定位&quot;}">ConTrans: Learning Text-enhanced Local-global Temporal Representations for Zero-shot Temporal Action Localization</a>
   * 2026-04-30 ~ 2026-05-29 <!--dpr-date:20260430-20260529-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/20260430-20260529/2605.01165v1-cezsar-a-contrastive-embedding-method-for-zero-shot-action-recognition" data-sidebar-item="{&quot;title&quot;: &quot;CEZSAR: A Contrastive Embedding Method for Zero-Shot Action Recognition&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2605.01165v1-cezsar-a-contrastive-embedding-method-for-zero-shot-action-recognition&quot;, &quot;score&quot;: &quot;9.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;基于对比学习的零样本动作识别&quot;}">CEZSAR: A Contrastive Embedding Method for Zero-Shot Action Recognition</a>
