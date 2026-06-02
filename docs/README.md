@@ -6,26 +6,26 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-01
-- 运行时间：2026-06-01 22:10:10 UTC
+- 最新运行日期：2026-06-02
+- 运行时间：2026-06-02 22:29:23 UTC
 - 运行状态：成功
 - 本次总论文数：1
-- 精读区：1
-- 速读区：0
+- 精读区：0
+- 速读区：1
 
 ### 今日简报（AI）
-今日精读高分论文《ConTrans》，探索零样本时序动作定位新范式。  
-最值得关注的是其“文本增强的局部-全局时序表示”方法，在无标注视频动作定位任务上表现突出。  
-建议后续关注该模型在开放场景下的泛化能力与代码开源进展。
-- 详情：[/202606/01/README](/202606/01/README)
+今日速读1篇论文，聚焦Ego4D步骤定位挑战中零样本能力。
+该文提出层次活动理解方法，无需预训练即可完成步骤定位任务。
+建议进一步探索层次化建模在日常视频理解中的泛化潜力。
+- 详情：[/202606/02/README](/202606/02/README)
 
 ### 精读区论文标签
-1. [ConTrans: Learning Text-enhanced Local-global Temporal Representations for Zero-shot Temporal Action Localization](/202606/01/2605.30689v1-contrans-learning-text-enhanced-local-global-temporal-representations-for-zero-shot-temporal-action-localization)  
-   标签：评分：9.0/10、query:zsc-action
-   evidence：零样本时间动作定位
+- 本次无精读推荐。
 
 ### 速读区论文标签
-- 本次无速读推荐。
+1. [HiERO-StepG @ Ego4D Step Grounding Challenge: hierarchical activity understanding enables zero-shot step grounding](/202606/02/2605.31227v1-hiero-stepg--ego4d-step-grounding-challenge-hierarchical-activity-understanding-enables-zero-shot-step-grounding)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：零样本步骤接地与层次化活动分解
 
 
 <div class="dpr-home-promo-card">
