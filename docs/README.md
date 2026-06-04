@@ -6,22 +6,24 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-03
-- 运行时间：2026-06-03 22:47:07 UTC
+- 最新运行日期：2026-06-04
+- 运行时间：2026-06-04 20:44:09 UTC
 - 运行状态：成功
-- 本次总论文数：0
+- 本次总论文数：1
 - 精读区：0
-- 速读区：0
+- 速读区：1
 
 ### 今日简报（AI）
-> 今日无新推荐，系统未产出可展示论文。
-- 详情：[/202606/03/README](/202606/03/README)
+今日速读一篇Ego4D竞赛论文，探索层次活动理解实现零样本步骤定位。研究亮点在于无需额外标注即可泛化至新场景，对视频理解领域具有参考价值。建议关注该方向在无监督场景理解中的应用潜力。
+- 详情：[/202606/04/README](/202606/04/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-- 本次无速读推荐。
+1. [HiERO-StepG @ Ego4D Step Grounding Challenge: hierarchical activity understanding enables zero-shot step grounding](/202606/04/2605.31227v1-hiero-stepg--ego4d-step-grounding-challenge-hierarchical-activity-understanding-enables-zero-shot-step-grounding)  
+   标签：评分：7.0/10、query:zsc-action
+   evidence：基于层次活动分解的零样本步骤定位
 
 
 <div class="dpr-home-promo-card">
