@@ -6,24 +6,26 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-04
-- 运行时间：2026-06-04 20:44:09 UTC
+- 最新运行日期：2026-06-05
+- 运行时间：2026-06-05 21:31:55 UTC
 - 运行状态：成功
 - 本次总论文数：1
-- 精读区：0
-- 速读区：1
+- 精读区：1
+- 速读区：0
 
 ### 今日简报（AI）
-今日速读一篇Ego4D竞赛论文，探索层次活动理解实现零样本步骤定位。研究亮点在于无需额外标注即可泛化至新场景，对视频理解领域具有参考价值。建议关注该方向在无监督场景理解中的应用潜力。
-- 详情：[/202606/04/README](/202606/04/README)
+1) 今日精读一篇高分论文《SkelHCC》，提出双曲CLIP缓存框架，解决骨架动作识别中的少样本难题。  
+2) 核心结论：双曲空间能更好建模骨架动作的层级结构，结合CLIP视觉-语言对齐可大幅提升一次性识别效果。  
+3) 建议读者关注双曲表示与CLIP结合的方向，其对小样本和跨模态任务有显著潜力。
+- 详情：[/202606/05/README](/202606/05/README)
 
 ### 精读区论文标签
-- 本次无精读推荐。
+1. [SkelHCC: A Hyperbolic CLIP-Driven Cache Adaptation Framework for Skeleton-based One-Shot Action Recognition](/202606/05/2606.03610v1-skelhcc-a-hyperbolic-clip-driven-cache-adaptation-framework-for-skeleton-based-one-shot-action-recognition)  
+   标签：评分：9.0/10、query:zsc-action
+   evidence：单样本骨架动作识别，利用组合结构并泛化至未见类别
 
 ### 速读区论文标签
-1. [HiERO-StepG @ Ego4D Step Grounding Challenge: hierarchical activity understanding enables zero-shot step grounding](/202606/04/2605.31227v1-hiero-stepg--ego4d-step-grounding-challenge-hierarchical-activity-understanding-enables-zero-shot-step-grounding)  
-   标签：评分：7.0/10、query:zsc-action
-   evidence：基于层次活动分解的零样本步骤定位
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">
