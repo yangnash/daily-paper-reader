@@ -1,0 +1,24 @@
+{
+  "label": "2026-06-06",
+  "date": "2026-06-06",
+  "generated_at": "2026-06-06T21:01:51",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202606/06/2606.00174v1-myosem-aligning-electromyography-to-natural-language-action-semantics-for-hand-action-understanding",
+      "section": "quick",
+      "title_en": "MyoSem: Aligning Electromyography to Natural-Language Action Semantics for Hand Action Understanding",
+      "authors": "Chiyue Wang, Dong She, Yang Gao, Zhanpeng Jin",
+      "date": "2026-05-29",
+      "pdf": "https://arxiv.org/pdf/2606.00174v1",
+      "score": "6.0",
+      "evidence": "动作-语义对齐支持对未见描述的零样本泛化",
+      "tldr": "现有基于肌电(EMG)的手势识别方法通常局限于固定标签的分类任务，难以支持基于动作描述的语义查询和检索。MyoSem提出一种新的对齐框架，通过多视角动作语义构建、激活感知编码和语义查询对齐，将低层EMG信号映射到与自然语言动作描述共享的语义空间，从而实现了EMG信号与文本的双向高效检索。在EMG2Pose和NinaPro系列数据集上，MyoSem在双向检索任务中性能显著优于多种基线方法，并且能够很好地泛化至未见过的用户、未训练的动作类别以及截肢用户的迁移场景。该工作标志着从固定标签识别向可查询的双向语义检索的重要转变，为语言驱动的EMG动作理解开辟了新的研究范式。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Electromyography (EMG) directly reflects muscle activation and is a key sensing modality for gesture recognition, prosthetic control, and wearable interaction. Existing EMG methods, however, commonly formulate hand action understanding as classification over fixed labels, making it difficult to support querying, retrieval, and generalization based on action descriptions. We present MyoSem, an EMG--action semantic alignment framework that maps low-level EMG signals into a shared semantic space constructed from multi-view action descriptions. MyoSem combines multi-view action-semantic construction, activation-aware EMG encoding, and semantic query alignment, enabling bidirectional retrieval between EMG signals and text descriptions. We systematically evaluate MyoSem on EMG2Pose and NinaPro-series datasets. Results show that MyoSem performs well on EMG--text bidirectional retrieval, generally outperforms most baselines, and shows favorable generalization to unseen users, held-out action classes, and amputee-user transfer scenarios. Ablations and visualizations further validate the effectiveness of each module. Overall, MyoSem advances EMG-based hand action understanding from fixed-label recognition toward queryable bidirectional semantic retrieval, providing a new modeling paradigm for language-mediated EMG action understanding.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

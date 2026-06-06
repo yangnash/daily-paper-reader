@@ -1,0 +1,56 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-06T21:00:12.843918+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.00174v1",
+      "source": "arxiv",
+      "title": "MyoSem: Aligning Electromyography to Natural-Language Action Semantics for Hand Action Understanding",
+      "abstract": "Electromyography (EMG) directly reflects muscle activation and is a key sensing modality for gesture recognition, prosthetic control, and wearable interaction. Existing EMG methods, however, commonly formulate hand action understanding as classification over fixed labels, making it difficult to support querying, retrieval, and generalization based on action descriptions. We present MyoSem, an EMG--action semantic alignment framework that maps low-level EMG signals into a shared semantic space constructed from multi-view action descriptions. MyoSem combines multi-view action-semantic construction, activation-aware EMG encoding, and semantic query alignment, enabling bidirectional retrieval between EMG signals and text descriptions. We systematically evaluate MyoSem on EMG2Pose and NinaPro-series datasets. Results show that MyoSem performs well on EMG--text bidirectional retrieval, generally outperforms most baselines, and shows favorable generalization to unseen users, held-out action classes, and amputee-user transfer scenarios. Ablations and visualizations further validate the effectiveness of each module. Overall, MyoSem advances EMG-based hand action understanding from fixed-label recognition toward queryable bidirectional semantic retrieval, providing a new modeling paradigm for language-mediated EMG action understanding.",
+      "authors": [
+        "Chiyue Wang",
+        "Dong She",
+        "Yang Gao",
+        "Zhanpeng Jin"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-05-29T13:47:00+00:00",
+      "link": "https://arxiv.org/pdf/2606.00174v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "action-semantic alignment enabling zero-shot generalization to unseen descriptions",
+      "llm_evidence_cn": "动作-语义对齐支持对未见描述的零样本泛化",
+      "llm_evidence": "动作-语义对齐支持对未见描述的零样本泛化",
+      "canonical_evidence": "动作-语义对齐支持对未见描述的零样本泛化",
+      "llm_tldr_en": "MyoSem aligns EMG signals with action semantics in a shared space, enabling zero-shot retrieval and generalization to unseen action descriptions, relevant to compositional action recognition.",
+      "llm_tldr_cn": "该论文提出MyoSem框架，将肌电信号映射到与自然语言动作描述对齐的共享语义空间。支持双向检索和零样本泛化，即能处理训练中未见的动作描述。这与零样本组合动作识别学习未见动作组合的目标高度契合，提供了一种通用语义对齐方法。",
+      "llm_tldr": "该论文提出MyoSem框架，将肌电信号映射到与自然语言动作描述对齐的共享语义空间。支持双向检索和零样本泛化，即能处理训练中未见的动作描述。这与零样本组合动作识别学习未见动作组合的目标高度契合，提供了一种通用语义对齐方法。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "learning to recognize unseen action compositions",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

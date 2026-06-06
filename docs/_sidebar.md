@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-06-06 <!--dpr-date:20260606-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/06/2606.00174v1-myosem-aligning-electromyography-to-natural-language-action-semantics-for-hand-action-understanding" data-sidebar-item="{&quot;title&quot;: &quot;MyoSem: Aligning Electromyography to Natural-Language Action Semantics for Hand Action Understanding&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.00174v1-myosem-aligning-electromyography-to-natural-language-action-semantics-for-hand-action-understanding&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;动作-语义对齐支持对未见描述的零样本泛化&quot;}">MyoSem: Aligning Electromyography to Natural-Language Action Semantics for Hand Action Understanding</a>
   * 2026-06-05 <!--dpr-date:20260605-->
     * 精读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/05/2606.03610v1-skelhcc-a-hyperbolic-clip-driven-cache-adaptation-framework-for-skeleton-based-one-shot-action-recognition" data-sidebar-item="{&quot;title&quot;: &quot;SkelHCC: A Hyperbolic CLIP-Driven Cache Adaptation Framework for Skeleton-based One-Shot Action Recognition&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.03610v1-skelhcc-a-hyperbolic-clip-driven-cache-adaptation-framework-for-skeleton-based-one-shot-action-recognition&quot;, &quot;score&quot;: &quot;9.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;单样本骨架动作识别，利用组合结构并泛化至未见类别&quot;}">SkelHCC: A Hyperbolic CLIP-Driven Cache Adaptation Framework for Skeleton-based One-Shot Action Recognition</a>

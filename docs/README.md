@@ -6,26 +6,24 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-05
-- 运行时间：2026-06-05 21:31:55 UTC
+- 最新运行日期：2026-06-06
+- 运行时间：2026-06-06 21:01:46 UTC
 - 运行状态：成功
 - 本次总论文数：1
-- 精读区：1
-- 速读区：0
+- 精读区：0
+- 速读区：1
 
 ### 今日简报（AI）
-1) 今日精读一篇高分论文《SkelHCC》，提出双曲CLIP缓存框架，解决骨架动作识别中的少样本难题。  
-2) 核心结论：双曲空间能更好建模骨架动作的层级结构，结合CLIP视觉-语言对齐可大幅提升一次性识别效果。  
-3) 建议读者关注双曲表示与CLIP结合的方向，其对小样本和跨模态任务有显著潜力。
-- 详情：[/202606/05/README](/202606/05/README)
+今日推荐1篇速读论文，聚焦肌电信号与自然语言对齐。最值得关注的方向是《MyoSem》通过语义对齐提升手部动作理解。建议关注肌电信号与语言模型的跨模态融合进展。
+- 详情：[/202606/06/README](/202606/06/README)
 
 ### 精读区论文标签
-1. [SkelHCC: A Hyperbolic CLIP-Driven Cache Adaptation Framework for Skeleton-based One-Shot Action Recognition](/202606/05/2606.03610v1-skelhcc-a-hyperbolic-clip-driven-cache-adaptation-framework-for-skeleton-based-one-shot-action-recognition)  
-   标签：评分：9.0/10、query:zsc-action
-   evidence：单样本骨架动作识别，利用组合结构并泛化至未见类别
+- 本次无精读推荐。
 
 ### 速读区论文标签
-- 本次无速读推荐。
+1. [MyoSem: Aligning Electromyography to Natural-Language Action Semantics for Hand Action Understanding](/202606/06/2606.00174v1-myosem-aligning-electromyography-to-natural-language-action-semantics-for-hand-action-understanding)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：动作-语义对齐支持对未见描述的零样本泛化
 
 
 <div class="dpr-home-promo-card">
