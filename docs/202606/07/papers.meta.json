@@ -1,0 +1,69 @@
+{
+  "label": "2026-06-07",
+  "date": "2026-06-07",
+  "generated_at": "2026-06-07T20:14:21",
+  "count": 4,
+  "papers": [
+    {
+      "paper_id": "202606/07/2606.01113v1-r3-composed-video-retrieval-via-reasoning-guided-recalling-and-re-ranking",
+      "section": "quick",
+      "title_en": "R^3: Composed Video Retrieval via Reasoning-Guided Recalling and Re-ranking",
+      "authors": "Zixu Li, Yupeng Hu, Zhiheng Fu, Zhiwei Chen, Weili Guan, Liqiang Nie",
+      "date": "2026-05-31",
+      "pdf": "https://arxiv.org/pdf/2606.01113v1",
+      "score": "6.0",
+      "evidence": "零样本组合视频检索，涉及动作替换和状态变化",
+      "tldr": "组合视频检索需同时理解源视频和文本编辑指令，现有方法难以准确表达目标视频的状态变化、动作替换等细节。本文提出R^3零样本管道，通过生成推理轨迹描述预期目标视频，将其编码为推理增强查询并与基础查询融合，最后用重排序器验证候选。实验证明该方法在CoVR-R挑战中有效，代码已开源。",
+      "tags": "query:zsc-action",
+      "abstract_en": "The CoVR-R challenge evaluates composed video retrieval, where a system must retrieve a target video from a large gallery given a reference video and a textual edit instruction. This setting is not a standard video-text retrieval problem: the query is defined by both the visual evidence in the source video and the transformation implied by the edit. A strong embedding model can provide scalable candidate recall, but it may under-express target-side consequences such as state changes, action replacement, object preservation, or temporal consistency. A pairwise multimodal reranker can verify such details more directly, but exhaustive reranking over the full gallery is computationally infeasible. We present $\\mathbb{R}^3$, a zero-shot composed video retrieval pipeline built around Reasoning-guided Recalling and Reranking. The core idea is to turn the source-edit query into a reasoning-grounded retrieval program rather than treating the edit text as a short caption. First, the model generates a reasoning trace that describes the expected target video after applying the edit. Then the trace is encoded together with the source video as a reasoning-augmented query, and its retrieval score is fused with the base composed query through an agreement-gated residual rule. At last, a re-ranker verifies the recalled candidates with direct source-candidate comparison. Experiments have demonstrated the effectiveness of our method in addressing this challenge. Codes are available on https://github.com/Lee-zixu/R-3.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/07/2606.01113v2-r3-composed-video-retrieval-via-reasoning-guided-recalling-and-re-ranking",
+      "section": "quick",
+      "title_en": "R^3: Composed Video Retrieval via Reasoning-Guided Recalling and Re-ranking",
+      "authors": "Zixu Li, Yupeng Hu, Zhiheng Fu, Zhiwei Chen, Weili Guan, Liqiang Nie",
+      "date": "2026-05-31",
+      "pdf": "https://arxiv.org/pdf/2606.01113v2",
+      "score": "6.0",
+      "evidence": "零样本组合视频检索，与零样本组合动作识别范式相似",
+      "tldr": "针对组合视频检索中查询由源视频和文本编辑指令共同定义、传统方法难以表达目标变化的问题，提出零样本R^3管道。首先生成推理轨迹描述编辑后的目标视频，再将轨迹与源视频编码为推理增强查询，通过一致性门控残差融合分数。最后用重排序器直接比较源-候选对验证候选。实验证明该方法有效，代码已开源。",
+      "tags": "query:zsc-action",
+      "abstract_en": "The CoVR-R challenge evaluates composed video retrieval, where a system must retrieve a target video from a large gallery given a reference video and a textual edit instruction. This setting is not a standard video-text retrieval problem: the query is defined by both the visual evidence in the source video and the transformation implied by the edit. A strong embedding model can provide scalable candidate recall, but it may under-express target-side consequences such as state changes, action replacement, object preservation, or temporal consistency. A pairwise multimodal reranker can verify such details more directly, but exhaustive reranking over the full gallery is computationally infeasible. We present $\\mathbb{R}^3$, a zero-shot composed video retrieval pipeline built around Reasoning-guided Recalling and Reranking. The core idea is to turn the source-edit query into a reasoning-grounded retrieval program rather than treating the edit text as a short caption. First, the model generates a reasoning trace that describes the expected target video after applying the edit. Then the trace is encoded together with the source video as a reasoning-augmented query, and its retrieval score is fused with the base composed query through an agreement-gated residual rule. At last, a re-ranker verifies the recalled candidates with direct source-candidate comparison. Experiments have demonstrated the effectiveness of our method in addressing this challenge. Codes are available on https://github.com/Lee-zixu/R-3.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/07/2606.02321v1-training-free-composed-video-retrieval-via-visual-representation-guided-video-llm-reasoning",
+      "section": "quick",
+      "title_en": "Training-Free Composed Video Retrieval via Visual Representation-Guided Video-LLM Reasoning",
+      "authors": "Yang Liu, Qianqian Xu, Peisong Wen, Siran Dai, Qingming Huang",
+      "date": "2026-06-01",
+      "pdf": "https://arxiv.org/pdf/2606.02321v1",
+      "score": "6.0",
+      "evidence": "无训练组合视频检索，利用视觉表示和视觉语言模型评估动作修改",
+      "tldr": "组合视频检索需根据参考视频和文本指令查找目标视频。本文提出无训练框架，先用冻结DINOv3模型筛选视觉相关候选，再用视频大语言模型评估候选是否符合指令，最后对top候选进行推理细化。在CVPR 2026挑战赛测试集上，Recall@1达48.78，Recall@5达51.48。无需额外训练，展示了视觉表示与语言推理结合的有效性。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Recent advances in large vision-language models have expanded video retrieval from simple text-based search to more flexible scenarios, where users may specify the desired result through both visual examples and textual instructions. In the CVPR 2026 Reason-Aware Composed Video Retrieval Challenge, the system is required to retrieve a target video according to a reference video and a modification instruction. To address this task, we develop Visual Representation-Guided Video-LLM Reasoning for Training-Free Composed Video Retrieval. Our framework first uses frozen DINOv3 models to obtain a compact set of visually relevant candidates, and then applies large vision-language models to evaluate whether each candidate satisfies the modification instruction. A final reasoning-based refinement is further performed on the top candidates to improve the first-ranked prediction. Without training, our system achieves 48.78 Recall@1 and 51.48 Recall@5 on the test set. Future work may further improve retrieval accuracy through stronger video-LLMs and detailed integration between visual representations and language reasoning.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/07/2606.02450v1-reason-then-retrieve-for-covr-r-with-structured-edit-prompts-and-dense-sparse-fusion",
+      "section": "quick",
+      "title_en": "Reason-Then-Retrieve for CoVR-R with Structured Edit Prompts and Dense-Sparse Fusion",
+      "authors": "DongQing Liu, MengShi Qi, HongWei Ji",
+      "date": "2026-06-01",
+      "pdf": "https://arxiv.org/pdf/2606.02450v1",
+      "score": "6.0",
+      "evidence": "零样本先推理后检索管线处理组合视频检索中的动作顺序变化",
+      "tldr": "针对理由感知的组合视频检索（CoVR-R）任务，目标视频需从参考视频和编辑指令中推断细粒度变化，现有方法依赖监督数据。提出零样本reason-then-retrieve流程，基于Qwen3.5-27B生成结构化描述和密集嵌入，并融合TF-IDF稀疏检索。在验证集上R@1达80.81，测试集达89.73，展现了无需额外训练的有效性。",
+      "tags": "query:zsc-action",
+      "abstract_en": "CoVR-R studies reason-aware composed video retrieval: given a reference video and an edit instruction, the system must retrieve the target video that satisfies the edit. The main difficulty is that the target is not described directly; it must be inferred from fine-grained changes in object identity, action order, final state, hand interaction, and scene transition. We build a zero-shot reason-then-retrieve pipeline around Qwen3.5-27B. For each gallery video, the model generates a retrieval-oriented structured description and a dense embedding by pooling generated-token hidden states with token-dependent weights. For each query, the model first performs edit reasoning over the reference video and instruction, then generates a target-video description whose hidden states serve as the query embedding. We complement dense retrieval with a TF-IDF branch over the generated texts and fuse the two rankings with split-specific weights. On validation, the current best submission reaches 80.81 at R@1, 94.86 at R@5, 97.11 at R@10, and 98.59 at R@50. On the blind test split, it reaches 89.73 at R@1, 95.79 at R@5, 96.63 at R@10, and 97.98 at R@50.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,173 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-07T20:13:16.355699+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 4,
+    "quick_skim_target": 11,
+    "quick_selected": 4
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.01113v1",
+      "source": "arxiv",
+      "title": "R^3: Composed Video Retrieval via Reasoning-Guided Recalling and Re-ranking",
+      "abstract": "The CoVR-R challenge evaluates composed video retrieval, where a system must retrieve a target video from a large gallery given a reference video and a textual edit instruction. This setting is not a standard video-text retrieval problem: the query is defined by both the visual evidence in the source video and the transformation implied by the edit. A strong embedding model can provide scalable candidate recall, but it may under-express target-side consequences such as state changes, action replacement, object preservation, or temporal consistency. A pairwise multimodal reranker can verify such details more directly, but exhaustive reranking over the full gallery is computationally infeasible. We present $\\mathbb{R}^3$, a zero-shot composed video retrieval pipeline built around Reasoning-guided Recalling and Reranking. The core idea is to turn the source-edit query into a reasoning-grounded retrieval program rather than treating the edit text as a short caption. First, the model generates a reasoning trace that describes the expected target video after applying the edit. Then the trace is encoded together with the source video as a reasoning-augmented query, and its retrieval score is fused with the base composed query through an agreement-gated residual rule. At last, a re-ranker verifies the recalled candidates with direct source-candidate comparison. Experiments have demonstrated the effectiveness of our method in addressing this challenge. Codes are available on https://github.com/Lee-zixu/R-3.",
+      "authors": [
+        "Zixu Li",
+        "Yupeng Hu",
+        "Zhiheng Fu",
+        "Zhiwei Chen",
+        "Weili Guan",
+        "Liqiang Nie"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-05-31T09:20:53+00:00",
+      "link": "https://arxiv.org/pdf/2606.01113v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "zero-shot composed video retrieval; involves action replacement and state changes",
+      "llm_evidence_cn": "零样本组合视频检索，涉及动作替换和状态变化",
+      "llm_evidence": "零样本组合视频检索，涉及动作替换和状态变化",
+      "canonical_evidence": "零样本组合视频检索，涉及动作替换和状态变化",
+      "llm_tldr_en": "R^3 is a zero-shot composed video retrieval method that uses reasoning-guided recall and re-ranking, handling action compositions without training.",
+      "llm_tldr_cn": "针对组合视频检索任务中目标视频需从参考视频和编辑指令推断的难点，提出R^3框架，采用零样本推理引导的候选召回和重排序机制。方法通过推理动作替换、状态变化等细粒度编辑，无需训练即可检索目标视频。实验显示在CoVR-R挑战中有效处理未见组合。",
+      "llm_tldr": "针对组合视频检索任务中目标视频需从参考视频和编辑指令推断的难点，提出R^3框架，采用零样本推理引导的候选召回和重排序机制。方法通过推理动作替换、状态变化等细粒度编辑，无需训练即可检索目标视频。实验显示在CoVR-R挑战中有效处理未见组合。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.01113v2",
+      "source": "arxiv",
+      "title": "R^3: Composed Video Retrieval via Reasoning-Guided Recalling and Re-ranking",
+      "abstract": "The CoVR-R challenge evaluates composed video retrieval, where a system must retrieve a target video from a large gallery given a reference video and a textual edit instruction. This setting is not a standard video-text retrieval problem: the query is defined by both the visual evidence in the source video and the transformation implied by the edit. A strong embedding model can provide scalable candidate recall, but it may under-express target-side consequences such as state changes, action replacement, object preservation, or temporal consistency. A pairwise multimodal reranker can verify such details more directly, but exhaustive reranking over the full gallery is computationally infeasible. We present $\\mathbb{R}^3$, a zero-shot composed video retrieval pipeline built around Reasoning-guided Recalling and Reranking. The core idea is to turn the source-edit query into a reasoning-grounded retrieval program rather than treating the edit text as a short caption. First, the model generates a reasoning trace that describes the expected target video after applying the edit. Then the trace is encoded together with the source video as a reasoning-augmented query, and its retrieval score is fused with the base composed query through an agreement-gated residual rule. At last, a re-ranker verifies the recalled candidates with direct source-candidate comparison. Experiments have demonstrated the effectiveness of our method in addressing this challenge. Codes are available on https://github.com/Lee-zixu/R-3.",
+      "authors": [
+        "Zixu Li",
+        "Yupeng Hu",
+        "Zhiheng Fu",
+        "Zhiwei Chen",
+        "Weili Guan",
+        "Liqiang Nie"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-05-31T09:20:53+00:00",
+      "link": "https://arxiv.org/pdf/2606.01113v2",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "zero-shot composed video retrieval, similar paradigm to zero-shot compositional action recognition",
+      "llm_evidence_cn": "零样本组合视频检索，与零样本组合动作识别范式相似",
+      "llm_evidence": "零样本组合视频检索，与零样本组合动作识别范式相似",
+      "canonical_evidence": "零样本组合视频检索，与零样本组合动作识别范式相似",
+      "llm_tldr_en": "R^3 proposes a zero-shot composed video retrieval method using reasoning-guided recalling and re-ranking, which shares the compositional and zero-shot nature with the target requirement.",
+      "llm_tldr_cn": "R^3提出了零样本组合视频检索方法，通过推理引导的召回和重排序解决检索问题。其零样本组合设置与用户需求的零样本组合动作识别高度相似，方法可迁移。",
+      "llm_tldr": "R^3提出了零样本组合视频检索方法，通过推理引导的召回和重排序解决检索问题。其零样本组合设置与用户需求的零样本组合动作识别高度相似，方法可迁移。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot action recognition with composition",
+      "matched_requirement_id": "req-3",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.02321v1",
+      "source": "arxiv",
+      "title": "Training-Free Composed Video Retrieval via Visual Representation-Guided Video-LLM Reasoning",
+      "abstract": "Recent advances in large vision-language models have expanded video retrieval from simple text-based search to more flexible scenarios, where users may specify the desired result through both visual examples and textual instructions. In the CVPR 2026 Reason-Aware Composed Video Retrieval Challenge, the system is required to retrieve a target video according to a reference video and a modification instruction. To address this task, we develop Visual Representation-Guided Video-LLM Reasoning for Training-Free Composed Video Retrieval. Our framework first uses frozen DINOv3 models to obtain a compact set of visually relevant candidates, and then applies large vision-language models to evaluate whether each candidate satisfies the modification instruction. A final reasoning-based refinement is further performed on the top candidates to improve the first-ranked prediction. Without training, our system achieves 48.78 Recall@1 and 51.48 Recall@5 on the test set. Future work may further improve retrieval accuracy through stronger video-LLMs and detailed integration between visual representations and language reasoning.",
+      "authors": [
+        "Yang Liu",
+        "Qianqian Xu",
+        "Peisong Wen",
+        "Siran Dai",
+        "Qingming Huang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-01T14:35:23+00:00",
+      "link": "https://arxiv.org/pdf/2606.02321v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "training-free composed video retrieval; uses visual representation and VLMs to evaluate action modifications",
+      "llm_evidence_cn": "无训练组合视频检索，利用视觉表示和视觉语言模型评估动作修改",
+      "llm_evidence": "无训练组合视频检索，利用视觉表示和视觉语言模型评估动作修改",
+      "canonical_evidence": "无训练组合视频检索，利用视觉表示和视觉语言模型评估动作修改",
+      "llm_tldr_en": "This framework uses frozen DINOv3 for candidate selection and Video-LLM for reasoning, achieving training-free composed video retrieval that handles action modifications.",
+      "llm_tldr_cn": "针对组合视频检索任务，提出无训练框架，先用冻结DINOv3获得紧凑候选集，再使用视觉大语言模型评估每个候选是否满足修改指令。无需训练即可处理动作替换等编辑，在CVPR 2026 CoVR-R挑战中有效。",
+      "llm_tldr": "针对组合视频检索任务，提出无训练框架，先用冻结DINOv3获得紧凑候选集，再使用视觉大语言模型评估每个候选是否满足修改指令。无需训练即可处理动作替换等编辑，在CVPR 2026 CoVR-R挑战中有效。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2606.02450v1",
+      "source": "arxiv",
+      "title": "Reason-Then-Retrieve for CoVR-R with Structured Edit Prompts and Dense-Sparse Fusion",
+      "abstract": "CoVR-R studies reason-aware composed video retrieval: given a reference video and an edit instruction, the system must retrieve the target video that satisfies the edit. The main difficulty is that the target is not described directly; it must be inferred from fine-grained changes in object identity, action order, final state, hand interaction, and scene transition. We build a zero-shot reason-then-retrieve pipeline around Qwen3.5-27B. For each gallery video, the model generates a retrieval-oriented structured description and a dense embedding by pooling generated-token hidden states with token-dependent weights. For each query, the model first performs edit reasoning over the reference video and instruction, then generates a target-video description whose hidden states serve as the query embedding. We complement dense retrieval with a TF-IDF branch over the generated texts and fuse the two rankings with split-specific weights. On validation, the current best submission reaches 80.81 at R@1, 94.86 at R@5, 97.11 at R@10, and 98.59 at R@50. On the blind test split, it reaches 89.73 at R@1, 95.79 at R@5, 96.63 at R@10, and 97.98 at R@50.",
+      "authors": [
+        "DongQing Liu",
+        "MengShi Qi",
+        "HongWei Ji"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-01T16:21:01+00:00",
+      "link": "https://arxiv.org/pdf/2606.02450v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "zero-shot reason-then-retrieve pipeline for composed video retrieval; handles action order changes",
+      "llm_evidence_cn": "零样本先推理后检索管线处理组合视频检索中的动作顺序变化",
+      "llm_evidence": "零样本先推理后检索管线处理组合视频检索中的动作顺序变化",
+      "canonical_evidence": "零样本先推理后检索管线处理组合视频检索中的动作顺序变化",
+      "llm_tldr_en": "This paper builds a zero-shot reason-then-retrieve pipeline using Qwen3.5 for composed video retrieval, performing edit reasoning on reference video and instruction to generate target video descriptions.",
+      "llm_tldr_cn": "针对组合视频检索中目标需从动作顺序、最终状态等细粒度变化推断的难点，基于Qwen3.5构建零样本先推理后检索管线。对每个图库视频生成结构化描述和稠密嵌入，对查询先进行编辑推理再生成目标描述。实验证明无需训练即可有效处理动作替换等组合变化。",
+      "llm_tldr": "针对组合视频检索中目标需从动作顺序、最终状态等细粒度变化推断的难点，基于Qwen3.5构建零样本先推理后检索管线。对每个图库视频生成结构化描述和稠密嵌入，对查询先进行编辑推理再生成目标描述。实验证明无需训练即可有效处理动作替换等组合变化。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

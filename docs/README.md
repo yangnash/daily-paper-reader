@@ -6,24 +6,37 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-06
-- 运行时间：2026-06-06 21:01:46 UTC
+- 最新运行日期：2026-06-07
+- 运行时间：2026-06-07 20:14:12 UTC
 - 运行状态：成功
-- 本次总论文数：1
+- 本次总论文数：4
 - 精读区：0
-- 速读区：1
+- 速读区：4
 
 ### 今日简报（AI）
-今日推荐1篇速读论文，聚焦肌电信号与自然语言对齐。最值得关注的方向是《MyoSem》通过语义对齐提升手部动作理解。建议关注肌电信号与语言模型的跨模态融合进展。
-- 详情：[/202606/06/README](/202606/06/README)
+今日速读4篇论文，全部聚焦组合视频检索领域，其中两篇评分6.0的论文各具特色。
+
+最值得关注的是《R^3》提出推理引导的召回与重排方法，以及《Training-Free》利用视觉表示引导视频大模型实现无训练检索。
+
+建议对比阅读这两篇论文，重点理解无训练检索与推理引导机制在组合视频检索中的优劣，有助于把握该领域最新研究趋势。
+- 详情：[/202606/07/README](/202606/07/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [MyoSem: Aligning Electromyography to Natural-Language Action Semantics for Hand Action Understanding](/202606/06/2606.00174v1-myosem-aligning-electromyography-to-natural-language-action-semantics-for-hand-action-understanding)  
+1. [R^3: Composed Video Retrieval via Reasoning-Guided Recalling and Re-ranking](/202606/07/2606.01113v1-r3-composed-video-retrieval-via-reasoning-guided-recalling-and-re-ranking)  
    标签：评分：6.0/10、query:zsc-action
-   evidence：动作-语义对齐支持对未见描述的零样本泛化
+   evidence：零样本组合视频检索，涉及动作替换和状态变化
+2. [R^3: Composed Video Retrieval via Reasoning-Guided Recalling and Re-ranking](/202606/07/2606.01113v2-r3-composed-video-retrieval-via-reasoning-guided-recalling-and-re-ranking)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：零样本组合视频检索，与零样本组合动作识别范式相似
+3. [Training-Free Composed Video Retrieval via Visual Representation-Guided Video-LLM Reasoning](/202606/07/2606.02321v1-training-free-composed-video-retrieval-via-visual-representation-guided-video-llm-reasoning)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：无训练组合视频检索，利用视觉表示和视觉语言模型评估动作修改
+4. [Reason-Then-Retrieve for CoVR-R with Structured Edit Prompts and Dense-Sparse Fusion](/202606/07/2606.02450v1-reason-then-retrieve-for-covr-r-with-structured-edit-prompts-and-dense-sparse-fusion)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：零样本先推理后检索管线处理组合视频检索中的动作顺序变化
 
 
 <div class="dpr-home-promo-card">
