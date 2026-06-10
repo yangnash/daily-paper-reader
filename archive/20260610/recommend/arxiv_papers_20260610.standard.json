@@ -1,0 +1,52 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-10T22:02:59.054147+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.10789v1",
+      "source": "arxiv",
+      "title": "Closing the Modality Gap in Zero-Shot HAR: Contrastive Training and Separability-Optimized Prototypes on IMU Data",
+      "abstract": "Zero-shot learning (ZSL) for inertial measurement unit (IMU)-based human activity recognition (HAR) faces a central challenge: bridging the gap between sensor embeddings and semantic class representations. We systematically evaluate seven configurations combining three inference methods with two training pipelines on the PAMAP2 dataset, using 14 seen and 4 unseen activity classes with subjects 108 and 109 held out for testing. We find that the modality gap is a training-time phenomenon governed by the encoder objective. A temporal convolutional network (TCN) trained with cross-entropy over label-name Sentence- BERT prototypes yields sensor embeddings with a mean cosine similarity of 0.30 to the corresponding text prototypes, while replacing the label-name prototype targets with discriminative activity descriptions raises this to 0.69. This alignment improvement transfers consistently across all three inference methods. The strongest result combines contrastive training with inverted softmax correction, achieving 73.2% accuracy and 0.583 macro F1 on unseen classes, compared to 58.3% accuracy and 0.34 macro F1 for the label-name baseline. A secondary finding is that richer text descriptions reduce inter-prototype separability in Sentence-BERT space, because shared biomechanical vocabulary causes the language model to compress the prototype cloud. This effect does not negate the benefits of contrastive alignment provided prototype descriptions retain sufficient discriminative vocabulary. We also demonstrate that overall accuracy is a misleading primary metric when test-set class distributions are imbalanced, and recommend macro-averaged F1 as the standard reporting metric for ZSL-HAR benchmarks.",
+      "authors": [
+        "Anik Ghosh"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-06-09T12:39:41+00:00",
+      "link": "https://arxiv.org/pdf/2606.10789v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "zero-shot HAR with contrastive training",
+      "llm_evidence_cn": "基于对比训练的零样本人体活动识别",
+      "llm_evidence": "基于对比训练的零样本人体活动识别",
+      "canonical_evidence": "基于对比训练的零样本人体活动识别",
+      "llm_tldr_en": "Proposes zero-shot learning for IMU-based human activity recognition using contrastive training and separability-optimized prototypes, achieving improved modality alignment and performance on unseen activities.",
+      "llm_tldr_cn": "该论文针对基于惯性测量单元(IMU)的人体活动识别中的零样本学习问题，提出采用对比训练和可分离性优化原型的方法来缩小传感器嵌入与语义类别表示之间的模态差距。在PAMAP2数据集上的实验表明，该方法能有效识别未见活动类别，为IMU数据上的零样本活动识别提供了有力基线。",
+      "llm_tldr": "该论文针对基于惯性测量单元(IMU)的人体活动识别中的零样本学习问题，提出采用对比训练和可分离性优化原型的方法来缩小传感器嵌入与语义类别表示之间的模态差距。在PAMAP2数据集上的实验表明，该方法能有效识别未见活动类别，为IMU数据上的零样本活动识别提供了有力基线。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

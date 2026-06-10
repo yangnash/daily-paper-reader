@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-06-10 <!--dpr-date:20260610-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/10/2606.10789v1-closing-the-modality-gap-in-zero-shot-har-contrastive-training-and-separability-optimized-prototypes-on-imu-data" data-sidebar-item="{&quot;title&quot;: &quot;Closing the Modality Gap in Zero-Shot HAR: Contrastive Training and Separability-Optimized Prototypes on IMU Data&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.10789v1-closing-the-modality-gap-in-zero-shot-har-contrastive-training-and-separability-optimized-prototypes-on-imu-data&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;基于对比训练的零样本人体活动识别&quot;}">Closing the Modality Gap in Zero-Shot HAR: Contrastive Training and Separability-Optimized Prototypes on IMU Data</a>
   * 2026-06-08 <!--dpr-date:20260608-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/08/2606.00910v1-reason-retrieve-re-rank-a-zero-shot-reasoning-aware-framework-for-composed-video-retrieval" data-sidebar-item="{&quot;title&quot;: &quot;Reason, Retrieve, Re-rank: A Zero-Shot Reasoning-Aware Framework for Composed Video Retrieval&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.00910v1-reason-retrieve-re-rank-a-zero-shot-reasoning-aware-framework-for-composed-video-retrieval&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;零样本组合视频检索，聚焦动作阶段和状态转换推理&quot;}">Reason, Retrieve, Re-rank: A Zero-Shot Reasoning-Aware Framework for Composed Video Retrieval</a>

@@ -1,0 +1,24 @@
+{
+  "label": "2026-06-10",
+  "date": "2026-06-10",
+  "generated_at": "2026-06-10T22:03:56",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202606/10/2606.10789v1-closing-the-modality-gap-in-zero-shot-har-contrastive-training-and-separability-optimized-prototypes-on-imu-data",
+      "section": "quick",
+      "title_en": "Closing the Modality Gap in Zero-Shot HAR: Contrastive Training and Separability-Optimized Prototypes on IMU Data",
+      "authors": "Anik Ghosh",
+      "date": "2026-06-09",
+      "pdf": "https://arxiv.org/pdf/2606.10789v1",
+      "score": "7.0",
+      "evidence": "基于对比训练的零样本人体活动识别",
+      "tldr": "零样本IMU-HAR面临传感器嵌入与语义原型的模态差距。本文系统评估七种配置，发现模态差距是训练时现象，通过对比训练和区分性活动描述可将传感器-文本余弦相似度从0.30提至0.69。最佳方法结合对比训练与反向softmax校正，在未见类上达73.2%准确率和0.583宏F1。揭示丰富文本描述可能降低原型可分离性但对比对齐仍有效，并推荐宏F1作为评估指标。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Zero-shot learning (ZSL) for inertial measurement unit (IMU)-based human activity recognition (HAR) faces a central challenge: bridging the gap between sensor embeddings and semantic class representations. We systematically evaluate seven configurations combining three inference methods with two training pipelines on the PAMAP2 dataset, using 14 seen and 4 unseen activity classes with subjects 108 and 109 held out for testing. We find that the modality gap is a training-time phenomenon governed by the encoder objective. A temporal convolutional network (TCN) trained with cross-entropy over label-name Sentence- BERT prototypes yields sensor embeddings with a mean cosine similarity of 0.30 to the corresponding text prototypes, while replacing the label-name prototype targets with discriminative activity descriptions raises this to 0.69. This alignment improvement transfers consistently across all three inference methods. The strongest result combines contrastive training with inverted softmax correction, achieving 73.2% accuracy and 0.583 macro F1 on unseen classes, compared to 58.3% accuracy and 0.34 macro F1 for the label-name baseline. A secondary finding is that richer text descriptions reduce inter-prototype separability in Sentence-BERT space, because shared biomechanical vocabulary causes the language model to compress the prototype cloud. This effect does not negate the benefits of contrastive alignment provided prototype descriptions retain sufficient discriminative vocabulary. We also demonstrate that overall accuracy is a misleading primary metric when test-set class distributions are imbalanced, and recommend macro-averaged F1 as the standard reporting metric for ZSL-HAR benchmarks.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
