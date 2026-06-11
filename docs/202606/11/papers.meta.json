@@ -1,0 +1,24 @@
+{
+  "label": "2026-06-11",
+  "date": "2026-06-11",
+  "generated_at": "2026-06-11T21:51:56",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202606/11/2606.12047v1-metadata-aware-multi-prompt-reasoning-for-zero-shot-accident-understanding",
+      "section": "quick",
+      "title_en": "Metadata-Aware Multi-Prompt Reasoning for Zero-Shot Accident Understanding",
+      "authors": "Tarandeep Singh, Soumyanetra Pal, Soham Biswas, Nishanth Chandran",
+      "date": "2026-06-10",
+      "pdf": "https://arxiv.org/pdf/2606.12047v1",
+      "score": "6.0",
+      "evidence": "零样本视频事故理解，匹配零样本动作识别",
+      "tldr": "针对监控视频的零样本事故理解，本文将其分解为何时、何事、何地三个子任务。提出三阶段流水线：首阶段基于视觉语言相似性定位冲击时间窗口；次阶段利用元数据驱动的多视角提示推理（基线、运动、几何、对比、仲裁）并借助熵门限成对裁决器解决分歧；末阶段通过开放词汇检测器定位事故区域。在ACCIDENT@CVPR基准上，调和平均分较直接提示基线显著提升，表明分解式推理更可靠。",
+      "tags": "query:zsc-action",
+      "abstract_en": "In this paper, we address the problem of zero-shot understanding of accidents from surveillance videos by identifying when an impact event occurs, what type of impact it is, and where in the frame it occurs using natural language. We propose a three-stage pipeline that decomposes the accident understanding into when, what, and where. The first stage extracts a short temporal window around the impact using vision-language similarity. In the second stage, we perform metadata-driven multi-prompt reasoning with five complementary views (baseline, motion, geometry, contrast, and tiebreaker) and resolve disagreement via an entropy-gated pairwise adjudicator. Finally, we localize the impact of an open-vocabulary detector queried on the predicted accident type and scene layout, and aggregate detections across keyframes using a score-weighted centroid. Our pipeline achieves a substantial improvement in the harmonic-mean score over a centre-of-frame baseline on the zero-shot ACCIDENT @ CVPR benchmark. We show that decomposing zero-shot video understanding into temporal localization, semantic classification, and spatial grounding enable more reliable reasoning with vision-language models than direct prompting alone.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

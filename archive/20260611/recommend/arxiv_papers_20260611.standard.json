@@ -1,0 +1,57 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-11T21:51:15.739228+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.12047v1",
+      "source": "arxiv",
+      "title": "Metadata-Aware Multi-Prompt Reasoning for Zero-Shot Accident Understanding",
+      "abstract": "In this paper, we address the problem of zero-shot understanding of accidents from surveillance videos by identifying when an impact event occurs, what type of impact it is, and where in the frame it occurs using natural language. We propose a three-stage pipeline that decomposes the accident understanding into when, what, and where. The first stage extracts a short temporal window around the impact using vision-language similarity. In the second stage, we perform metadata-driven multi-prompt reasoning with five complementary views (baseline, motion, geometry, contrast, and tiebreaker) and resolve disagreement via an entropy-gated pairwise adjudicator. Finally, we localize the impact of an open-vocabulary detector queried on the predicted accident type and scene layout, and aggregate detections across keyframes using a score-weighted centroid. Our pipeline achieves a substantial improvement in the harmonic-mean score over a centre-of-frame baseline on the zero-shot ACCIDENT @ CVPR benchmark. We show that decomposing zero-shot video understanding into temporal localization, semantic classification, and spatial grounding enable more reliable reasoning with vision-language models than direct prompting alone.",
+      "authors": [
+        "Tarandeep Singh",
+        "Soumyanetra Pal",
+        "Soham Biswas",
+        "Nishanth Chandran"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "published": "2026-06-10T13:12:40+00:00",
+      "link": "https://arxiv.org/pdf/2606.12047v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "zero-shot video understanding for accident recognition, matches zero-shot action recognition",
+      "llm_evidence_cn": "零样本视频事故理解，匹配零样本动作识别",
+      "llm_evidence": "零样本视频事故理解，匹配零样本动作识别",
+      "canonical_evidence": "零样本视频事故理解，匹配零样本动作识别",
+      "llm_tldr_en": "Zero-shot accident understanding from surveillance videos using multi-prompt reasoning with metadata, achieving temporal and spatial recognition of impact events. Relevant as a zero-shot video action recognition method.",
+      "llm_tldr_cn": "本文解决监控视频中事故的零样本理解问题，提出元数据感知多提示推理流水线：先通过视觉-语言相似性提取时间窗口，再用五视角提示推理和熵门控裁决器识别事故类型和位置。实验表明该方法能有效零样本识别事故，为零样本视频动作识别提供了新思路。",
+      "llm_tldr": "本文解决监控视频中事故的零样本理解问题，提出元数据感知多提示推理流水线：先通过视觉-语言相似性提取时间窗口，再用五视角提示推理和熵门控裁决器识别事故类型和位置。实验表明该方法能有效零样本识别事故，为零样本视频动作识别提供了新思路。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
