@@ -6,24 +6,22 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-11
-- 运行时间：2026-06-11 21:51:49 UTC
+- 最新运行日期：2026-06-12
+- 运行时间：2026-06-12 21:05:03 UTC
 - 运行状态：成功
-- 本次总论文数：1
+- 本次总论文数：0
 - 精读区：0
-- 速读区：1
+- 速读区：0
 
 ### 今日简报（AI）
-今日速读了一篇利用元数据感知的多提示推理进行零样本事故理解的论文，评分6.0/10。值得关注的是其提出通过整合元数据与多提示链来提升事故场景识别的泛化能力。建议进一步探索元数据如何在实际事故监控中辅助多模态推理，以应对复杂场景。
-- 详情：[/202606/11/README](/202606/11/README)
+> 今日无新推荐，系统未产出可展示论文。
+- 详情：[/202606/12/README](/202606/12/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Metadata-Aware Multi-Prompt Reasoning for Zero-Shot Accident Understanding](/202606/11/2606.12047v1-metadata-aware-multi-prompt-reasoning-for-zero-shot-accident-understanding)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：零样本视频事故理解，匹配零样本动作识别
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">
