@@ -1,0 +1,57 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-16T21:35:14.135709+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.15417v1",
+      "source": "arxiv",
+      "title": "From Frames to Temporal Graphs: In-Context Egocentric Action Recognition with Vision-Language Models",
+      "abstract": "Action reasoning in egocentric video requires capturing fine-grained transitions of hand-object interactions, a task where general-purpose Vision-Language Models (VLMs) often struggle when operating directly on raw pixels. We propose to decouple visual perception from symbolic reasoning by converting videos into Temporal Action Graphs. In a multi-stage prompting pipeline, we first generate dense natural language narratives over short temporal windows as a semantic bottleneck, then formalize them into structured, open-vocabulary graph representations. On the EGTEA and Epic-Kitchens-100 datasets, the symbolic representation unlocks efficient in-context learning: few-shot graph demonstrations yield substantial accuracy gains over zero-shot frame and graph-based inference alike. Even in the zero-shot setting, graph-based reasoning remains competitive with pixel-based inference despite potential pretraining contamination favoring the latter. Across 11 open-weight VLMs from 6 model families ranging from 2B to 235B parameters, our findings indicate that current VLMs are more effective as symbolic reasoners than as direct visual observers. By projecting video into the language domain, we provide a scalable, fine-tuning-free alternative to end-to-end approaches that better leverages these models' latent reasoning strengths. The code will be made public.",
+      "authors": [
+        "Bessie Dominguez-Dager",
+        "Francisco Gomez-Donoso",
+        "Miguel Cazorla",
+        "Marc Pollefeys",
+        "Daniel Barath",
+        "Zuria Bauer"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-13T18:00:42+00:00",
+      "link": "https://arxiv.org/pdf/2606.15417v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "uses VLM and temporal graphs for egocentric action recognition, relevant to zero-shot action recognition",
+      "llm_evidence_cn": "使用视觉语言模型和时间图进行自我中心动作识别，与零样本动作识别相关",
+      "llm_evidence": "使用视觉语言模型和时间图进行自我中心动作识别，与零样本动作识别相关",
+      "canonical_evidence": "使用视觉语言模型和时间图进行自我中心动作识别，与零样本动作识别相关",
+      "llm_tldr_en": "This work proposes converting egocentric videos into Temporal Action Graphs for in-context learning with VLMs, achieving significant accuracy gains on EGTEA and Epic-Kitchens-100 datasets with few-shot demonstrations.",
+      "llm_tldr_cn": "针对通用视觉语言模型在自我中心视频动作推理中表现不佳的问题，本文提出将视频转换为时间动作图，通过多阶段提示生成自然语言叙事并形式化为符号图，以解耦视觉感知和符号推理。在图表示上使用少量样本的上下文学习，在EGTEA和Epic-Kitchens-100数据集上取得了显著的精度提升，展示了符号化表示在开放式动作识别中的潜力。",
+      "llm_tldr": "针对通用视觉语言模型在自我中心视频动作推理中表现不佳的问题，本文提出将视频转换为时间动作图，通过多阶段提示生成自然语言叙事并形式化为符号图，以解耦视觉感知和符号推理。在图表示上使用少量样本的上下文学习，在EGTEA和Epic-Kitchens-100数据集上取得了显著的精度提升，展示了符号化表示在开放式动作识别中的潜力。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

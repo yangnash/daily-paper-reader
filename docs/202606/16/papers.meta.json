@@ -1,0 +1,24 @@
+{
+  "label": "2026-06-16",
+  "date": "2026-06-16",
+  "generated_at": "2026-06-16T21:36:09",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202606/16/2606.15417v1-from-frames-to-temporal-graphs-in-context-egocentric-action-recognition-with-vision-language-models",
+      "section": "quick",
+      "title_en": "From Frames to Temporal Graphs: In-Context Egocentric Action Recognition with Vision-Language Models",
+      "authors": "Bessie Dominguez-Dager, Francisco Gomez-Donoso, Miguel Cazorla, Marc Pollefeys, Daniel Barath, Zuria Bauer",
+      "date": "2026-06-13",
+      "pdf": "https://arxiv.org/pdf/2606.15417v1",
+      "score": "7.0",
+      "evidence": "使用视觉语言模型和时间图进行自我中心动作识别，与零样本动作识别相关",
+      "tldr": "第一人称视频动作识别中，通用视觉语言模型（VLM）直接处理像素时效果不佳。本文提出将视频转换为时序动作图，先生成自然语言叙述再形式化为图表示，实现视觉感知与符号推理的解耦。在EGTEA和Epic-Kitchens-100数据集上，少样本图示例显著提升零样本和少样本准确率；零样本图推理与像素推理性能相当。跨11个开源VLM的实验表明，VLM作为符号推理器更高效，为免微调的可扩展替代方案。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Action reasoning in egocentric video requires capturing fine-grained transitions of hand-object interactions, a task where general-purpose Vision-Language Models (VLMs) often struggle when operating directly on raw pixels. We propose to decouple visual perception from symbolic reasoning by converting videos into Temporal Action Graphs. In a multi-stage prompting pipeline, we first generate dense natural language narratives over short temporal windows as a semantic bottleneck, then formalize them into structured, open-vocabulary graph representations. On the EGTEA and Epic-Kitchens-100 datasets, the symbolic representation unlocks efficient in-context learning: few-shot graph demonstrations yield substantial accuracy gains over zero-shot frame and graph-based inference alike. Even in the zero-shot setting, graph-based reasoning remains competitive with pixel-based inference despite potential pretraining contamination favoring the latter. Across 11 open-weight VLMs from 6 model families ranging from 2B to 235B parameters, our findings indicate that current VLMs are more effective as symbolic reasoners than as direct visual observers. By projecting video into the language domain, we provide a scalable, fine-tuning-free alternative to end-to-end approaches that better leverages these models' latent reasoning strengths. The code will be made public.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

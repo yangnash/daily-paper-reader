@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-06-16 <!--dpr-date:20260616-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/16/2606.15417v1-from-frames-to-temporal-graphs-in-context-egocentric-action-recognition-with-vision-language-models" data-sidebar-item="{&quot;title&quot;: &quot;From Frames to Temporal Graphs: In-Context Egocentric Action Recognition with Vision-Language Models&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.15417v1-from-frames-to-temporal-graphs-in-context-egocentric-action-recognition-with-vision-language-models&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;使用视觉语言模型和时间图进行自我中心动作识别，与零样本动作识别相关&quot;}">From Frames to Temporal Graphs: In-Context Egocentric Action Recognition with Vision-Language Models</a>
   * 2026-06-11 <!--dpr-date:20260611-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/11/2606.12047v1-metadata-aware-multi-prompt-reasoning-for-zero-shot-accident-understanding" data-sidebar-item="{&quot;title&quot;: &quot;Metadata-Aware Multi-Prompt Reasoning for Zero-Shot Accident Understanding&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.12047v1-metadata-aware-multi-prompt-reasoning-for-zero-shot-accident-understanding&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;零样本视频事故理解，匹配零样本动作识别&quot;}">Metadata-Aware Multi-Prompt Reasoning for Zero-Shot Accident Understanding</a>
