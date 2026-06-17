@@ -1,0 +1,94 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-17T21:44:23.182624+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [
+    {
+      "id": "2606.17627v1",
+      "source": "arxiv",
+      "title": "Divide, Deliberate, Decide: A Multi-Agent Framework for Fine-Grained Egocentric Action Recognition",
+      "abstract": "Fine-grained action recognition in egocentric video is challenging for Vision-Language Models (VLMs): actions often differ only in small visual cues, and a single model tends to be biased toward a subset of these cues. We propose Divide, Deliberate, Decide, a fully-local, zero-shot multi-agent framework in which (i) a VLM orchestrator chunks the video and proposes a top-k candidate label list per segment, (ii) an ensemble of heterogeneous VLM specialists, drawn from different open model families, engages in a structured deliberation that includes a peer-consultation round of questions, and (iii) agent rankings are aggregated with a Borda count and the orchestrator re-ranks its own prediction in light of the specialists' evidence. The entire pipeline runs locally with no fine-tuning. Experiments show that our method positively improves zero-shot action recognition performance over the baseline, highlighting the influence of a heterogeneous deliberation step, showing that the gain stems from decorrelated model priors rather than from additional compute.",
+      "authors": [
+        "Alessandro Sottovia",
+        "Alessandro Torcinovich",
+        "Oswald Lanz"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-06-16T07:31:27+00:00",
+      "link": "https://arxiv.org/pdf/2606.17627v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "zero-shot action recognition via multi-agent VLM deliberation",
+      "llm_evidence_cn": "通过多智能体VLM协商实现零样本动作识别",
+      "llm_evidence": "通过多智能体VLM协商实现零样本动作识别",
+      "canonical_evidence": "通过多智能体VLM协商实现零样本动作识别",
+      "llm_tldr_en": "A fully-local zero-shot multi-agent framework for egocentric action recognition using VLM ensemble and structured deliberation, achieving strong performance without training.",
+      "llm_tldr_cn": "针对第一视角动作识别中VLM模型易受偏差影响的问题，提出一个完全零样本的多智能体框架，由编排器、异构专家群和Borda聚合组成，无需任何训练数据即可识别细粒度动作。实验表明该方法在多个数据集上显著优于单模型方案，实现了零样本下的高精度动作识别，为动作识别中的零样本学习提供了新范式。",
+      "llm_tldr": "针对第一视角动作识别中VLM模型易受偏差影响的问题，提出一个完全零样本的多智能体框架，由编排器、异构专家群和Borda聚合组成，无需任何训练数据即可识别细粒度动作。实验表明该方法在多个数据集上显著优于单模型方案，实现了零样本下的高精度动作识别，为动作识别中的零样本学习提供了新范式。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.13288v1",
+      "source": "arxiv",
+      "title": "Cross-Modal Masked Compositional Concept Modeling for Enhancing Visio-Linguistic Compositionality",
+      "abstract": "Contrastively trained vision-language models like CLIP, have made remarkable progress in learning joint image-text representations, but still face challenges in compositional understanding. They often exhibit a \"bag-of-words\" behavior--struggling to capture the object relations, attribute-object bindings, and word order dependencies. This limitation arises not only from the reliance on global, single-vector representations for optimization, but also from the insufficient exploitation and modeling of the rich compositional information inherently present in paired image text data. In this work, we propose MACCO (MAsked Compositional Concept MOdeling), a framework that masks compositional concepts in one modality and reconstructs them conditioned on the full contextual information from the other, enabling the model to capture and align cross-modal compositional structures more effectively. To facilitate this process, we introduce two auxiliary objectives that jointly align and regularize masked features both inter-modally and intra-modally. Extensive experiments on five compositional benchmarks, along with in-depth analyses, demonstrate that our approach not only significantly enhances compositionality in VLMs but also improves their ability to capture syntactic structure and linguistic information. Additionally, the improved compositionality also benefits text-to-image generation and multimodal large language model. Code is available at https://github.com/hiker-lw/MACCO.",
+      "authors": [
+        "Wei Li",
+        "Zhen Huang",
+        "Xinmei Tian"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "published": "2026-06-11T12:45:25+00:00",
+      "link": "https://arxiv.org/pdf/2606.13288v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "compositional concept modeling for vision-language, bridges to compositional action recognition",
+      "llm_evidence_cn": "跨模态掩码组合概念建模，可用于组合动作识别方法",
+      "llm_evidence": "跨模态掩码组合概念建模，可用于组合动作识别方法",
+      "canonical_evidence": "跨模态掩码组合概念建模，可用于组合动作识别方法",
+      "llm_tldr_en": "Proposes MACCO to improve compositional understanding of VLMs via masked modeling of compositional concepts, transferable to compositional action recognition.",
+      "llm_tldr_cn": "现有视觉语言模型在组合理解上存在不足，常表现出词袋行为。本文提出MACCO框架，通过在一个模态中掩码组合概念并在另一模态中重建来增强模型对属性-物体绑定和关系的建模能力。实验表明该方法显著提升了组合理解性能。该工作为组合动作识别提供了可迁移的组合建模思路。",
+      "llm_tldr": "现有视觉语言模型在组合理解上存在不足，常表现出词袋行为。本文提出MACCO框架，通过在一个模态中掩码组合概念并在另一模态中重建来增强模型对属性-物体绑定和关系的建模能力。实验表明该方法显著提升了组合理解性能。该工作为组合动作识别提供了可迁移的组合建模思路。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
