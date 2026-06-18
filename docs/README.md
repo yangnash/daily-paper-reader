@@ -6,26 +6,22 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-17
-- 运行时间：2026-06-17 21:46:16 UTC
+- 最新运行日期：2026-06-18
+- 运行时间：2026-06-18 21:13:52 UTC
 - 运行状态：成功
-- 本次总论文数：2
-- 精读区：1
-- 速读区：1
+- 本次总论文数：0
+- 精读区：0
+- 速读区：0
 
 ### 今日简报（AI）
-今日聚焦精读多智能体协同识别细粒度自我中心动作的突破性框架，速读跨模态掩码组合概念建模方法。最值得关注的是《Divide, Deliberate, Decide》9分论文提出的“分解-协商-决策”机制，显著提升复杂动作理解精度。建议优先精读该论文，探索多智能体协作在视频理解中的应用潜力。
-- 详情：[/202606/17/README](/202606/17/README)
+> 今日无新推荐，系统未产出可展示论文。
+- 详情：[/202606/18/README](/202606/18/README)
 
 ### 精读区论文标签
-1. [Divide, Deliberate, Decide: A Multi-Agent Framework for Fine-Grained Egocentric Action Recognition](/202606/17/2606.17627v1-divide-deliberate-decide-a-multi-agent-framework-for-fine-grained-egocentric-action-recognition)  
-   标签：评分：9.0/10、query:zsc-action
-   evidence：通过多智能体VLM协商实现零样本动作识别
+- 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Cross-Modal Masked Compositional Concept Modeling for Enhancing Visio-Linguistic Compositionality](/202606/17/2606.13288v1-cross-modal-masked-compositional-concept-modeling-for-enhancing-visio-linguistic-compositionality)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：跨模态掩码组合概念建模，可用于组合动作识别方法
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">
