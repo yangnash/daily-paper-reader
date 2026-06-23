@@ -1,0 +1,132 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-23T21:10:06.249851+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [
+    {
+      "id": "2606.20734v1",
+      "source": "arxiv",
+      "title": "Robust Zero-Shot Generalization for Open-Vocabulary Action Recognition via Task Arithmetic",
+      "abstract": "Open Vocabulary Action Recognition (OVAR) enables the recognition of novel actions by leveraging vision-language representations, overcoming the limitations of traditional closed-set approaches. However, achieving robust performance in real-world scenarios typically requires domain-specific fine-tuning, which is often costly and raises privacy and regulatory concerns. In this work, we propose an alternative paradigm that bypasses target-domain training and recombines knowledge from existing datasets and models. Leveraging model merging and task arithmetic, we extract and combine task vectors from models fine-tuned on diverse public OVAR datasets. We show that, in out-of-distribution settings, the resulting merged model achieves superior zero-shot generalization to the pre-trained base model. Code is available at https://github.com/omaymaMoussadek/robust-ovar",
+      "authors": [
+        "Francesca Morandi",
+        "Omayma Moussadek",
+        "Federico Venturini",
+        "Mauro Suardi",
+        "Alessandro Banzatti",
+        "Francesco Cannarile",
+        "Angelo Porrello",
+        "Simone Calderara"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-06-17T14:16:12+00:00",
+      "link": "https://arxiv.org/pdf/2606.20734v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "zero-shot action recognition via model merging and task arithmetic",
+      "llm_evidence_cn": "通过任务算术实现零样本动作识别",
+      "llm_evidence": "通过任务算术实现零样本动作识别",
+      "canonical_evidence": "通过任务算术实现零样本动作识别",
+      "llm_tldr_en": "Proposes a zero-shot open-vocabulary action recognition method that uses task arithmetic to combine knowledge from multiple datasets without target-domain fine-tuning, achieving robust generalization to novel actions.",
+      "llm_tldr_cn": "现有开放词汇动作识别需要微调，成本高且有隐私风险。本文提出一种全新范式，利用模型合并与任务算术，从多个公开数据集提取并组合任务向量，无需目标域训练即可识别未见类动作。在多种分布外设置下，合并模型取得优于基线方法的性能，为零样本组合动作识别提供了高效可扩展的解决方案。",
+      "llm_tldr": "现有开放词汇动作识别需要微调，成本高且有隐私风险。本文提出一种全新范式，利用模型合并与任务算术，从多个公开数据集提取并组合任务向量，无需目标域训练即可识别未见类动作。在多种分布外设置下，合并模型取得优于基线方法的性能，为零样本组合动作识别提供了高效可扩展的解决方案。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": [
+    {
+      "id": "2606.21358v1",
+      "source": "arxiv",
+      "title": "LEViL: Label-Efficient Video Learning via Zero-Shot Distillation over VLM-Generated Pseudo-Label Spaces",
+      "abstract": "Supervised video pretraining is a common transfer learning practice for improving downstream action recognition performance. However, it requires large-scale labeled source datasets, and the effectiveness of the learned initialization is influenced by the similarity between the source and target domains. Constructing such labeled pretraining datasets for different target domains is costly and difficult to scale. To address these limitations, this study proposes a label-efficient video learning framework that combines annotation-free video pretraining with target-label-set-aware fine-tuning. During pretraining, a vision-language model (VLM) generates textual descriptions of unlabeled videos, which are processed to construct an interpretable semantic pseudo-label space. A frozen video-language model then produces zero-shot soft target distributions over this space, allowing a student video encoder to learn semantically rich representations without manual source annotations. During downstream adaptation, target-label-set-aware fine-tuning combines supervised learning from labeled target videos with zero-shot distillation over the actual target label set, helping preserve VLM-derived semantic guidance while adapting the pretrained encoder to the target task. Experiments on UCF101 and HMDB51 show that the proposed framework outperforms the compared semi-supervised video action recognition methods across all evaluated limited-label regimes. Moreover, the annotation-free pretraining stage learns transferable representations that provide an effective initialization for full-data fine-tuning, despite relying on a comparatively modest unlabeled pretraining pool.",
+      "authors": [
+        "Aslı Çelik"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-19T12:01:10+00:00",
+      "link": "https://arxiv.org/pdf/2606.21358v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "zero-shot distillation from VLM for label-efficient video learning, improving action recognition",
+      "llm_evidence_cn": "利用VLM零样本蒸馏进行标签高效视频学习，提升动作识别",
+      "llm_evidence": "利用VLM零样本蒸馏进行标签高效视频学习，提升动作识别",
+      "canonical_evidence": "利用VLM零样本蒸馏进行标签高效视频学习，提升动作识别",
+      "llm_tldr_en": "LEViL uses zero-shot distillation with VLM-generated pseudo-labels for annotation-free video pretraining, significantly improving downstream action recognition without labeled source data.",
+      "llm_tldr_cn": "该论文针对有监督视频预训练对大规模标注数据依赖的问题，提出LEViL框架。在预训练阶段，利用VLM为无标签视频生成伪标签，通过零样本蒸馏进行无标注预训练；在微调阶段，引入目标标签集感知的微调策略。实验证明该方法能有效提升下游动作识别任务的性能，减少对标注数据的依赖，为标签高效的动作识别提供了新方案。",
+      "llm_tldr": "该论文针对有监督视频预训练对大规模标注数据依赖的问题，提出LEViL框架。在预训练阶段，利用VLM为无标签视频生成伪标签，通过零样本蒸馏进行无标注预训练；在微调阶段，引入目标标签集感知的微调策略。实验证明该方法能有效提升下游动作识别任务的性能，减少对标注数据的依赖，为标签高效的动作识别提供了新方案。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.21861v1",
+      "source": "arxiv",
+      "title": "Zero-Shot Vision-Language Models for Classroom Engagement Recognition: A Benchmark Study of Prompt Sensitivity and Cross-Dataset Generalization",
+      "abstract": "Automated classroom engagement recognition holds substantial promise for scalable learning analytics, yet the suitability of modern Vision-Language Models (VLMs) for this task under zero-shot conditions remains largely unexplored. We present a systematic benchmark that evaluates five widely-used VLMs: CLIP, BLIP-VQA, GPT-4o, LLaVA-1.5-7B, and Qwen2.5VL-7B-Instruct across two complementary educational datasets: DAiSEE, an individual-student video dataset (300 sampled test clips), and the Student Classroom Behaviour dataset (SCB, 1,168 scene-level images). Each model is probed with three prompt variants spanning minimal, rubric-anchored, and chain-of-thought designs. Our experiments reveal three primary failure modes of zero-shot VLMs for engagement recognition: (1) near-random performance on individual students, with Cohen's kappa never exceeding 0.10 on DAiSEE; (2) severe class collapse, where models assign 85-100% of predictions to a single engagement level regardless of visual content; and (3) extreme prompt sensitivity, with accuracy swings of up to 32 percentage points on identical images depending solely on prompt phrasing. Remarkably, scene-level classification on SCB is substantially more tractable: CLIP and GPT-4o achieve kappa approximately 0.60 when prompted with behaviorally-grounded rubrics. We also document a practical barrier for deployment: GPT-4o's safety filters reject 98% of chain-of-thought requests involving individual student faces. Our findings provide a calibrated baseline and surface critical design considerations for the use of VLMs in educational observation systems.",
+      "authors": [
+        "Aman Goyal",
+        "Kshama Nitin Shah",
+        "Kemmannu Vineet Venkatesh Rao"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-20T03:53:40+00:00",
+      "link": "https://arxiv.org/pdf/2606.21861v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "zero-shot VLM benchmark for classroom engagement recognition",
+      "llm_evidence_cn": "零样本视觉语言模型在课堂参与度识别上的基准研究",
+      "llm_evidence": "零样本视觉语言模型在课堂参与度识别上的基准研究",
+      "canonical_evidence": "零样本视觉语言模型在课堂参与度识别上的基准研究",
+      "llm_tldr_en": "Evaluates five zero-shot VLMs on classroom engagement recognition, showing prompt sensitivity and cross-dataset generalization.",
+      "llm_tldr_cn": "该论文对五种零样本视觉语言模型在课堂参与度识别任务上进行了系统基准测试，发现提示设计对性能有显著影响，并验证了模型在不同数据集间的泛化能力。研究为零样本学习在行为识别领域的应用提供了重要参考。",
+      "llm_tldr": "该论文对五种零样本视觉语言模型在课堂参与度识别任务上进行了系统基准测试，发现提示设计对性能有显著影响，并验证了模型在不同数据集间的泛化能力。研究为零样本学习在行为识别领域的应用提供了重要参考。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
