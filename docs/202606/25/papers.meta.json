@@ -1,0 +1,24 @@
+{
+  "label": "2026-06-25",
+  "date": "2026-06-25",
+  "generated_at": "2026-06-25T21:16:53",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202606/25/2606.25478v1-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition",
+      "section": "deep",
+      "title_en": "TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition",
+      "authors": "Minghao Zhu, Xiao Lin, Mengxian Hu, Xun Zhou, Liuyi Wang, Xiaoyan Qi, Chengju Liu, Qijun Chen",
+      "date": "2026-06-24",
+      "pdf": "https://arxiv.org/pdf/2606.25478v1",
+      "score": "8.0",
+      "evidence": "开放词汇视频识别，将CLIP适应未见类别",
+      "tldr": "针对开放词汇视频识别中CLIP适应时的泛化-特化失衡问题，现有方法因微调与评估目标不一致导致表征偏离训练分布。本文提出TACO框架，通过相对结构蒸馏保持表征空间几何结构，抑制有害对齐偏移；并引入轻量特化投影解耦表征与优化空间。在跨数据集和base-to-novel设置下取得SOTA，有效平衡了视频知识获取与预训练泛化能力。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Adapting CLIP for open-vocabulary video recognition necessitates a delicate balance between newly acquired video knowledge and the pretrained generalization. While existing studies pursue this generalization-specialization trade-off with additional regularizations or constraints, we argue that they overlook the deviation of representations beyond the fine-tuning data distribution, resulting in suboptimal adaptation effects. We believe such deviation is inherited from the inconsistency between the fine-tuning and evaluation objectives, where model optimization is restricted to the known training distribution but evaluated on unseen ones. In this paper, we introduce \\emph{TACO}, a simple yet effective framework to mitigate the potential negative effects induced by this inconsistency. Our key insight is that adaptation should preserve OOD-relevant alignment beyond the training distribution. To this end, we propose \\emph{Relative Structure Distillation}, which regularizes the relative geometry of the representation space and suppresses harmful alignment shift during training. We further decouple the representation space from the optimization space with a lightweight specialization projection, allowing task-specific adaptation without directly overspecializing the representations used at test time. \\emph{TACO} establishes state-of-the-art performance on diverse benchmarks under cross-dataset and base-to-novel settings. Code will be released at https://github.com/ZMHH-H/TACO.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

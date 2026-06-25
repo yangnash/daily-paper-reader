@@ -6,19 +6,21 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-24
-- 运行时间：2026-06-24 20:29:45 UTC
+- 最新运行日期：2026-06-25
+- 运行时间：2026-06-25 21:16:47 UTC
 - 运行状态：成功
-- 本次总论文数：0
-- 精读区：0
+- 本次总论文数：1
+- 精读区：1
 - 速读区：0
 
 ### 今日简报（AI）
-> 今日无新推荐，系统未产出可展示论文。
-- 详情：[/202606/24/README](/202606/24/README)
+今日精读一篇视频识别领域高分论文，聚焦开放词汇适应新方法。核心方向是任务一致性（Task-Consistent）的跨模态适配，有效提升预训练模型在视频理解中的泛化能力。若关注视频模型落地开放场景，值得深入实验其任务对齐机制。
+- 详情：[/202606/25/README](/202606/25/README)
 
 ### 精读区论文标签
-- 本次无精读推荐。
+1. [TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition](/202606/25/2606.25478v1-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition)  
+   标签：评分：8.0/10、query:zsc-action
+   evidence：开放词汇视频识别，将CLIP适应未见类别
 
 ### 速读区论文标签
 - 本次无速读推荐。
