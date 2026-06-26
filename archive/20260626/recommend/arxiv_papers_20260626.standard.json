@@ -1,0 +1,98 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-26T21:21:37.778732+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.25478v1",
+      "source": "arxiv",
+      "title": "TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition",
+      "abstract": "Adapting CLIP for open-vocabulary video recognition necessitates a delicate balance between newly acquired video knowledge and the pretrained generalization. While existing studies pursue this generalization-specialization trade-off with additional regularizations or constraints, we argue that they overlook the deviation of representations beyond the fine-tuning data distribution, resulting in suboptimal adaptation effects. We believe such deviation is inherited from the inconsistency between the fine-tuning and evaluation objectives, where model optimization is restricted to the known training distribution but evaluated on unseen ones. In this paper, we introduce \\emph{TACO}, a simple yet effective framework to mitigate the potential negative effects induced by this inconsistency. Our key insight is that adaptation should preserve OOD-relevant alignment beyond the training distribution. To this end, we propose \\emph{Relative Structure Distillation}, which regularizes the relative geometry of the representation space and suppresses harmful alignment shift during training. We further decouple the representation space from the optimization space with a lightweight specialization projection, allowing task-specific adaptation without directly overspecializing the representations used at test time. \\emph{TACO} establishes state-of-the-art performance on diverse benchmarks under cross-dataset and base-to-novel settings. Code will be released at https://github.com/ZMHH-H/TACO.",
+      "authors": [
+        "Minghao Zhu",
+        "Xiao Lin",
+        "Mengxian Hu",
+        "Xun Zhou",
+        "Liuyi Wang",
+        "Xiaoyan Qi",
+        "Chengju Liu",
+        "Qijun Chen"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-24T07:06:12+00:00",
+      "link": "https://arxiv.org/pdf/2606.25478v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "open-vocabulary video recognition addressing adaptation to unseen classes, similar to zero-shot action recognition",
+      "llm_evidence_cn": "开放词汇视频识别，适应未见类别，类似零样本动作识别",
+      "llm_evidence": "开放词汇视频识别，适应未见类别，类似零样本动作识别",
+      "canonical_evidence": "开放词汇视频识别，适应未见类别，类似零样本动作识别",
+      "llm_tldr_en": "Proposes TACO framework for open-vocabulary video recognition by aligning fine-tuning and evaluation objectives, enabling generalization to unseen classes; relevant as a zero-shot video understanding method.",
+      "llm_tldr_cn": "针对开放词汇视频识别中微调与评估目标不一致导致泛化差的问题，提出TACO框架。TACO通过缓解表示分布偏差，使模型在适应视频知识的同时保持预训练泛化能力。实验表明在多个视频识别基准上达到先进零样本/开放词汇性能，为视频理解中的零样本学习提供了新思路。",
+      "llm_tldr": "针对开放词汇视频识别中微调与评估目标不一致导致泛化差的问题，提出TACO框架。TACO通过缓解表示分布偏差，使模型在适应视频知识的同时保持预训练泛化能力。实验表明在多个视频识别基准上达到先进零样本/开放词汇性能，为视频理解中的零样本学习提供了新思路。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2606.21607v1",
+      "source": "arxiv",
+      "title": "T-MOR: Learning Motion-Aware Skeleton Representations for Human Action Recognition",
+      "abstract": "Vision-language models such as CLIP have recently achieved strong performance on a wide range of visual understanding tasks. However, most existing models rely primarily on appearance-level supervision from images or videos, and do not explicitly model human motion, which is essential for fine-grained and human-centric action recognition task as actions are defined by temporally structured and physically grounded body movements. To address this problem, we propose Transferable skeleton MOtion Representation (T-MOR), a motion-aware framework that learns transferable action representations from skeleton sequences with the aid of video and language supervision during training. T-MOR adopts a multi-modal contrastive learning scheme that aligns skeleton motion with visual and textual representations, while performing inference using only lightweight skeleton inputs. To support large-scale pre-training, we construct PoseCap-1M, a new dataset that contains over one million synchronized video, skeleton, and text triplets covering diverse human activities. We evaluate T-MOR on a range of human-centric action recognition benchmarks, including action classification and frame-wise temporal detection. Experimental results show that T-MOR consistently improves performance across multiple datasets, such as Toyota Smarthome, Penn Action, UAV-Human, TSU, and Charades. In addition, T-MOR demonstrates strong generalization ability in few-shot and zero-shot settings, highlighting the effectiveness of motion-centric and embodied representations for transferable action understanding.",
+      "authors": [
+        "Di Yang",
+        "Mahmoud Ali",
+        "Quan Kong",
+        "Gianpiero Francesca",
+        "Francois Bremond"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-19T17:09:14+00:00",
+      "link": "https://arxiv.org/pdf/2606.21607v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "transferable skeleton representations for action recognition via multi-modal contrastive learning with language",
+      "llm_evidence_cn": "通过多模态对比学习与语言对齐，学习可迁移的骨架动作表示",
+      "llm_evidence": "通过多模态对比学习与语言对齐，学习可迁移的骨架动作表示",
+      "canonical_evidence": "通过多模态对比学习与语言对齐，学习可迁移的骨架动作表示",
+      "llm_tldr_en": "T-MOR learns motion-aware skeleton representations for human action recognition by aligning skeleton, video, and language via contrastive learning, enabling transferable action recognition.",
+      "llm_tldr_cn": "当前动作识别方法多依赖外观信息，忽略人体运动建模。本文提出T-MOR，一个运动感知框架，通过多模态对比学习对齐骨架序列、视频和语言，学习可迁移的动作表示。在多个动作识别基准上，该方法取得了优异性能，表明显式建模运动对提升动作识别泛化能力至关重要。",
+      "llm_tldr": "当前动作识别方法多依赖外观信息，忽略人体运动建模。本文提出T-MOR，一个运动感知框架，通过多模态对比学习对齐骨架序列、视频和语言，学习可迁移的动作表示。在多个动作识别基准上，该方法取得了优异性能，表明显式建模运动对提升动作识别泛化能力至关重要。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

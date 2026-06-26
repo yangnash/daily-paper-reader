@@ -1,0 +1,39 @@
+{
+  "label": "2026-06-26",
+  "date": "2026-06-26",
+  "generated_at": "2026-06-26T21:22:19",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202606/26/2606.25478v1-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition",
+      "section": "quick",
+      "title_en": "TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition",
+      "authors": "Minghao Zhu, Xiao Lin, Mengxian Hu, Xun Zhou, Liuyi Wang, Xiaoyan Qi, Chengju Liu, Qijun Chen",
+      "date": "2026-06-24",
+      "pdf": "https://arxiv.org/pdf/2606.25478v1",
+      "score": "7.0",
+      "evidence": "开放词汇视频识别，适应未见类别，类似零样本动作识别",
+      "tldr": "针对CLIP在开放词汇视频识别中微调与评估目标不一致导致的表示偏差问题，提出TACO框架。通过相对结构蒸馏约束表示空间的相对几何结构，抑制训练中与分布外（OOD）相关的对齐偏移；同时引入轻量级专业化投影，将表示空间与优化空间解耦，避免过度专化。在跨数据集和基础到新类设置下达到SOTA，验证了方法在保持泛化性下的适应性。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Adapting CLIP for open-vocabulary video recognition necessitates a delicate balance between newly acquired video knowledge and the pretrained generalization. While existing studies pursue this generalization-specialization trade-off with additional regularizations or constraints, we argue that they overlook the deviation of representations beyond the fine-tuning data distribution, resulting in suboptimal adaptation effects. We believe such deviation is inherited from the inconsistency between the fine-tuning and evaluation objectives, where model optimization is restricted to the known training distribution but evaluated on unseen ones. In this paper, we introduce \\emph{TACO}, a simple yet effective framework to mitigate the potential negative effects induced by this inconsistency. Our key insight is that adaptation should preserve OOD-relevant alignment beyond the training distribution. To this end, we propose \\emph{Relative Structure Distillation}, which regularizes the relative geometry of the representation space and suppresses harmful alignment shift during training. We further decouple the representation space from the optimization space with a lightweight specialization projection, allowing task-specific adaptation without directly overspecializing the representations used at test time. \\emph{TACO} establishes state-of-the-art performance on diverse benchmarks under cross-dataset and base-to-novel settings. Code will be released at https://github.com/ZMHH-H/TACO.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/26/2606.21607v1-t-mor-learning-motion-aware-skeleton-representations-for-human-action-recognition",
+      "section": "quick",
+      "title_en": "T-MOR: Learning Motion-Aware Skeleton Representations for Human Action Recognition",
+      "authors": "Di Yang, Mahmoud Ali, Quan Kong, Gianpiero Francesca, Francois Bremond",
+      "date": "2026-06-19",
+      "pdf": "https://arxiv.org/pdf/2606.21607v1",
+      "score": "6.0",
+      "evidence": "通过多模态对比学习与语言对齐，学习可迁移的骨架动作表示",
+      "tldr": "现有视觉语言模型多依赖外观监督，未显式建模人体动作关键的运动结构。本文提出T-MOR，一个运动感知框架，利用视频和语言监督训练，从骨架序列学习可迁移动作表示，采用多模态对比学习对齐骨架运动与视觉、文本表征，推理仅需轻量骨架输入。为支持大规模预训练，构建PoseCap-1M包含百万级视频-骨架-文本三元组。在Toyota Smarthome、Penn Action等五个基准上，T-MOR在动作分类和帧级时序检测任务中持续提升性能，并在少样本和零样本设置中展示强泛化能力。该方法凸显了运动中心与具身表示对可迁移动作理解的有效性。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Vision-language models such as CLIP have recently achieved strong performance on a wide range of visual understanding tasks. However, most existing models rely primarily on appearance-level supervision from images or videos, and do not explicitly model human motion, which is essential for fine-grained and human-centric action recognition task as actions are defined by temporally structured and physically grounded body movements. To address this problem, we propose Transferable skeleton MOtion Representation (T-MOR), a motion-aware framework that learns transferable action representations from skeleton sequences with the aid of video and language supervision during training. T-MOR adopts a multi-modal contrastive learning scheme that aligns skeleton motion with visual and textual representations, while performing inference using only lightweight skeleton inputs. To support large-scale pre-training, we construct PoseCap-1M, a new dataset that contains over one million synchronized video, skeleton, and text triplets covering diverse human activities. We evaluate T-MOR on a range of human-centric action recognition benchmarks, including action classification and frame-wise temporal detection. Experimental results show that T-MOR consistently improves performance across multiple datasets, such as Toyota Smarthome, Penn Action, UAV-Human, TSU, and Charades. In addition, T-MOR demonstrates strong generalization ability in few-shot and zero-shot settings, highlighting the effectiveness of motion-centric and embodied representations for transferable action understanding.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
