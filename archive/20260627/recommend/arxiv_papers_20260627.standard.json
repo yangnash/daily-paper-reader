@@ -1,0 +1,59 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-27T20:26:46.028738+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.25478v1",
+      "source": "arxiv",
+      "title": "TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition",
+      "abstract": "Adapting CLIP for open-vocabulary video recognition necessitates a delicate balance between newly acquired video knowledge and the pretrained generalization. While existing studies pursue this generalization-specialization trade-off with additional regularizations or constraints, we argue that they overlook the deviation of representations beyond the fine-tuning data distribution, resulting in suboptimal adaptation effects. We believe such deviation is inherited from the inconsistency between the fine-tuning and evaluation objectives, where model optimization is restricted to the known training distribution but evaluated on unseen ones. In this paper, we introduce \\emph{TACO}, a simple yet effective framework to mitigate the potential negative effects induced by this inconsistency. Our key insight is that adaptation should preserve OOD-relevant alignment beyond the training distribution. To this end, we propose \\emph{Relative Structure Distillation}, which regularizes the relative geometry of the representation space and suppresses harmful alignment shift during training. We further decouple the representation space from the optimization space with a lightweight specialization projection, allowing task-specific adaptation without directly overspecializing the representations used at test time. \\emph{TACO} establishes state-of-the-art performance on diverse benchmarks under cross-dataset and base-to-novel settings. Code will be released at https://github.com/ZMHH-H/TACO.",
+      "authors": [
+        "Minghao Zhu",
+        "Xiao Lin",
+        "Mengxian Hu",
+        "Xun Zhou",
+        "Liuyi Wang",
+        "Xiaoyan Qi",
+        "Chengju Liu",
+        "Qijun Chen"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-24T07:06:12+00:00",
+      "link": "https://arxiv.org/pdf/2606.25478v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "open-vocabulary video recognition method that can be applied to action recognition",
+      "llm_evidence_cn": "开放词汇视频识别方法可应用于动作识别",
+      "llm_evidence": "开放词汇视频识别方法可应用于动作识别",
+      "canonical_evidence": "开放词汇视频识别方法可应用于动作识别",
+      "llm_tldr_en": "TACO proposes a task-consistent adaptation framework for open-vocabulary video recognition via CLIP, addressing distribution shift between fine-tuning and evaluation, which has potential for zero-shot action recognition.",
+      "llm_tldr_cn": "TACO提出了一种任务一致的开放词汇视频识别适应框架，通过CLIP缓解微调与评估之间的分布偏移，支持对未见类别的识别。虽然侧重于通用视频识别，但其零样本泛化思想与零样本动作识别高度兼容，方法具有迁移潜力。",
+      "llm_tldr": "TACO提出了一种任务一致的开放词汇视频识别适应框架，通过CLIP缓解微调与评估之间的分布偏移，支持对未见类别的识别。虽然侧重于通用视频识别，但其零样本泛化思想与零样本动作识别高度兼容，方法具有迁移潜力。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

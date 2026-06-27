@@ -6,31 +6,26 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-26
-- 运行时间：2026-06-26 21:22:14 UTC
+- 最新运行日期：2026-06-27
+- 运行时间：2026-06-27 20:27:01 UTC
 - 运行状态：成功
-- 本次总论文数：2
+- 本次总论文数：1
 - 精读区：0
-- 速读区：2
+- 速读区：1
 
 ### 今日简报（AI）
-今日速读两篇视频与动作识别论文，分别关注开放词汇适应和骨架运动表示。
-
-其中《TACO》得分7.0，在视频识别开放词汇适应任务上更具参考价值。
-
-建议优先精读《TACO》，并关注其与现有视频理解模型结合的实际效果。
-- 详情：[/202606/26/README](/202606/26/README)
+今日推荐速读1篇论文，聚焦视频识别中的任务一致开放词汇适配问题。  
+核心方向：TACO方法通过保持任务一致性，提升视频开放词汇识别的泛化能力。  
+下一步建议：关注开放词汇技术在多模态视频理解中的实际应用前景。
+- 详情：[/202606/27/README](/202606/27/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition](/202606/26/2606.25478v1-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition)  
-   标签：评分：7.0/10、query:zsc-action
-   evidence：开放词汇视频识别，适应未见类别，类似零样本动作识别
-2. [T-MOR: Learning Motion-Aware Skeleton Representations for Human Action Recognition](/202606/26/2606.21607v1-t-mor-learning-motion-aware-skeleton-representations-for-human-action-recognition)  
+1. [TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition](/202606/27/2606.25478v1-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition)  
    标签：评分：6.0/10、query:zsc-action
-   evidence：通过多模态对比学习与语言对齐，学习可迁移的骨架动作表示
+   evidence：开放词汇视频识别方法可应用于动作识别
 
 
 <div class="dpr-home-promo-card">
