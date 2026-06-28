@@ -1,0 +1,57 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-28T20:18:50.720626+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 0,
+    "quick_skim_target": 11,
+    "quick_selected": 0
+  },
+  "deep_dive": [
+    {
+      "id": "2606.22409v1",
+      "source": "arxiv",
+      "title": "Gold Points Sniper: Self-guided Visual Reasoning in VLM for Fine-grained Action Understanding",
+      "abstract": "Robots operating in everyday environments must understand fine-grained human actions, intentions, and contextual cues from broad views where people occupy only small regions, a capability unmet by current systems. While open-vocabulary action recognition methods remain limited to assigning predefined labels, and vision-language models (VLMs) face an inherent trade-off between informational richness and factual fidelity in their outputs, neither approach achieves the deep semantic interpretation required for reliable human-robot interaction. We propose Gold Points Sniper (GPS), a novel framework that empowers lightweight VLMs with self-guided multimodal reasoning capabilities for fine-grained human action understanding. Our approach comprises three key modules: Gold Points Extractor trains VLMs to identify critical action-relevant details, Selective Socratic Questioner validates and refines these details through selective self-questioning, and Semantic Entailment Evaluator quantitatively assesses factual consistency using semantic entailment classification. Extensive experiments on our curated instruction-tuning dataset based on the CAP benchmark demonstrate that GPS-enhanced lightweight VLMs achieve substantial performance improvements, with some models reaching performance comparable to proprietary GPT-4o while maintaining superior factual accuracy. Our work establishes a reliable foundation for fine-grained action understanding in domestic robotics, enabling robots to safely interpret human behavior through information-dense yet factually grounded descriptions. Source code, training configurations, annotation prompts, and dataset details are released at https://github.com/Haodi-Liu/GPS-Gold-Point-Sniper.",
+      "authors": [
+        "Haodi Liu",
+        "Xinhang Yang",
+        "Kunda Yan",
+        "Sen Cui",
+        "Zeyu Zhang",
+        "Changshui Zhang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-06-21T09:54:39+00:00",
+      "link": "https://arxiv.org/pdf/2606.22409v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "fine-grained action understanding with VLM, zero-shot via open-vocabulary",
+      "llm_evidence_cn": "利用VLM进行细粒度动作理解，具备开放词汇的零样本能力",
+      "llm_evidence": "利用VLM进行细粒度动作理解，具备开放词汇的零样本能力",
+      "canonical_evidence": "利用VLM进行细粒度动作理解，具备开放词汇的零样本能力",
+      "llm_tldr_en": "Proposes Gold Points Sniper, a self-guided VLM framework for fine-grained human action understanding with open-vocabulary recognition, addressing limitations of existing action recognition methods.",
+      "llm_tldr_cn": "现有动作识别方法在细粒度理解和开放词汇场景下存在局限，而已有的VLM在信息丰富度和事实准确性之间存在权衡。为此提出金点狙击手（GPS）框架，赋予轻量级VLM自我引导的多模态推理能力，实现对细粒度人类动作的深层语义理解。实验表明该方法在动作理解任务上表现优越，为机器人交互提供可靠支撑。",
+      "llm_tldr": "现有动作识别方法在细粒度理解和开放词汇场景下存在局限，而已有的VLM在信息丰富度和事实准确性之间存在权衡。为此提出金点狙击手（GPS）框架，赋予轻量级VLM自我引导的多模态推理能力，实现对细粒度人类动作的深层语义理解。实验表明该方法在动作理解任务上表现优越，为机器人交互提供可靠支撑。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": []
+}

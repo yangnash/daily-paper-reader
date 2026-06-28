@@ -6,26 +6,24 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-27
-- 运行时间：2026-06-27 20:27:01 UTC
+- 最新运行日期：2026-06-28
+- 运行时间：2026-06-28 20:19:49 UTC
 - 运行状态：成功
 - 本次总论文数：1
-- 精读区：0
-- 速读区：1
+- 精读区：1
+- 速读区：0
 
 ### 今日简报（AI）
-今日推荐速读1篇论文，聚焦视频识别中的任务一致开放词汇适配问题。  
-核心方向：TACO方法通过保持任务一致性，提升视频开放词汇识别的泛化能力。  
-下一步建议：关注开放词汇技术在多模态视频理解中的实际应用前景。
-- 详情：[/202606/27/README](/202606/27/README)
+今日精读1篇8分论文，聚焦视觉语言模型（VLM）的细粒度动作理解。 核心亮点是提出“Gold Points Sniper”自引导视觉推理方法，无需人工标注即可提升动作识别的准确性。 建议关注自监督推理在视频理解中的应用，尤其适合处理复杂、细微的动作场景。
+- 详情：[/202606/28/README](/202606/28/README)
 
 ### 精读区论文标签
-- 本次无精读推荐。
+1. [Gold Points Sniper: Self-guided Visual Reasoning in VLM for Fine-grained Action Understanding](/202606/28/2606.22409v1-gold-points-sniper-self-guided-visual-reasoning-in-vlm-for-fine-grained-action-understanding)  
+   标签：评分：8.0/10、query:zsc-action
+   evidence：利用VLM进行细粒度动作理解，具备开放词汇的零样本能力
 
 ### 速读区论文标签
-1. [TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition](/202606/27/2606.25478v1-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：开放词汇视频识别方法可应用于动作识别
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">

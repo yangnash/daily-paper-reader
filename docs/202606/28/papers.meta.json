@@ -1,0 +1,24 @@
+{
+  "label": "2026-06-28",
+  "date": "2026-06-28",
+  "generated_at": "2026-06-28T20:19:57",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202606/28/2606.22409v1-gold-points-sniper-self-guided-visual-reasoning-in-vlm-for-fine-grained-action-understanding",
+      "section": "deep",
+      "title_en": "Gold Points Sniper: Self-guided Visual Reasoning in VLM for Fine-grained Action Understanding",
+      "authors": "Haodi Liu, Xinhang Yang, Kunda Yan, Sen Cui, Zeyu Zhang, Changshui Zhang",
+      "date": "2026-06-21",
+      "pdf": "https://arxiv.org/pdf/2606.22409v1",
+      "score": "8.0",
+      "evidence": "利用VLM进行细粒度动作理解，具备开放词汇的零样本能力",
+      "tldr": "机器人需理解细粒度人类动作，但现有VLM存在信息丰富性与事实准确性间的权衡。本文提出Gold Points Sniper (GPS)框架，通过关键点提取、选择性自问答和语义蕴含评估三个模块，增强轻量级VLM的自引导多模态推理能力。在CAP数据集上，GPS使轻量模型性能大幅提升，部分接近GPT-4o且事实准确性更优。该工作为家庭机器人安全、可靠地理解人类行为奠定了基础。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Robots operating in everyday environments must understand fine-grained human actions, intentions, and contextual cues from broad views where people occupy only small regions, a capability unmet by current systems. While open-vocabulary action recognition methods remain limited to assigning predefined labels, and vision-language models (VLMs) face an inherent trade-off between informational richness and factual fidelity in their outputs, neither approach achieves the deep semantic interpretation required for reliable human-robot interaction. We propose Gold Points Sniper (GPS), a novel framework that empowers lightweight VLMs with self-guided multimodal reasoning capabilities for fine-grained human action understanding. Our approach comprises three key modules: Gold Points Extractor trains VLMs to identify critical action-relevant details, Selective Socratic Questioner validates and refines these details through selective self-questioning, and Semantic Entailment Evaluator quantitatively assesses factual consistency using semantic entailment classification. Extensive experiments on our curated instruction-tuning dataset based on the CAP benchmark demonstrate that GPS-enhanced lightweight VLMs achieve substantial performance improvements, with some models reaching performance comparable to proprietary GPT-4o while maintaining superior factual accuracy. Our work establishes a reliable foundation for fine-grained action understanding in domestic robotics, enabling robots to safely interpret human behavior through information-dense yet factually grounded descriptions. Source code, training configurations, annotation prompts, and dataset details are released at https://github.com/Haodi-Liu/GPS-Gold-Point-Sniper.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
