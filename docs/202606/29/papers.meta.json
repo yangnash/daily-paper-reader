@@ -1,0 +1,54 @@
+{
+  "label": "2026-06-29",
+  "date": "2026-06-29",
+  "generated_at": "2026-06-29T21:46:24",
+  "count": 3,
+  "papers": [
+    {
+      "paper_id": "202606/29/2606.27547v1-beyond-mocap-scaling-motion-tokenizers-with-synthetic-human-motion-for-generative-modeling",
+      "section": "deep",
+      "title_en": "Beyond MoCap: Scaling Motion Tokenizers with Synthetic Human Motion for Generative Modeling",
+      "authors": "Yiwen Yan, Wanning He, Yu-Wing Tai",
+      "date": "2026-06-25",
+      "pdf": "https://arxiv.org/pdf/2606.27547v1",
+      "score": "8.0",
+      "evidence": "利用合成数据生成罕见组合人类运动",
+      "tldr": "人类运动生成模型受限于动作捕捉数据集多样性不足，难以覆盖复杂运动。本文提出利用大规模合成运动数据扩展运动表示空间，设计适配的数据生成流程和VQ-VAE tokenizer，联合扩展训练分布与离散代码本。实验表明该方法显著提升了运动词汇的覆盖率和组合性，在文本到运动等任务上取得一致提升。结果表明运动表示的限制是主要瓶颈，合成数据与表示学习结合为通用运动合成提供了可行路径。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Human motion generation models are fundamentally constrained by the limited diversity of motion capture datasets, which predominantly contain common, repetitive actions and fail to cover the long tail of complex human movements, resulting in a restricted motion vocabulary in learned latent representations and poor generalization to rare, compositional, and highly dynamic motions. In this work, we propose a framework for expanding the motion representation space by leveraging large-scale synthetic human motion, introducing a data generation pipeline that produces diverse, physically plausible motion sequences beyond the distribution of existing datasets and integrating it with a redesigned VQ-VAE tokenizer that adapts to this expanded motion space. Unlike conventional tokenizers trained on narrow data distributions, our approach jointly scales both the training distribution and the discrete codebook, enabling the model to capture a significantly richer set of motion primitives. We demonstrate that training with synthetic motion substantially improves the coverage and compositionality of the learned motion vocabulary, leading to consistent gains across motion generation tasks such as text-to-motion and motion continuation, while remaining fully compatible with existing frameworks including MotionGPT. Our results suggest that the primary bottleneck lies in the limited support of the learned motion representation, rather than model architecture alone. Scaling synthetic motion in tandem with representation learning offers a principled path toward more expressive, controllable, and generalizable human motion synthesis.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/29/2606.22567v1-concept-constrained-prompt-learning-for-few-shot-clip-adaptation",
+      "section": "quick",
+      "title_en": "Concept-Constrained Prompt Learning for Few-Shot CLIP Adaptation",
+      "authors": "Na Sang, Ding Ma, Rui Sang, Yuxuan Liu",
+      "date": "2026-06-21",
+      "pdf": "https://arxiv.org/pdf/2606.22567v1",
+      "score": "7.0",
+      "evidence": "少样本提示学习提升对未见类别的泛化能力",
+      "tldr": "针对CLIP小样本提示学习中仅优化类别提示词易过拟合基类且弱化泛化的问题，提出概念约束提示学习(CCPL)。该方法冻结CLIP编码器，学习共享上下文令牌并引入概念级文本原型进行余弦一致性约束，结合概念丢弃正则化。在多个数据集上相比CoOp提升了基类到新类的调和平均准确率，尤其DTD和EuroSAT显著提升。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Few-shot prompt learning is an effective strategy for adapting CLIP to downstream tasks, but class-only prompt optimization can overfit base-class supervision and weaken transfer to unseen classes. We propose Concept-Constrained Prompt Learning (CCPL), a lightweight regularization framework that anchors learnable class prompts to frozen concept-level text prototypes without updating CLIP encoders. CCPL learns a set of shared context tokens, instantiates class prompts by appending class names, and constructs frozen concept prototypes from a class-level concept bank. During training, a text-space cosine consistency objective aligns learnable class-prompt embeddings with frozen concept prototypes; concept dropout provides additional regularization against over-reliance on fixed concept lists. At inference, CCPL optionally fuses class-prompt logits with concept-prototype logits using a controllable ensemble weight alpha. Our default configuration uses text-space concept regularization lambda = 0.5, concept dropout p = 0.3 and weak concept-guided fusion (alpha = 0.1), with no KL-based prediction consistency term. Experiments under identical automatically-generated fallback splits show that CCPL improves the base-to-new harmonic mean on DTD (+0.6) and EuroSAT (+2.9) compared with CoOp, while remaining near-neutral on OxfordPets (-0.1). Ablations indicate that text-space concept regularization is consistently beneficial, while the best concept-guided inference strength is dataset- and protocol-sensitive. These results suggest concept constraints are most effective when concept prototypes align naturally with dataset semantics, and identify fine-grained categories as a current boundary condition. The code is released at: https://github.com/richael-sang/concept-constrained-prompt-learning.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202606/29/2606.23256v1-p-jepa-procedural-video-representation-learning-via-joint-embedding-predictive-architecture",
+      "section": "quick",
+      "title_en": "P-JEPA: Procedural Video Representation Learning via Joint Embedding Predictive Architecture",
+      "authors": "Felix Tristram, Stefano Gasperini, Benjamin Killeen, Marcel Walch, Christian Benz, Nassir Navab, Ghazal Ghazaei",
+      "date": "2026-06-22",
+      "pdf": "https://arxiv.org/pdf/2606.23256v1",
+      "score": "6.0",
+      "evidence": "处理长程依赖的程序视频表示学习",
+      "tldr": "程序性视频包含具有长程依赖的动作，现有模型因自注意力二次复杂度难以处理。本文提出P-JEPA，通过将问题简化为密集帧对齐动作空间并预测池化掩码隐向量，实现骨干无关的长视频表示学习。在EgoExo4D等数据集上，该方法持续提升线性可分性、流推理和时序动作分割性能，并在EgoExo4D细粒度分类上达到最优，参数量比LLM方法少一个数量级且实时运行。P-JEPA支持超过30分钟的视频，为程序性理解提供高效方案。",
+      "tags": "query:zsc-action",
+      "abstract_en": "The increasing maturity of embodied AI platforms has driven a growing interest in procedural video representation learning to support intelligent assistance systems for complex, multi-step tasks. Leveraging large-scale latent predictive training, video foundation models capture video dynamics, enabling downstream tasks such as activity understanding, spatiotemporal localization, and predictive control. However, procedural videos include actions with long-range dependencies that these models do not support, due to the quadratic complexity of self-attention. Distinct actions, for example, may be visually similar despite appearing at different points in the procedure, such as turning the stove on versus off. Here, we propose a backbone-agnostic approach that learns long-duration video representations by reducing the problem to a dense, frame-aligned action space and predicting pooled masked latent vectors. This approach allows our Procedural Joint Embedding Predictive Architecture (P-JEPA) to ingest videos over 30 minutes long, enabling effective long-form understanding of procedural steps. We evaluate P-JEPA using features extracted with VJEPA2.1, TSM, and I3D over the EgoExo4D, EgoProceL, and Assembly101 datasets, finding that it consistently improves linear separability, streaming inference, and temporal action segmentation performance, achieving state-of-the-art results on EgoExo4D fine-grained action classification while using an order of magnitude fewer parameters than LLM-based methods and running in real time.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
