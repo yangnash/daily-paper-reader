@@ -1,0 +1,24 @@
+{
+  "label": "2026-06-30",
+  "date": "2026-06-30",
+  "generated_at": "2026-06-30T21:59:24",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202606/30/2606.27965v1-grammar-guided-hierarchical-parsing-for-long-form-audio-activity-recognition",
+      "section": "quick",
+      "title_en": "Grammar-Guided Hierarchical Parsing for Long-form Audio Activity Recognition",
+      "authors": "Peng Zhang, Qingyu Luo, Philip J. B. Jackson, Wenwu Wang",
+      "date": "2026-06-26",
+      "pdf": "https://arxiv.org/pdf/2606.27965v1",
+      "score": "7.0",
+      "evidence": "语法引导的分层解析用于组合活动识别",
+      "tldr": "长音频活动具有层次结构，现有方法分别建模各层导致不一致且需多级监督。本文提出层次活动语法，编码组成和时序约束，通过语法引导解码从事件后验推断解析树，导出子活动分割和活动分类。无需子活动或活动标签训练，在MultiAct数据集上提升时序一致性Edit score，并生成可解释层次。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Long-form audio exhibits an inherent hierarchy: fine-grained events form sub-activities, which in turn constitute higher-level activities. Prior work often models these levels separately, leading to cross-level inconsistencies and requiring supervision at multiple levels. We formulate the problem as hierarchical parsing from event-level evidence: given detected event segments with class posteriors, we infer an order-consistent Act-Sub-Event parse tree. We propose Hierarchical Activity Grammar, encoding hierarchical composition and temporal-order constraints, and perform grammar-guided decoding that combines event evidence with a grammar prior. This yields a temporally grounded parse tree from which sub-activity segmentation and activity classification are derived, without requiring sub-activity or activity labels for training. Experiments on the long-form MultiAct audio dataset demonstrate improved temporal-order consistency (Edit score) and produces interpretable hierarchies.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

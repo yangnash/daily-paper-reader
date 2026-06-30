@@ -1,0 +1,56 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-06-30T21:58:49.263612+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2606.27965v1",
+      "source": "arxiv",
+      "title": "Grammar-Guided Hierarchical Parsing for Long-form Audio Activity Recognition",
+      "abstract": "Long-form audio exhibits an inherent hierarchy: fine-grained events form sub-activities, which in turn constitute higher-level activities. Prior work often models these levels separately, leading to cross-level inconsistencies and requiring supervision at multiple levels. We formulate the problem as hierarchical parsing from event-level evidence: given detected event segments with class posteriors, we infer an order-consistent Act-Sub-Event parse tree. We propose Hierarchical Activity Grammar, encoding hierarchical composition and temporal-order constraints, and perform grammar-guided decoding that combines event evidence with a grammar prior. This yields a temporally grounded parse tree from which sub-activity segmentation and activity classification are derived, without requiring sub-activity or activity labels for training. Experiments on the long-form MultiAct audio dataset demonstrate improved temporal-order consistency (Edit score) and produces interpretable hierarchies.",
+      "authors": [
+        "Peng Zhang",
+        "Qingyu Luo",
+        "Philip J. B. Jackson",
+        "Wenwu Wang"
+      ],
+      "primary_category": "cs.SD",
+      "categories": [
+        "cs.SD",
+        "eess.AS"
+      ],
+      "published": "2026-06-26T11:10:23+00:00",
+      "link": "https://arxiv.org/pdf/2606.27965v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "Grammar-guided hierarchical parsing for compositional activity recognition",
+      "llm_evidence_cn": "语法引导的分层解析用于组合活动识别",
+      "llm_evidence": "语法引导的分层解析用于组合活动识别",
+      "canonical_evidence": "语法引导的分层解析用于组合活动识别",
+      "llm_tldr_en": "Proposes a grammar-guided hierarchical parsing method for long-form audio activity recognition, using a Hierarchical Activity Grammar to compose events into sub-activities and activities, improving consistency and accuracy.",
+      "llm_tldr_cn": "面向长音频活动识别任务，现有方法对事件、子活动和活动分别建模导致层级不一致。本文提出层级活动语法（Hierarchical Activity Grammar），该语法编码层次组合与时序约束，通过语法引导解码从事件证据中推理出活动-子事件解析树。在长音频数据集上，该方法显著提升了活动识别的准确性和跨层一致性，验证了利用语法先验进行组合活动识别的有效性。该工作为组合动作识别提供了可迁移的方法论。",
+      "llm_tldr": "面向长音频活动识别任务，现有方法对事件、子活动和活动分别建模导致层级不一致。本文提出层级活动语法（Hierarchical Activity Grammar），该语法编码层次组合与时序约束，通过语法引导解码从事件证据中推理出活动-子事件解析树。在长音频数据集上，该方法显著提升了活动识别的准确性和跨层一致性，验证了利用语法先验进行组合活动识别的有效性。该工作为组合动作识别提供了可迁移的方法论。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

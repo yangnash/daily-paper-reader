@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-06-30 <!--dpr-date:20260630-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/30/2606.27965v1-grammar-guided-hierarchical-parsing-for-long-form-audio-activity-recognition" data-sidebar-item="{&quot;title&quot;: &quot;Grammar-Guided Hierarchical Parsing for Long-form Audio Activity Recognition&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.27965v1-grammar-guided-hierarchical-parsing-for-long-form-audio-activity-recognition&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;语法引导的分层解析用于组合活动识别&quot;}">Grammar-Guided Hierarchical Parsing for Long-form Audio Activity Recognition</a>
   * 2026-06-29 <!--dpr-date:20260629-->
     * 精读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/29/2606.27547v1-beyond-mocap-scaling-motion-tokenizers-with-synthetic-human-motion-for-generative-modeling" data-sidebar-item="{&quot;title&quot;: &quot;Beyond MoCap: Scaling Motion Tokenizers with Synthetic Human Motion for Generative Modeling&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.27547v1-beyond-mocap-scaling-motion-tokenizers-with-synthetic-human-motion-for-generative-modeling&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;利用合成数据生成罕见组合人类运动&quot;}">Beyond MoCap: Scaling Motion Tokenizers with Synthetic Human Motion for Generative Modeling</a>

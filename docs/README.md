@@ -6,31 +6,26 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-06-29
-- 运行时间：2026-06-29 21:46:15 UTC
+- 最新运行日期：2026-06-30
+- 运行时间：2026-06-30 21:59:17 UTC
 - 运行状态：成功
-- 本次总论文数：3
-- 精读区：1
-- 速读区：2
+- 本次总论文数：1
+- 精读区：0
+- 速读区：1
 
 ### 今日简报（AI）
-今日推荐3篇论文，精读聚焦合成人体运动生成建模。  
-最值得关注《Beyond MoCap》提出的运动tokenizer方法，以及《Concept-Constrained Prompt Learning》对少样本CLIP的改进。  
-建议优先阅读精读论文，深入了解合成数据在人体运动生成中的潜力。
-- 详情：[/202606/29/README](/202606/29/README)
+今日速读1篇论文，聚焦长音频活动识别的结构化解析方法。
+值得关注方向：语法引导分层解析用于长音频活动识别，评分7.0/10，方法创新但落地待验证。
+建议普通读者可关注该方法在复杂音频场景（如会议、播客）中的实用潜力，后续留意相关开源资源。
+- 详情：[/202606/30/README](/202606/30/README)
 
 ### 精读区论文标签
-1. [Beyond MoCap: Scaling Motion Tokenizers with Synthetic Human Motion for Generative Modeling](/202606/29/2606.27547v1-beyond-mocap-scaling-motion-tokenizers-with-synthetic-human-motion-for-generative-modeling)  
-   标签：评分：8.0/10、query:zsc-action
-   evidence：利用合成数据生成罕见组合人类运动
+- 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Concept-Constrained Prompt Learning for Few-Shot CLIP Adaptation](/202606/29/2606.22567v1-concept-constrained-prompt-learning-for-few-shot-clip-adaptation)  
+1. [Grammar-Guided Hierarchical Parsing for Long-form Audio Activity Recognition](/202606/30/2606.27965v1-grammar-guided-hierarchical-parsing-for-long-form-audio-activity-recognition)  
    标签：评分：7.0/10、query:zsc-action
-   evidence：少样本提示学习提升对未见类别的泛化能力
-2. [P-JEPA: Procedural Video Representation Learning via Joint Embedding Predictive Architecture](/202606/29/2606.23256v1-p-jepa-procedural-video-representation-learning-via-joint-embedding-predictive-architecture)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：处理长程依赖的程序视频表示学习
+   evidence：语法引导的分层解析用于组合活动识别
 
 
 <div class="dpr-home-promo-card">
