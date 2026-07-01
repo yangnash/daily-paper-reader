@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-01 <!--dpr-date:20260701-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/01/2606.25478v2-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition" data-sidebar-item="{&quot;title&quot;: &quot;TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.25478v2-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;开集视频识别方法，适应未见类别&quot;}">TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition</a>
   * 2026-06-30 <!--dpr-date:20260630-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202606/30/2606.27965v1-grammar-guided-hierarchical-parsing-for-long-form-audio-activity-recognition" data-sidebar-item="{&quot;title&quot;: &quot;Grammar-Guided Hierarchical Parsing for Long-form Audio Activity Recognition&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.27965v1-grammar-guided-hierarchical-parsing-for-long-form-audio-activity-recognition&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;语法引导的分层解析用于组合活动识别&quot;}">Grammar-Guided Hierarchical Parsing for Long-form Audio Activity Recognition</a>
