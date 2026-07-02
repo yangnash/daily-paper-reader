@@ -1,0 +1,53 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-02T21:21:16.903058+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 0,
+    "quick_skim_target": 11,
+    "quick_selected": 0
+  },
+  "deep_dive": [
+    {
+      "id": "2607.00351v1",
+      "source": "arxiv",
+      "title": "Unleashing More Actions via Action Compositional Training for VLA Models",
+      "abstract": "Vision-Language-Action models excel at robotic manipulation, driven by the scale and diversity of demonstration data. However, standard training paradigms often cause VLA models to severely overfit to specific behavioral patterns, rendering them unable to generalize to out-of-distribution scenarios even when those scenarios merely require novel combinations of identical sub-skills. While expanding datasets can mitigate this overfitting, acquiring high-quality robot data remains notoriously labor-intensive and cost-prohibitive. To resolve this impasse without expensive human teleoperation and to truly unleash more actions,i.e., enable VLA models to compose known sub-skills into a much broader set of executable behaviors beyond the original demonstrations-we propose ACT-VLA (Action Compositional Training for VLA Models), an offline data augmentation framework that leverages the model's latent task representations to synthesize novel, physically valid demonstrations directly from existing tasks for policy training. By eliminating additional manual data collection, our method automatically expands the training distribution and mitigates overfitting. We evaluate our approach on challenging manipulation tasks in simulation. Experiments demonstrate that while baseline VLA models generalize poorly due to original distribution overfitting, policies trained with our synthesized data achieve substantially higher success rates, validating that leveraging existing tasks for automated demonstration synthesis provides an effective, scalable, and data-efficient route to broadening VLA generalization.",
+      "authors": [
+        "Kai Peng",
+        "Jie Lu",
+        "Xiaojiang Peng"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "published": "2026-07-01T02:48:17+00:00",
+      "link": "https://arxiv.org/pdf/2607.00351v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "proposes action compositional training to generalize to novel sub-skill combinations",
+      "llm_evidence_cn": "提出动作组合训练方法以泛化到新的子技能组合",
+      "llm_evidence": "提出动作组合训练方法以泛化到新的子技能组合",
+      "canonical_evidence": "提出动作组合训练方法以泛化到新的子技能组合",
+      "llm_tldr_en": "This paper targets the overfitting of VLA models to specific behaviors by introducing action compositional training, enabling zero-shot composition of known sub-skills into new executable actions, directly addressing compositional action recognition.",
+      "llm_tldr_cn": "本文针对VLA模型在机器人操作中严重过拟合特定行为模式的问题，提出动作组合训练方法。该方法无需额外数据，通过组合已知子技能生成新行为，实现了对未见过的组合动作的零样本泛化。实验证明该方法显著提升了模型在分布外场景下的表现，为组合动作识别提供了高效且实用的训练范式。",
+      "llm_tldr": "本文针对VLA模型在机器人操作中严重过拟合特定行为模式的问题，提出动作组合训练方法。该方法无需额外数据，通过组合已知子技能生成新行为，实现了对未见过的组合动作的零样本泛化。实验证明该方法显著提升了模型在分布外场景下的表现，为组合动作识别提供了高效且实用的训练范式。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": []
+}

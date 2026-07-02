@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-02 <!--dpr-date:20260702-->
+    * 精读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/02/2607.00351v1-unleashing-more-actions-via-action-compositional-training-for-vla-models" data-sidebar-item="{&quot;title&quot;: &quot;Unleashing More Actions via Action Compositional Training for VLA Models&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.00351v1-unleashing-more-actions-via-action-compositional-training-for-vla-models&quot;, &quot;score&quot;: &quot;9.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;提出动作组合训练方法以泛化到新的子技能组合&quot;}">Unleashing More Actions via Action Compositional Training for VLA Models</a>
   * 2026-07-01 <!--dpr-date:20260701-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/01/2606.25478v2-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition" data-sidebar-item="{&quot;title&quot;: &quot;TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.25478v2-taco-towards-task-consistent-open-vocabulary-adaptation-in-video-recognition&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;开集视频识别方法，适应未见类别&quot;}">TACO: Towards Task-Consistent Open-Vocabulary Adaptation in Video Recognition</a>

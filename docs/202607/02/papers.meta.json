@@ -1,0 +1,24 @@
+{
+  "label": "2026-07-02",
+  "date": "2026-07-02",
+  "generated_at": "2026-07-02T21:22:21",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202607/02/2607.00351v1-unleashing-more-actions-via-action-compositional-training-for-vla-models",
+      "section": "deep",
+      "title_en": "Unleashing More Actions via Action Compositional Training for VLA Models",
+      "authors": "Kai Peng, Jie Lu, Xiaojiang Peng",
+      "date": "2026-07-01",
+      "pdf": "https://arxiv.org/pdf/2607.00351v1",
+      "score": "9.0",
+      "evidence": "提出动作组合训练方法以泛化到新的子技能组合",
+      "tldr": "视觉-语言-动作模型在机器人操作中常因过拟合特定行为模式而无法泛化到仅需子技能新组合的场景。为突破此瓶颈，提出ACT-VLA离线数据增强框架，利用模型潜在任务表示从现有任务自动合成物理可行的新演示。实验表明，基线模型泛化差，而用合成数据训练的策略在仿真任务中成功率显著提升。该方法无需额外人工数据收集即可扩展训练分布，为提升VLA泛化性提供了高效且可扩展的途径。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Vision-Language-Action models excel at robotic manipulation, driven by the scale and diversity of demonstration data. However, standard training paradigms often cause VLA models to severely overfit to specific behavioral patterns, rendering them unable to generalize to out-of-distribution scenarios even when those scenarios merely require novel combinations of identical sub-skills. While expanding datasets can mitigate this overfitting, acquiring high-quality robot data remains notoriously labor-intensive and cost-prohibitive. To resolve this impasse without expensive human teleoperation and to truly unleash more actions,i.e., enable VLA models to compose known sub-skills into a much broader set of executable behaviors beyond the original demonstrations-we propose ACT-VLA (Action Compositional Training for VLA Models), an offline data augmentation framework that leverages the model's latent task representations to synthesize novel, physically valid demonstrations directly from existing tasks for policy training. By eliminating additional manual data collection, our method automatically expands the training distribution and mitigates overfitting. We evaluate our approach on challenging manipulation tasks in simulation. Experiments demonstrate that while baseline VLA models generalize poorly due to original distribution overfitting, policies trained with our synthesized data achieve substantially higher success rates, validating that leveraging existing tasks for automated demonstration synthesis provides an effective, scalable, and data-efficient route to broadening VLA generalization.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
