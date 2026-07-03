@@ -6,26 +6,29 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-02
-- 运行时间：2026-07-02 21:22:15 UTC
+- 最新运行日期：2026-07-03
+- 运行时间：2026-07-03 21:09:32 UTC
 - 运行状态：成功
-- 本次总论文数：1
-- 精读区：1
-- 速读区：0
+- 本次总论文数：2
+- 精读区：0
+- 速读区：2
 
 ### 今日简报（AI）
-今天精读了得分9.0的VLA模型论文，聚焦通过动作组合训练释放更多动作能力。  
-核心发现是动作组合训练能显著提升多模态动作表示的泛化性和丰富度，对机器人灵巧操作有重要启发。  
-建议深入研读该文的动作组合策略与训练流程，并尝试在自建机器人仿真或真实场景中验证其效果。
-- 详情：[/202607/02/README](/202607/02/README)
+今日推荐2篇论文，分别聚焦鲁棒手术多任务学习与零样本组合图像检索。  
+最值得关注：时间一致性标签插值法提升手术复杂场景鲁棒性，以及重新设计代理任务优化组合图像检索零样本性能。  
+建议读者从这两方向入手：探索标签插值在视频手术分析中的应用，并思考代理任务设计对多模态检索的启发。
+- 详情：[/202607/03/README](/202607/03/README)
 
 ### 精读区论文标签
-1. [Unleashing More Actions via Action Compositional Training for VLA Models](/202607/02/2607.00351v1-unleashing-more-actions-via-action-compositional-training-for-vla-models)  
-   标签：评分：9.0/10、query:zsc-action
-   evidence：提出动作组合训练方法以泛化到新的子技能组合
+- 本次无精读推荐。
 
 ### 速读区论文标签
-- 本次无速读推荐。
+1. [Temporally Consistent Label Interpolation for Robust Surgical Multi-Task Learning under Challenging Conditions](/202607/03/2606.26634v1-temporally-consistent-label-interpolation-for-robust-surgical-multi-task-learning-under-challenging-conditions)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：手术场景中利用零样本标签插值进行动作识别
+2. [Learning to Compose: Revisiting Proxy Task Design for Zero-Shot Composed Image Retrieval](/202607/03/2607.00374v1-learning-to-compose-revisiting-proxy-task-design-for-zero-shot-composed-image-retrieval)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：零样本组合学习用于检索
 
 
 <div class="dpr-home-promo-card">

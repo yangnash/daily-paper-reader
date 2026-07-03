@@ -1,0 +1,39 @@
+{
+  "label": "2026-07-03",
+  "date": "2026-07-03",
+  "generated_at": "2026-07-03T21:09:41",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202607/03/2606.26634v1-temporally-consistent-label-interpolation-for-robust-surgical-multi-task-learning-under-challenging-conditions",
+      "section": "quick",
+      "title_en": "Temporally Consistent Label Interpolation for Robust Surgical Multi-Task Learning under Challenging Conditions",
+      "authors": "Garam Kim, Juyoun Park",
+      "date": "2026-06-25",
+      "pdf": "https://arxiv.org/pdf/2606.26634v1",
+      "score": "6.0",
+      "evidence": "手术场景中利用零样本标签插值进行动作识别",
+      "tldr": "手术多任务学习中，空间任务（如图像分割）仅稀疏标注，而时间任务（如阶段识别）需密集监督，导致异构任务训练不平衡。本文提出FAROS框架，利用光流与零样本分割生成时间一致的密集伪标签，克服手术场景中遮挡、烟雾等挑战。在DAVIS 2017及GraSP、MISAW、AutoLaparo基准上，FAROS显著提升跨任务表示学习与整体性能。该工作弥合了标注粒度鸿沟，促进鲁棒手术场景理解。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Effective multi-task learning for surgical scene understanding is fundamentally hindered by annotation granularity mismatch; temporal workflow tasks such as phase recognition, step recognition and anticipation benefit from dense frame-level supervision, whereas pixel-level spatial tasks including instrument segmentation and action recognition are only sparsely annotated on selected keyframes due to prohibitive labeling costs. This supervision imbalance undermines shared representation learning and limits joint optimization across heterogeneous surgical tasks. To address this, we propose Flow-guided Annotation for Robust Operating Scenes (FAROS), a flow-guided label interpolation framework, that combines zero-shot segmentation-based mask propagation with optical flow estimation to overcome the limitations of appearance-based propagation under challenging surgical conditions such as occlusion, smoke, and motion blur, generating temporally consistent dense pseudo labels from sparse keyframe annotations. The densified instrument masks and action labels are integrated into a unified Transformer-based multi-task framework that jointly learns surgical phase recognition, step recognition, anticipation, instrument segmentation, and action recognition, enabling balanced optimization between dense temporal supervision and sparse spatial supervision. The label interpolation quality of FAROS is first validated on the DAVIS 2017 benchmark under a sparse ground-truth protocol, confirming robust propagation beyond the surgical domain. Extensive experiments on GraSP, MISAW, and AutoLaparo benchmarks further demonstrate that FAROS significantly improves cross-task representation learning and enhances holistic surgical scene understanding performance across spatio-temporal tasks.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/03/2607.00374v1-learning-to-compose-revisiting-proxy-task-design-for-zero-shot-composed-image-retrieval",
+      "section": "quick",
+      "title_en": "Learning to Compose: Revisiting Proxy Task Design for Zero-Shot Composed Image Retrieval",
+      "authors": "Jingjing Zhang, Lei Zhang, Zheren Fu, Zhendong Mao",
+      "date": "2026-07-01",
+      "pdf": "https://arxiv.org/pdf/2607.00374v1",
+      "score": "6.0",
+      "evidence": "零样本组合学习用于检索",
+      "tldr": "零样本组合图像检索面临现有代理任务未学习组合函数的问题，限制了语义修改的表达能力。为此提出FoCo方法，将组合建模为聚焦相关视觉内容与完成目标语义两个阶段，通过文本锚定的视觉聚合和上下文条件语义完成两个代理任务联合训练。在四个基准上取得最先进性能，显著提升了泛化能力。该工作首次将组合函数本身纳入学习，为零样本CIR提供了新范式。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Composed Image Retrieval (CIR) retrieves a target image from a reference image and a textual modification. While supervised CIR relies on costly triplets, Zero-Shot CIR (ZS-CIR) alleviates this reliance through proxy tasks trained on image-text pairs. However, existing proxy tasks primarily enhance visual and textual representations to accommodate a predefined composition mechanism such as pseudo-word injection into a frozen text encoder or linear feature arithmetic. As a result, the composition function itself remains unlearned, limiting the model's ability to express diverse and fine-grained semantic modifications. To address this, we propose FoCo, which models composition as two coordinated stages: focusing on modification-relevant visual content, and then completing the target semantics. We realize these through two proxy tasks: text-anchored visual aggregation to selectively gather visual content guided by localized textual semantics, and context-conditioned semantic completion to transform these aggregated visuals with the remaining scene context into a coherent composed representation. The tasks are trained jointly with a cross-instance contrastive objective, encouraging semantic diversity and discouraging shortcut composition strategies. Extensive experiments on four ZS-CIR benchmarks show FoCo's state-of-the-art performance and improved generalization.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
