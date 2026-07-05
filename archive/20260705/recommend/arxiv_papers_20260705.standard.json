@@ -1,0 +1,54 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-05T20:32:03.186151+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.02425v1",
+      "source": "arxiv",
+      "title": "Learning to Evolve Scenes: Reasoning about Human Activities with Scene Graphs",
+      "abstract": "Understanding human behavior while interacting with the surrounding world is crucial for many applications of embodied AI. First-person videos are particularly informative for this problem, as they well capture how activities reshape the scene over time. However, existing approaches often rely on implicit visual or language-aligned representations, disregarding structured reasoning over the scene dynamic. We argue that explicit, compositional and editable representations of human-environment interactions can play a crucial role for rich grounded activity understanding. To this end, we introduce SG-Ego, a large scale annotation set extending Ego4D with spatio-temporal scene graphs, where relations triplets are consolidated over time into explicit time-evolving descriptions of the scene state. To reason over this representation, we propose GLEN, a graph-based model that operates over scene graph sequences to both align them with textual actions and model their temporal evolution. In addition, we formulate the activity-driven graph-edit forecasting (A-GEF) problem, a novel task that casts scene dynamics as a sequence of structured transformations conditioned on ongoing actions, enabling explicit reasoning about how scenes change over time. We validate our approach across multiple downstream tasks, spanning retrieval benchmarks as EgoMCQ and EgoCVR, as well as long-horizon reasoning benchmarks as EXPLORE-Bench and the newly introduced A-GEF. GLEN achieves strong results compared to raw video baselines and it excels in reasoning settings, typically addressed only with MLLMs, while enabling controllable and structured predictions of scene dynamics driven by human activities. We believe our results establish spatio-temporal scene graphs, together with models that reason over them, as strong compositional and interpretable representations for video understanding and potentially beyond.",
+      "authors": [
+        "Francesca Pistilli",
+        "Simone Alberto Peirone",
+        "Giuseppe Averta"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-02T16:53:42+00:00",
+      "link": "https://arxiv.org/pdf/2607.02425v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "compositional scene graph reasoning for human activity understanding",
+      "llm_evidence_cn": "用于人类活动理解的组合场景图推理",
+      "llm_evidence": "用于人类活动理解的组合场景图推理",
+      "canonical_evidence": "用于人类活动理解的组合场景图推理",
+      "llm_tldr_en": "Proposes SG-Ego, a large-scale annotation set with spatio-temporal scene graphs for Ego4D, enabling explicit compositional reasoning about human-environment interactions for activity understanding.",
+      "llm_tldr_cn": "该论文提出SG-Ego，一个在Ego4D基础上扩展的大规模注释集，包含时空场景图。通过显式的、组合化的表示，该方法能够对人与环境的交互进行结构化推理，从而更好地理解人类活动。实验表明，基于场景图的推理在多种活动理解任务中优于隐式表示方法。这项工作为组合动作识别提供了可编辑和可解释的表示框架。",
+      "llm_tldr": "该论文提出SG-Ego，一个在Ego4D基础上扩展的大规模注释集，包含时空场景图。通过显式的、组合化的表示，该方法能够对人与环境的交互进行结构化推理，从而更好地理解人类活动。实验表明，基于场景图的推理在多种活动理解任务中优于隐式表示方法。这项工作为组合动作识别提供了可编辑和可解释的表示框架。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

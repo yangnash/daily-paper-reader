@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-05 <!--dpr-date:20260705-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/05/2607.02425v1-learning-to-evolve-scenes-reasoning-about-human-activities-with-scene-graphs" data-sidebar-item="{&quot;title&quot;: &quot;Learning to Evolve Scenes: Reasoning about Human Activities with Scene Graphs&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.02425v1-learning-to-evolve-scenes-reasoning-about-human-activities-with-scene-graphs&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;用于人类活动理解的组合场景图推理&quot;}">Learning to Evolve Scenes: Reasoning about Human Activities with Scene Graphs</a>
   * 2026-07-03 <!--dpr-date:20260703-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/03/2606.26634v1-temporally-consistent-label-interpolation-for-robust-surgical-multi-task-learning-under-challenging-conditions" data-sidebar-item="{&quot;title&quot;: &quot;Temporally Consistent Label Interpolation for Robust Surgical Multi-Task Learning under Challenging Conditions&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2606.26634v1-temporally-consistent-label-interpolation-for-robust-surgical-multi-task-learning-under-challenging-conditions&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;手术场景中利用零样本标签插值进行动作识别&quot;}">Temporally Consistent Label Interpolation for Robust Surgical Multi-Task Learning under Challenging Conditions</a>
