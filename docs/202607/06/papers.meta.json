@@ -1,0 +1,39 @@
+{
+  "label": "2026-07-06",
+  "date": "2026-07-06",
+  "generated_at": "2026-07-06T21:08:12",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202607/06/2606.31187v1-learning-to-deny-action-denial-in-multimodal-large-language-models",
+      "section": "quick",
+      "title_en": "Learning to Deny: Action Denial in Multimodal Large Language Models",
+      "authors": "Raiyaan Abdullah, Shehreen Azad, Yogesh Singh Rawat",
+      "date": "2026-06-30",
+      "pdf": "https://arxiv.org/pdf/2606.31187v1",
+      "score": "6.0",
+      "evidence": "在UCF101-AD基准上使用MLLM进行零样本动作识别评估",
+      "tldr": "多模态大模型在视频动作识别中表现优异，但无法判断动作是否真实发生。本文构建UCF101-AD基准，包含正反面对视频，揭示模型在动作否认任务上准确率骤降至50%以下。提出CausalAct因果图方法，通过自然语言提示关联场景结构，显著减少假阳性。该研究暴露了模型因果推理的盲点，并为改进提供了新视角。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Multimodal large language models (MLLMs) have rapidly advanced video understanding, achieving strong zero-shot and few-shot recognition across standard benchmarks. Yet their ability to deny an action by recognizing when an activity is not happening despite strong contextual cues remains largely unexplored. We introduce UCF101-AD, a large-scale benchmark consisting of paired Action-Presence and Action-Denial clips, designed to evaluate this capacity for denial. Each negative video in UCF101-AD preserves the same contextual and motion cues, including persons, objects, and locations, as its positive counterpart, but the defining action itself is explicitly absent. Evaluating 20 state-of-the-art MLLMs reveals a consistent failure: models that exceed 85% accuracy on the positive action classes collapse below 50% on their action-denial counterparts, indicating a strong inclination to affirm plausible actions rather than verify that they truly occur. This exposes a critical blind spot in modern video understanding: the inability to reason causally about whether a motion actually happens. To probe this issue, we explore a causal graph formulation, CausalAct, which expresses scene structure through natural-language prompts linking context, interaction, and motion. Incorporating such causal cues substantially reduces false positives, demonstrating that denial is a learnable reasoning skill. UCF101-AD provides a new lens for diagnosing and improving causal reasoning in multimodal models. Dataset and relevant code: https://github.com/raiyaan-abdullah/Learn-to-Deny.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/06/2607.02425v1-learning-to-evolve-scenes-reasoning-about-human-activities-with-scene-graphs",
+      "section": "quick",
+      "title_en": "Learning to Evolve Scenes: Reasoning about Human Activities with Scene Graphs",
+      "authors": "Francesca Pistilli, Simone Alberto Peirone, Giuseppe Averta",
+      "date": "2026-07-02",
+      "pdf": "https://arxiv.org/pdf/2607.02425v1",
+      "score": "6.0",
+      "evidence": "组合场景图用于活动理解",
+      "tldr": "针对第一人称视频理解中缺乏结构化场景动态推理的问题，本文构建了SG-Ego大规模时空场景图数据集，并提出GLEN图模型以对齐场景图序列与动作文本并建模其时序演化。在EgoMCQ、EgoCVR及A-GEF等任务上，GLEN超越原始视频基线，在长程推理中达到与多模态大模型相当的性能，提供了可组合、可编辑的场景动态表示。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Understanding human behavior while interacting with the surrounding world is crucial for many applications of embodied AI. First-person videos are particularly informative for this problem, as they well capture how activities reshape the scene over time. However, existing approaches often rely on implicit visual or language-aligned representations, disregarding structured reasoning over the scene dynamic. We argue that explicit, compositional and editable representations of human-environment interactions can play a crucial role for rich grounded activity understanding. To this end, we introduce SG-Ego, a large scale annotation set extending Ego4D with spatio-temporal scene graphs, where relations triplets are consolidated over time into explicit time-evolving descriptions of the scene state. To reason over this representation, we propose GLEN, a graph-based model that operates over scene graph sequences to both align them with textual actions and model their temporal evolution. In addition, we formulate the activity-driven graph-edit forecasting (A-GEF) problem, a novel task that casts scene dynamics as a sequence of structured transformations conditioned on ongoing actions, enabling explicit reasoning about how scenes change over time. We validate our approach across multiple downstream tasks, spanning retrieval benchmarks as EgoMCQ and EgoCVR, as well as long-horizon reasoning benchmarks as EXPLORE-Bench and the newly introduced A-GEF. GLEN achieves strong results compared to raw video baselines and it excels in reasoning settings, typically addressed only with MLLMs, while enabling controllable and structured predictions of scene dynamics driven by human activities. We believe our results establish spatio-temporal scene graphs, together with models that reason over them, as strong compositional and interpretable representations for video understanding and potentially beyond.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

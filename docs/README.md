@@ -6,26 +6,29 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-05
-- 运行时间：2026-07-05 20:32:53 UTC
+- 最新运行日期：2026-07-06
+- 运行时间：2026-07-06 21:08:04 UTC
 - 运行状态：成功
-- 本次总论文数：1
+- 本次总论文数：2
 - 精读区：0
-- 速读区：1
+- 速读区：2
 
 ### 今日简报（AI）
-今日推荐一篇速读论文，聚焦用“进化场景”结合场景图推理人类活动的新思路。  
-核心亮点在于将场景图动态演化与行为理解相结合，适合关注视频理解、人机交互的读者。  
-建议进一步搜索该论文的具体方法，对比传统活动识别技术，感受场景时序演化的创新价值。
-- 详情：[/202607/05/README](/202607/05/README)
+今日速读两篇论文，分别关注多模态大语言模型的拒绝能力与场景图推理人类活动。  
+最值得看的是动作拒绝与场景演化两个方向，分别提升模型安全性与活动理解能力。  
+建议进一步阅读原文，思考如何将拒绝机制融入动态场景推理中。
+- 详情：[/202607/06/README](/202607/06/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Learning to Evolve Scenes: Reasoning about Human Activities with Scene Graphs](/202607/05/2607.02425v1-learning-to-evolve-scenes-reasoning-about-human-activities-with-scene-graphs)  
-   标签：评分：7.0/10、query:zsc-action
-   evidence：用于人类活动理解的组合场景图推理
+1. [Learning to Deny: Action Denial in Multimodal Large Language Models](/202607/06/2606.31187v1-learning-to-deny-action-denial-in-multimodal-large-language-models)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：在UCF101-AD基准上使用MLLM进行零样本动作识别评估
+2. [Learning to Evolve Scenes: Reasoning about Human Activities with Scene Graphs](/202607/06/2607.02425v1-learning-to-evolve-scenes-reasoning-about-human-activities-with-scene-graphs)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：组合场景图用于活动理解
 
 
 <div class="dpr-home-promo-card">
