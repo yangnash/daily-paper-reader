@@ -6,29 +6,22 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-06
-- 运行时间：2026-07-06 21:08:04 UTC
+- 最新运行日期：2026-07-07
+- 运行时间：2026-07-07 20:37:24 UTC
 - 运行状态：成功
-- 本次总论文数：2
+- 本次总论文数：0
 - 精读区：0
-- 速读区：2
+- 速读区：0
 
 ### 今日简报（AI）
-今日速读两篇论文，分别关注多模态大语言模型的拒绝能力与场景图推理人类活动。  
-最值得看的是动作拒绝与场景演化两个方向，分别提升模型安全性与活动理解能力。  
-建议进一步阅读原文，思考如何将拒绝机制融入动态场景推理中。
-- 详情：[/202607/06/README](/202607/06/README)
+> 今日无新推荐，系统未产出可展示论文。
+- 详情：[/202607/07/README](/202607/07/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Learning to Deny: Action Denial in Multimodal Large Language Models](/202607/06/2606.31187v1-learning-to-deny-action-denial-in-multimodal-large-language-models)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：在UCF101-AD基准上使用MLLM进行零样本动作识别评估
-2. [Learning to Evolve Scenes: Reasoning about Human Activities with Scene Graphs](/202607/06/2607.02425v1-learning-to-evolve-scenes-reasoning-about-human-activities-with-scene-graphs)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：组合场景图用于活动理解
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">
