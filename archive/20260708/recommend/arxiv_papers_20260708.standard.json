@@ -1,0 +1,54 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-08T21:27:18.156205+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 0,
+    "quick_skim_target": 11,
+    "quick_selected": 0
+  },
+  "deep_dive": [
+    {
+      "id": "2607.05911v1",
+      "source": "arxiv",
+      "title": "Progressive Reasoning with Primitive Correction for Compositional Zero-Shot Learning",
+      "abstract": "Compositional Zero-Shot Learning (CZSL) aims to combine known attributes and objects as primitives for recognizing previously unseen attribute-object pairs. Prior works either predict attributes and objects independently, missing their strong contextual dependency, or use unidirectional conditional modeling (e.g., object-guided attribute prediction), which is prone to error propagation. We propose PRPC, a Progressive Reasoning framework with Primitive Correction, which explicitly models the bidirectional dependency between attributes and objects via step-wise inference. PRPC performs mutual correction of primitives to suppress prediction errors in earlier steps. Specifically, we formulate CZSL as structured, Q&A-style Chain-of-Thought reasoning process and constrain the MLLM to follow predefined semantic steps to generate intermediate decisions. To further enhance the reliability and logical consistency of intermediate reasoning, we introduce reinforcement learning post-training with a GRPO-based objective, providing step-level rewards aligned with the progressive inference procedure. Extensive experiments on three CZSL benchmarks demonstrate that PRPC achieves state-of-the-art performance, validating the effectiveness of progressive reasoning and bidirectional correction for robust compositional generalization.",
+      "authors": [
+        "Ziyi Chen",
+        "Haoyan Shi",
+        "Sunhan Xu",
+        "Congyan Lang"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-07T07:06:27+00:00",
+      "link": "https://arxiv.org/pdf/2607.05911v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "compositional zero-shot learning with primitive correction",
+      "llm_evidence_cn": "组合零样本学习中的原始纠正",
+      "llm_evidence": "组合零样本学习中的原始纠正",
+      "canonical_evidence": "组合零样本学习中的原始纠正",
+      "llm_tldr_en": "PRPC proposes progressive reasoning and primitive correction for compositional zero-shot learning, directly applicable to recognizing unseen action compositions.",
+      "llm_tldr_cn": "该论文针对组合零样本学习（CZSL）中已知属性和对象的组合识别问题，提出渐进推理与原始纠正（PRPC）框架，通过显式建模属性和对象之间的双向依赖关系，并逐步纠正原始预测错误，实现更准确的未见过组合识别。实验表明该方法在多个CZSL基准上达到最优性能，且其思路可直接迁移到组合动作识别场景，为主体、动作等原语的组合识别提供有效范式。",
+      "llm_tldr": "该论文针对组合零样本学习（CZSL）中已知属性和对象的组合识别问题，提出渐进推理与原始纠正（PRPC）框架，通过显式建模属性和对象之间的双向依赖关系，并逐步纠正原始预测错误，实现更准确的未见过组合识别。实验表明该方法在多个CZSL基准上达到最优性能，且其思路可直接迁移到组合动作识别场景，为主体、动作等原语的组合识别提供有效范式。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero shot compositional action recognition methods",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": []
+}

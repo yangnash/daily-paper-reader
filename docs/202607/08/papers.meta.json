@@ -1,0 +1,24 @@
+{
+  "label": "2026-07-08",
+  "date": "2026-07-08",
+  "generated_at": "2026-07-08T21:28:31",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202607/08/2607.05911v1-progressive-reasoning-with-primitive-correction-for-compositional-zero-shot-learning",
+      "section": "deep",
+      "title_en": "Progressive Reasoning with Primitive Correction for Compositional Zero-Shot Learning",
+      "authors": "Ziyi Chen, Haoyan Shi, Sunhan Xu, Congyan Lang",
+      "date": "2026-07-07",
+      "pdf": "https://arxiv.org/pdf/2607.05911v1",
+      "score": "9.0",
+      "evidence": "组合零样本学习中的原始纠正",
+      "tldr": "组合零样本学习（CZSL）需识别未见过的属性-对象对，但现有方法忽略属性与对象的双向依赖或易错误传播。本文提出PRPC框架，通过渐进推理和原语校正机制显式建模双向依赖，将CZSL转化为结构化思维链推理过程，并利用GRPO强化学习后训练提升中间步骤可靠性。在三个基准上取得最优性能，验证了渐进推理与双向校正对组合泛化的有效性。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Compositional Zero-Shot Learning (CZSL) aims to combine known attributes and objects as primitives for recognizing previously unseen attribute-object pairs. Prior works either predict attributes and objects independently, missing their strong contextual dependency, or use unidirectional conditional modeling (e.g., object-guided attribute prediction), which is prone to error propagation. We propose PRPC, a Progressive Reasoning framework with Primitive Correction, which explicitly models the bidirectional dependency between attributes and objects via step-wise inference. PRPC performs mutual correction of primitives to suppress prediction errors in earlier steps. Specifically, we formulate CZSL as structured, Q&A-style Chain-of-Thought reasoning process and constrain the MLLM to follow predefined semantic steps to generate intermediate decisions. To further enhance the reliability and logical consistency of intermediate reasoning, we introduce reinforcement learning post-training with a GRPO-based objective, providing step-level rewards aligned with the progressive inference procedure. Extensive experiments on three CZSL benchmarks demonstrate that PRPC achieves state-of-the-art performance, validating the effectiveness of progressive reasoning and bidirectional correction for robust compositional generalization.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
