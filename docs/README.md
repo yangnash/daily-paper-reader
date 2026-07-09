@@ -6,23 +6,19 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-08
-- 运行时间：2026-07-08 21:28:25 UTC
+- 最新运行日期：2026-07-09
+- 运行时间：2026-07-09 20:47:17 UTC
 - 运行状态：成功
-- 本次总论文数：1
-- 精读区：1
+- 本次总论文数：0
+- 精读区：0
 - 速读区：0
 
 ### 今日简报（AI）
-今日精读一篇得分为9.0的高质量论文，主题为组合零样本学习的渐进推理与原始修正。  
-论文提出在组合零样本学习中结合原始修正的渐进推理策略，显著提升了模型对未见组合的泛化能力。  
-建议对零样本学习、组合泛化或推理改进感兴趣的读者优先阅读该文。
-- 详情：[/202607/08/README](/202607/08/README)
+> 今日无新推荐，系统未产出可展示论文。
+- 详情：[/202607/09/README](/202607/09/README)
 
 ### 精读区论文标签
-1. [Progressive Reasoning with Primitive Correction for Compositional Zero-Shot Learning](/202607/08/2607.05911v1-progressive-reasoning-with-primitive-correction-for-compositional-zero-shot-learning)  
-   标签：评分：9.0/10、query:zsc-action
-   evidence：组合零样本学习中的原始纠正
+- 本次无精读推荐。
 
 ### 速读区论文标签
 - 本次无速读推荐。
