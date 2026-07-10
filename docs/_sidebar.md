@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-10 <!--dpr-date:20260710-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/10/2607.08514v1-do-egocentric-video-language-models-capture-both-hand--and-object-centric-cues" data-sidebar-item="{&quot;title&quot;: &quot;Do Egocentric Video-Language Models Capture Both Hand- and Object-Centric Cues?&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.08514v1-do-egocentric-video-language-models-capture-both-hand--and-object-centric-cues&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;研究自我中心视频中手-物组合交互线索用于动作识别&quot;}">Do Egocentric Video-Language Models Capture Both Hand- and Object-Centric Cues?</a>
   * 2026-07-08 <!--dpr-date:20260708-->
     * 精读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/08/2607.05911v1-progressive-reasoning-with-primitive-correction-for-compositional-zero-shot-learning" data-sidebar-item="{&quot;title&quot;: &quot;Progressive Reasoning with Primitive Correction for Compositional Zero-Shot Learning&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.05911v1-progressive-reasoning-with-primitive-correction-for-compositional-zero-shot-learning&quot;, &quot;score&quot;: &quot;9.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;组合零样本学习中的原始纠正&quot;}">Progressive Reasoning with Primitive Correction for Compositional Zero-Shot Learning</a>
