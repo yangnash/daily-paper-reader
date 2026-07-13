@@ -1,0 +1,58 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-13T20:06:05.257420+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.07395v1",
+      "source": "arxiv",
+      "title": "When Prompts Ignore Structure: Graph-Based Attribute Reasoning for Calibrated VLMs",
+      "abstract": "Reliable confidence estimation remains a key limitation of test-time adaptation in vision-language models (VLMs), where prompt tuning improves zero-shot accuracy but often degrades calibration due to entropy-driven overconfidence. Prior approaches mitigate this using LLM-derived class attributes and contrastive regularization, yet treat attributes independently, ignoring their relational structure. We propose ARGTCA, which represents (class, attribute) pairs as nodes in a Symbolic Attribute Graph and trains a Graph Attention Network (GAT) using contrastive objectives to produce structurally informed embeddings that capture inter-attribute dependencies. We introduce two attribute selection strategies: ARGTCA-DIV for intra-class diversity and ARGTCA-DISC for inter-class discrimination. Experiments across nine benchmarks show that ARGTCA-DIV reduces average Expected Calibration Error (ECE) by approximately ~37% over baselines, while ARGTCA-DISC consistently performs as the second-best variant, reducing average ECE by approximately ~17% over baselines. These results suggest that modeling symbolic attribute interactions provides a principled approach for reliable test-time adaptation in VLMs.",
+      "authors": [
+        "Tanay Sodha",
+        "Aditya Sharma",
+        "Ramya Hebbalaguppe",
+        "Vinti Agarwal",
+        "Pranav Murthy Yeluripaty"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-08T13:31:17+00:00",
+      "link": "https://arxiv.org/pdf/2607.07395v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "zero-shot learning and attribute reasoning method",
+      "llm_evidence_cn": "零样本学习和属性推理方法",
+      "llm_evidence": "零样本学习和属性推理方法",
+      "canonical_evidence": "零样本学习和属性推理方法",
+      "llm_tldr_en": "Proposes ARGTCA which uses a Symbolic Attribute Graph and GAT to model inter-attribute dependencies for improved VLM calibration under zero-shot settings; offers transferable method for zero-shot compositional action recognition.",
+      "llm_tldr_cn": "现有视觉语言模型在零样本场景下校准不佳，且忽略属性间结构关系。本文提出ARGTCA，将类别-属性对构建为符号属性图，利用图注意力网络学习结构感知嵌入，捕捉属性间依赖关系，提升零样本准确率与校准性能。该方法可迁移至零样本组合动作识别中的属性推理任务，为组合动作识别提供方法论支撑。",
+      "llm_tldr": "现有视觉语言模型在零样本场景下校准不佳，且忽略属性间结构关系。本文提出ARGTCA，将类别-属性对构建为符号属性图，利用图注意力网络学习结构感知嵌入，捕捉属性间依赖关系，提升零样本准确率与校准性能。该方法可迁移至零样本组合动作识别中的属性推理任务，为组合动作识别提供方法论支撑。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
