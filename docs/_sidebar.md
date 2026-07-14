@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-14 <!--dpr-date:20260714-->
+    * 精读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/14/2607.10797v1-compositional-context-fine-tuning-vision-language-model-for-complex-assembly-action-understanding-from-videos" data-sidebar-item="{&quot;title&quot;: &quot;Compositional Context Fine-Tuning Vision-Language Model for Complex Assembly Action Understanding from Videos&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.10797v1-compositional-context-fine-tuning-vision-language-model-for-complex-assembly-action-understanding-from-videos&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;通过动词、对象、工具分解和VLM微调实现组合动作理解&quot;}">Compositional Context Fine-Tuning Vision-Language Model for Complex Assembly Action Understanding from Videos</a>
   * 2026-07-13 <!--dpr-date:20260713-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/13/2607.07395v1-when-prompts-ignore-structure-graph-based-attribute-reasoning-for-calibrated-vlms" data-sidebar-item="{&quot;title&quot;: &quot;When Prompts Ignore Structure: Graph-Based Attribute Reasoning for Calibrated VLMs&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.07395v1-when-prompts-ignore-structure-graph-based-attribute-reasoning-for-calibrated-vlms&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;零样本学习和属性推理方法&quot;}">When Prompts Ignore Structure: Graph-Based Attribute Reasoning for Calibrated VLMs</a>

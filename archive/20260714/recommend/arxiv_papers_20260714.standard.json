@@ -1,0 +1,55 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-14T20:04:49.439065+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 0,
+    "quick_skim_target": 11,
+    "quick_selected": 0
+  },
+  "deep_dive": [
+    {
+      "id": "2607.10797v1",
+      "source": "arxiv",
+      "title": "Compositional Context Fine-Tuning Vision-Language Model for Complex Assembly Action Understanding from Videos",
+      "abstract": "Assembly action understanding is a key enabler for effective human-robot collaborative assembly, yet it remains challenging due to subtle motions and fine-grained hand-object interactions. We adapt vision-language models (VLMs) to this challenging domain with Compositional Context Fine-Tuning (CCFT), a method that decomposes assembly actions into semantic elements (Verb, Object, Tool) and fine-tunes VLMs to recognize each action element using templated question-answering pairs. This approach ensures near-deterministic outputs. To enable efficient and effective multi-task learning under limited data, a Layer-Partitioned Alternating Training (LP-AT) method is presented, which assigns distinct model layers to recognize specific action elements through element-specific low-rank adapters. LP-AT alternates weight updates across element-specific adapters, reducing cross-task interference while enabling per-adapter hyperparameter optimization. Furthermore, we create HA-ViD-VQA and IKEA-ASM-VQA datasets from existing assembly video datasets. Extensive experiments on these datasets demonstrate that our method consistently outperforms strong action recognition baselines while providing interpretable element-level predictions that can support diverse downstream applications.",
+      "authors": [
+        "Hao Zheng",
+        "Jinyi Huang",
+        "Tiantian Zheng",
+        "Xun Xu",
+        "Tuka Alhanai"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-12T15:09:33+00:00",
+      "link": "https://arxiv.org/pdf/2607.10797v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 8.0,
+      "llm_evidence_en": "compositional action understanding via Verb, Object, Tool decomposition and VLM fine-tuning",
+      "llm_evidence_cn": "通过动词、对象、工具分解和VLM微调实现组合动作理解",
+      "llm_evidence": "通过动词、对象、工具分解和VLM微调实现组合动作理解",
+      "canonical_evidence": "通过动词、对象、工具分解和VLM微调实现组合动作理解",
+      "llm_tldr_en": "Proposes Compositional Context Fine-Tuning (CCFT) that decomposes assembly actions into semantic elements (Verb, Object, Tool) and fine-tunes VLMs for recognition, enabling compositional action understanding from videos.",
+      "llm_tldr_cn": "该文针对复杂装配动作理解中细微运动和精细手物交互的挑战，提出组合上下文微调（CCFT）方法。该方法将装配动作分解为语义元素（动词、对象、工具），并通过模板问答对微调视觉语言模型以识别每个动作元素。实验表明，CCFT能在有限数据下高效多任务学习，实现近确定性的输出，为机器人协作装配中的动作理解提供了新途径。",
+      "llm_tldr": "该文针对复杂装配动作理解中细微运动和精细手物交互的挑战，提出组合上下文微调（CCFT）方法。该方法将装配动作分解为语义元素（动词、对象、工具），并通过模板问答对微调视觉语言模型以识别每个动作元素。实验表明，CCFT能在有限数据下高效多任务学习，实现近确定性的输出，为机器人协作装配中的动作理解提供了新途径。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": []
+}

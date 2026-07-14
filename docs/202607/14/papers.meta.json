@@ -1,0 +1,24 @@
+{
+  "label": "2026-07-14",
+  "date": "2026-07-14",
+  "generated_at": "2026-07-14T20:05:43",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202607/14/2607.10797v1-compositional-context-fine-tuning-vision-language-model-for-complex-assembly-action-understanding-from-videos",
+      "section": "deep",
+      "title_en": "Compositional Context Fine-Tuning Vision-Language Model for Complex Assembly Action Understanding from Videos",
+      "authors": "Hao Zheng, Jinyi Huang, Tiantian Zheng, Xun Xu, Tuka Alhanai",
+      "date": "2026-07-12",
+      "pdf": "https://arxiv.org/pdf/2607.10797v1",
+      "score": "8.0",
+      "evidence": "通过动词、对象、工具分解和VLM微调实现组合动作理解",
+      "tldr": "装配动作理解是实现人机协作装配的关键，但细微手部交互和复杂动作序列使其极具挑战性。本文提出组合上下文微调（CCFT），将动作分解为动词、物体、工具等语义元素，利用模板问答对微调视觉语言模型，实现近确定性输出。针对数据有限问题，提出分层分区交替训练（LP-AT），为不同元素分配专用低秩适配器并交替更新，减少任务干扰。在HA-ViD-VQA和IKEA-ASM-VQA数据集上，该方法显著优于强基线，并提供可解释的元素级预测，支持多样化下游应用。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Assembly action understanding is a key enabler for effective human-robot collaborative assembly, yet it remains challenging due to subtle motions and fine-grained hand-object interactions. We adapt vision-language models (VLMs) to this challenging domain with Compositional Context Fine-Tuning (CCFT), a method that decomposes assembly actions into semantic elements (Verb, Object, Tool) and fine-tunes VLMs to recognize each action element using templated question-answering pairs. This approach ensures near-deterministic outputs. To enable efficient and effective multi-task learning under limited data, a Layer-Partitioned Alternating Training (LP-AT) method is presented, which assigns distinct model layers to recognize specific action elements through element-specific low-rank adapters. LP-AT alternates weight updates across element-specific adapters, reducing cross-task interference while enabling per-adapter hyperparameter optimization. Furthermore, we create HA-ViD-VQA and IKEA-ASM-VQA datasets from existing assembly video datasets. Extensive experiments on these datasets demonstrate that our method consistently outperforms strong action recognition baselines while providing interpretable element-level predictions that can support diverse downstream applications.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
