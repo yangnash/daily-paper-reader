@@ -1,0 +1,24 @@
+{
+  "label": "2026-07-18",
+  "date": "2026-07-18",
+  "generated_at": "2026-07-18T21:07:27",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202607/18/2607.13881v1-unleashing-multimodal-large-language-models-for-training-free-hoi-detection-in-the-wild",
+      "section": "deep",
+      "title_en": "Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild",
+      "authors": "Ting Lei, Jialin Liu, Zhu Xu, Yuxin Peng, Yang Liu",
+      "date": "2026-07-15",
+      "pdf": "https://arxiv.org/pdf/2607.13881v1",
+      "score": "8.0",
+      "evidence": "利用多模态大语言模型进行无需训练的组合零样本HOI检测",
+      "tldr": "传统HOI检测依赖预定义类别监督，难以泛化到开放场景。本文提出AgentHOI，一种无需训练的智能框架，模块化调用多模态大模型（MLLM）进行开放语义推理与空间定位。通过上下文感知多轮推理逐步发现交互，并结合多角度交互定位提升精度。在真实场景中超越现有监督与弱监督方法，无需HOID训练数据。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Human-object interaction detection (HOID) has traditionally been formulated as a supervised detection problem over predefined interaction categories. While such paradigms achieve strong performance on closed-set benchmarks, they fundamentally entangle interaction understanding with dataset-specific supervision, limiting their ability to generalize to open-world and compositional scenarios. Recent HOI detectors attempt to leverage MLLMs through prompting strategies to transfer interaction-specific knowledge. However, such prompt-based approaches primarily focus on extracting discriminative representations from pretrained models, while underexploring their inherent multimodal reasoning capabilities. As a result, they struggle to provide informative contextual reasoning for ambiguous and open-world interaction scenarios. In this work, we present AgentHOI, a training-free, agentic framework that transfers the generalist multimodal reasoning capabilities of foundation models to HOI detection in the wild. Instead of learning interaction classifiers, AgentHOI modularly orchestrates complementary vision foundation modules to perform open-ended semantic reasoning and spatial grounding in a coordinated manner. To address the challenges of incomplete interaction discovery and ambiguous localization in complex scenes, we introduce two key mechanisms: (1) Context-aware Multi-round Reasoning, which progressively refines interaction hypotheses to ensure exhaustive and compositional HOI discovery, and (2) Multifaceted Interaction Localization, which enhances grounding precision by generating instance-specific descriptions that integrate semantic, spatial, and appearance cues. Extensive experiments demonstrate that AgentHOI achieves superior performance over state-of-the-art supervised and weakly supervised methods in real-world settings, despite requiring no HOID data for training.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

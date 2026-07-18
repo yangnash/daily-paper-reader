@@ -6,24 +6,26 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-17
-- 运行时间：2026-07-17 20:41:55 UTC
+- 最新运行日期：2026-07-18
+- 运行时间：2026-07-18 21:07:21 UTC
 - 运行状态：成功
 - 本次总论文数：1
-- 精读区：0
-- 速读区：1
+- 精读区：1
+- 速读区：0
 
 ### 今日简报（AI）
-今日速读1篇论文，主题涉及多模态大模型在人体-物体交互检测中的应用。值得关注的方向是训练-free的HOI检测方法，论文《Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild》可作为参考。建议普通读者重点了解其如何利用现有模型突破传统训练瓶颈。
-- 详情：[/202607/17/README](/202607/17/README)
+1) 今日精读一篇高分论文，探索无需训练即可用多模态大模型实现野外人-物交互检测的新方法。  
+2) 最值得关注的是：该工作首次证明大型语言模型可在零训练条件下完成HOI检测，显著降低应用门槛。  
+3) 建议普通读者关注多模态大模型在复杂视觉任务中的直接应用潜力，无需自己训练即可快速验证效果。
+- 详情：[/202607/18/README](/202607/18/README)
 
 ### 精读区论文标签
-- 本次无精读推荐。
+1. [Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild](/202607/18/2607.13881v1-unleashing-multimodal-large-language-models-for-training-free-hoi-detection-in-the-wild)  
+   标签：评分：8.0/10、query:zsc-action
+   evidence：利用多模态大语言模型进行无需训练的组合零样本HOI检测
 
 ### 速读区论文标签
-1. [Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild](/202607/17/2607.13881v1-unleashing-multimodal-large-language-models-for-training-free-hoi-detection-in-the-wild)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：无训练的人-物交互检测，具备组合泛化能力
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">

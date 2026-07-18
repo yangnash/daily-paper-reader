@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-18 <!--dpr-date:20260718-->
+    * 精读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/18/2607.13881v1-unleashing-multimodal-large-language-models-for-training-free-hoi-detection-in-the-wild" data-sidebar-item="{&quot;title&quot;: &quot;Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.13881v1-unleashing-multimodal-large-language-models-for-training-free-hoi-detection-in-the-wild&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;利用多模态大语言模型进行无需训练的组合零样本HOI检测&quot;}">Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild</a>
   * 2026-07-17 <!--dpr-date:20260717-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/17/2607.13881v1-unleashing-multimodal-large-language-models-for-training-free-hoi-detection-in-the-wild" data-sidebar-item="{&quot;title&quot;: &quot;Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.13881v1-unleashing-multimodal-large-language-models-for-training-free-hoi-detection-in-the-wild&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;无训练的人-物交互检测，具备组合泛化能力&quot;}">Unleashing Multimodal Large Language Models for Training-free HOI Detection in the Wild</a>
