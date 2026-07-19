@@ -1,0 +1,24 @@
+{
+  "label": "2026-07-19",
+  "date": "2026-07-19",
+  "generated_at": "2026-07-19T19:55:22",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202607/19/2607.14350v1-dynamic-manipulation-hypergraphs-for-har-beyond-pairwise-relations-dynamic-manipulation-hypergraphs-for-vision-based-human-activity-recognition",
+      "section": "quick",
+      "title_en": "Dynamic Manipulation Hypergraphs for HAR: Beyond Pairwise Relations: Dynamic Manipulation Hypergraphs for Vision-Based Human Activity Recognition",
+      "authors": "Fatemeh Ziaeetabar",
+      "date": "2026-07-15",
+      "pdf": "https://arxiv.org/pdf/2607.14350v1",
+      "score": "7.0",
+      "evidence": "用于组合人类活动识别的动态超图方法",
+      "tldr": "传统基于成对边的图方法难以捕捉多实体协调操作的整体性。为此，提出动态操作超图框架，将手、物体、工具等实体编码为高阶关系单元，通过邻近、接触和运动耦合排序超边候选，并执行节点与超边间的消息传递及时间注意力。在EPIC-KITCHENS-100和Assembly101上，HO-F1比配对图提升6.9和9.5个百分点，比静态超图提升4.4和5.8个百分点。实验表明，时变高阶关系建模能有效提升细粒度操作识别性能，同时超边重要性分数提供了可解释性。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Fine-grained manipulation recognition requires modeling evolving relations among hands, objects, tools, and supporting surfaces. Conventional graph-based methods use pairwise edges that can fragment a coordinated event into disconnected binary relations. We propose a dynamic manipulation hypergraph framework that represents multi-entity configurations as higher-order relational units. At each temporal step, relevant entities are encoded using appearance, spatial, motion, and semantic-role features. Hyperedge candidates are instantiated and ranked using proximity, contact, and motion-coupling predicates. A hypergraph reasoning network performs node-to-hyperedge and hyperedge-to-node message passing, followed by temporal attention over the evolving interaction structure. The framework provides class-agnostic hyperedge-importance scores that identify entity configurations and temporal intervals emphasized by the model without treating them as causal explanations. Quantitative evaluation is conducted on EPIC-KITCHENS-100/VISOR and Assembly101 under an annotation-assisted entity-localization protocol. Video-only and entity-based methods provide contextual comparisons, while a matched pairwise graph and a static hypergraph serve as the principal controlled baselines because they use identical entity inputs and comparable relational settings. The proposed method improves HO-F1 over the matched pairwise graph by 6.9 percentage points on EPIC-KITCHENS-100/VISOR and 9.5 points on Assembly101, and exceeds the static hypergraph by 4.4 and 5.8 points, respectively. Qualitative analysis on ARCTIC further shows correspondence between highly ranked hyperedges and contact-rich manipulation intervals. These results demonstrate the value of time-varying higher-order relational modeling for fine-grained manipulation activity recognition.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

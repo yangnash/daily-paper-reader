@@ -1,0 +1,52 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-19T19:54:32.218083+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.14350v1",
+      "source": "arxiv",
+      "title": "Dynamic Manipulation Hypergraphs for HAR: Beyond Pairwise Relations: Dynamic Manipulation Hypergraphs for Vision-Based Human Activity Recognition",
+      "abstract": "Fine-grained manipulation recognition requires modeling evolving relations among hands, objects, tools, and supporting surfaces. Conventional graph-based methods use pairwise edges that can fragment a coordinated event into disconnected binary relations. We propose a dynamic manipulation hypergraph framework that represents multi-entity configurations as higher-order relational units. At each temporal step, relevant entities are encoded using appearance, spatial, motion, and semantic-role features. Hyperedge candidates are instantiated and ranked using proximity, contact, and motion-coupling predicates. A hypergraph reasoning network performs node-to-hyperedge and hyperedge-to-node message passing, followed by temporal attention over the evolving interaction structure. The framework provides class-agnostic hyperedge-importance scores that identify entity configurations and temporal intervals emphasized by the model without treating them as causal explanations. Quantitative evaluation is conducted on EPIC-KITCHENS-100/VISOR and Assembly101 under an annotation-assisted entity-localization protocol. Video-only and entity-based methods provide contextual comparisons, while a matched pairwise graph and a static hypergraph serve as the principal controlled baselines because they use identical entity inputs and comparable relational settings. The proposed method improves HO-F1 over the matched pairwise graph by 6.9 percentage points on EPIC-KITCHENS-100/VISOR and 9.5 points on Assembly101, and exceeds the static hypergraph by 4.4 and 5.8 points, respectively. Qualitative analysis on ARCTIC further shows correspondence between highly ranked hyperedges and contact-rich manipulation intervals. These results demonstrate the value of time-varying higher-order relational modeling for fine-grained manipulation activity recognition.",
+      "authors": [
+        "Fatemeh Ziaeetabar"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-15T20:26:53+00:00",
+      "link": "https://arxiv.org/pdf/2607.14350v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "dynamic hypergraph for compositional human activity recognition",
+      "llm_evidence_cn": "用于组合人类活动识别的动态超图方法",
+      "llm_evidence": "用于组合人类活动识别的动态超图方法",
+      "canonical_evidence": "用于组合人类活动识别的动态超图方法",
+      "llm_tldr_en": "Presents a dynamic manipulation hypergraph framework for fine-grained activity recognition, modeling multi-entity compositions as hyperedges.",
+      "llm_tldr_cn": "该论文针对细粒度操作识别中实体关系建模的局限性，提出动态操作超图框架。将手、物体、工具等多实体配置表示为高阶超边，利用外观、空间、运动和语义角色特征进行推理。在多个HAR数据集上取得优异性能，证明了组合式活动识别方法的有效性。",
+      "llm_tldr": "该论文针对细粒度操作识别中实体关系建模的局限性，提出动态操作超图框架。将手、物体、工具等多实体配置表示为高阶超边，利用外观、空间、运动和语义角色特征进行推理。在多个HAR数据集上取得优异性能，证明了组合式活动识别方法的有效性。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}
