@@ -1,0 +1,24 @@
+{
+  "label": "2026-07-20",
+  "date": "2026-07-20",
+  "generated_at": "2026-07-20T21:23:40",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202607/20/2607.15714v1-ac-vla-robust-out-of-distribution-action-execution-via-compositional-learning",
+      "section": "deep",
+      "title_en": "AC-VLA: Robust Out-of-Distribution Action Execution via Compositional Learning",
+      "authors": "Xiaojiang Peng, Kai Peng, Jie Lu, Zheng Lian, Zitong YU, Xiaobo Wang",
+      "date": "2026-07-17",
+      "pdf": "https://arxiv.org/pdf/2607.15714v1",
+      "score": "8.0",
+      "evidence": "用于分布外动作执行的组合学习",
+      "tldr": "现有的视觉-语言-动作模型在组合式分布外任务上泛化差，源于轨迹过拟合和感知捷径。本文提出AC-VLA组合学习框架，通过LLM分解指令和轨迹对齐生成子任务监督，并引入状态条件掩码削弱手腕视角依赖。在LIBERO-OOD基准上取得约28%绝对提升，同时保持分布内性能几乎无损。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Vision-Language-Action (VLA) models excel at end-to-end robotic manipulation but struggle with out-of-distribution (OOD) generalization when familiar sub-tasks are recombined in unseen configurations. We identify two mutually reinforcing failure modes: \\emph{trajectory overfitting}, where models overfit to holistic trajectory patterns rather than compositional sub-skill semantics; and \\emph{perceptual shortcut}, where action tokens over-rely on wrist-view textures at the expense of global spatial grounding. To address both, we introduce \\textbf{AC-VLA}, a plug-and-play Action Compositional learning framework comprising two architecture-agnostic components: \\textbf{(i)} a compositional learning module that uses an LLM-driven instruction decomposer and a proprioceptive trajectory aligner to generate dense sub-task supervision, followed by mixed training on complete demonstrations and decomposed data to endow the model with compositional generalization; and \\textbf{(ii)} a state-conditioned asymmetric masking strategy that suppresses wrist-view inputs during closed-gripper phases, enforcing global semantic grounding. All components are architectural modification-free and directly integrable into any VLA backbone. Instantiated on $π_{0.5}$ and evaluated on LIBERO and LIBERO-OOD benchmarks, AC-VLA achieves a ~28% absolute improvement on compositional OOD tasks while maintaining near-perfect in-distribution performance.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
