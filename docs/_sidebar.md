@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-22 <!--dpr-date:20260722-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/22/2607.16560v1-from-modalities-to-propositions-a-language-centric-framework-for-multimodal-intelligence" data-sidebar-item="{&quot;title&quot;: &quot;From Modalities to Propositions: A Language-Centric Framework for Multimodal Intelligence&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.16560v1-from-modalities-to-propositions-a-language-centric-framework-for-multimodal-intelligence&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;提出包含动作的多模态组合表示，支持组合动作识别&quot;}">From Modalities to Propositions: A Language-Centric Framework for Multimodal Intelligence</a>
   * 2026-07-20 <!--dpr-date:20260720-->
     * 精读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/20/2607.15714v1-ac-vla-robust-out-of-distribution-action-execution-via-compositional-learning" data-sidebar-item="{&quot;title&quot;: &quot;AC-VLA: Robust Out-of-Distribution Action Execution via Compositional Learning&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.15714v1-ac-vla-robust-out-of-distribution-action-execution-via-compositional-learning&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;用于分布外动作执行的组合学习&quot;}">AC-VLA: Robust Out-of-Distribution Action Execution via Compositional Learning</a>

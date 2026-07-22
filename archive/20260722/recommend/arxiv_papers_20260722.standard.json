@@ -1,0 +1,63 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-22T20:51:20.136641+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.16560v1",
+      "source": "arxiv",
+      "title": "From Modalities to Propositions: A Language-Centric Framework for Multimodal Intelligence",
+      "abstract": "We propose a language representation for multimodal data in which any observation, whether image, video, or text, is expressed as a bag of atomic propositions, simple statements about the entities, actions, and relations in a scene. A global semantic codebook unifies these into a shared vocabulary of canonical atomic propositions, placing every modality and observation into one interpretable space that spans fine grained facts to high level concepts and composes into richer ones. This brings interpretability with reasoning, cross-modal understanding and retrieval, and compositionality that enables complex multimodal understanding, rich data curation and complex structured retrieval. We demonstrate the framework on autonomous driving and open-world data.",
+      "authors": [
+        "Nadine Chang",
+        "Maying Shen",
+        "Shizhe Diao",
+        "Jialiang Wang",
+        "Jingde Chen",
+        "Thomas Breuel",
+        "Pavlo Molchanov",
+        "Rafid Mahmood",
+        "Jose M. Alvarez"
+      ],
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.LG",
+        "cs.MM"
+      ],
+      "published": "2026-07-18T00:08:47+00:00",
+      "link": "https://arxiv.org/pdf/2607.16560v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "proposes compositional representation for multimodal data including actions, enabling compositional action recognition",
+      "llm_evidence_cn": "提出包含动作的多模态组合表示，支持组合动作识别",
+      "llm_evidence": "提出包含动作的多模态组合表示，支持组合动作识别",
+      "canonical_evidence": "提出包含动作的多模态组合表示，支持组合动作识别",
+      "llm_tldr_en": "Proposes a language-centric framework representing multimodal observations as bags of atomic propositions, enabling compositionality and reasoning across modalities. Demonstrated on autonomous driving, applicable to compositional action recognition.",
+      "llm_tldr_cn": "针对多模态数据，本文提出一种以语言为中心的表示框架，将图像、视频、文本等观测表达为原子命题包，并通过全局语义码本统一到共享词汇空间。该框架支持组合性、跨模态理解和推理，能够将细粒度事实组合为更高层概念。在自动驾驶场景上的实验展示了其有效性，为组合动作识别提供了可迁移的表示学习方法。",
+      "llm_tldr": "针对多模态数据，本文提出一种以语言为中心的表示框架，将图像、视频、文本等观测表达为原子命题包，并通过全局语义码本统一到共享词汇空间。该框架支持组合性、跨模态理解和推理，能够将细粒度事实组合为更高层概念。在自动驾驶场景上的实验展示了其有效性，为组合动作识别提供了可迁移的表示学习方法。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

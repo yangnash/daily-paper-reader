@@ -6,22 +6,26 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-21
-- 运行时间：2026-07-21 21:02:07 UTC
+- 最新运行日期：2026-07-22
+- 运行时间：2026-07-22 20:52:03 UTC
 - 运行状态：成功
-- 本次总论文数：0
+- 本次总论文数：1
 - 精读区：0
-- 速读区：0
+- 速读区：1
 
 ### 今日简报（AI）
-> 今日无新推荐，系统未产出可展示论文。
-- 详情：[/202607/21/README](/202607/21/README)
+今日速读1篇论文，聚焦多模态智能的语言中心框架构建。
+该文提出“从模态到命题”的转化方法，将语言作为多模态理解的核心枢纽。
+建议关注语言如何统一图像、文本等多种信息，以实现更高效的智能推理。
+- 详情：[/202607/22/README](/202607/22/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-- 本次无速读推荐。
+1. [From Modalities to Propositions: A Language-Centric Framework for Multimodal Intelligence](/202607/22/2607.16560v1-from-modalities-to-propositions-a-language-centric-framework-for-multimodal-intelligence)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：提出包含动作的多模态组合表示，支持组合动作识别
 
 
 <div class="dpr-home-promo-card">
