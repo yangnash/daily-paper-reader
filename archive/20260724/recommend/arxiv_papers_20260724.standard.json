@@ -1,0 +1,58 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-24T20:46:20.551801+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.20771v1",
+      "source": "arxiv",
+      "title": "Emergent Compositional Skills in Mixture-of-Experts VLAs",
+      "abstract": "We consider the problem of learning compositional robot policies end-to-end from expert demonstrations, without any pre-specified notion of task decomposition or hierarchy. We ask whether a VLA trained with a simplified Mixture-of-Experts (MoE) action head can emergently learn to decompose tasks into reusable, interpretable primitives. We find that learned experts are heavily reused across tasks and consistently correspond to qualitatively distinct low-level behaviors, suggesting that the router implicitly learns to perform high-level sequencing while experts serve as compositional primitives. Our MoE matches the task performance of a monolithic baseline while demonstrating meaningful expert specialization, a step toward modular, interpretable robot policies that emerge from data alone.",
+      "authors": [
+        "Shlok Shah",
+        "Rhiaan Jhaveri",
+        "Tharun Kumar Tiruppali Kalidoss",
+        "Chirayu Nimonkar",
+        "Ishaan Javali"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-22T22:36:52+00:00",
+      "link": "https://arxiv.org/pdf/2607.20771v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "emergent compositional skills in MoE VLAs for task decomposition",
+      "llm_evidence_cn": "混合专家VLA中涌现的组合技能用于任务分解",
+      "llm_evidence": "混合专家VLA中涌现的组合技能用于任务分解",
+      "canonical_evidence": "混合专家VLA中涌现的组合技能用于任务分解",
+      "llm_tldr_en": "Shows that a VLA with a Mixture-of-Experts action head can emergently learn to decompose tasks into reusable primitives without explicit supervision, achieving compositional generalization.",
+      "llm_tldr_cn": "如何让机器人策略端到端地习得可重用、可解释的技能原语，而无需预定义任务分解？本文采用简化混合专家（MoE）动作头训练VLA模型，发现专家单元在任务间高度复用，路由器隐式学习高层任务序列化，专家则作为组合原语。在同等性能下，MoE模型展示了有意义的专家特化，为可解释、模块化的机器人策略迈出一步。该方法对零样本组合动作识别中的原语学习具有启发意义。",
+      "llm_tldr": "如何让机器人策略端到端地习得可重用、可解释的技能原语，而无需预定义任务分解？本文采用简化混合专家（MoE）动作头训练VLA模型，发现专家单元在任务间高度复用，路由器隐式学习高层任务序列化，专家则作为组合原语。在同等性能下，MoE模型展示了有意义的专家特化，为可解释、模块化的机器人策略迈出一步。该方法对零样本组合动作识别中的原语学习具有启发意义。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    }
+  ]
+}

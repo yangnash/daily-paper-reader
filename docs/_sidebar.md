@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-24 <!--dpr-date:20260724-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/24/2607.20771v1-emergent-compositional-skills-in-mixture-of-experts-vlas" data-sidebar-item="{&quot;title&quot;: &quot;Emergent Compositional Skills in Mixture-of-Experts VLAs&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.20771v1-emergent-compositional-skills-in-mixture-of-experts-vlas&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;混合专家VLA中涌现的组合技能用于任务分解&quot;}">Emergent Compositional Skills in Mixture-of-Experts VLAs</a>
   * 2026-07-22 <!--dpr-date:20260722-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/22/2607.16560v1-from-modalities-to-propositions-a-language-centric-framework-for-multimodal-intelligence" data-sidebar-item="{&quot;title&quot;: &quot;From Modalities to Propositions: A Language-Centric Framework for Multimodal Intelligence&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.16560v1-from-modalities-to-propositions-a-language-centric-framework-for-multimodal-intelligence&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;提出包含动作的多模态组合表示，支持组合动作识别&quot;}">From Modalities to Propositions: A Language-Centric Framework for Multimodal Intelligence</a>
