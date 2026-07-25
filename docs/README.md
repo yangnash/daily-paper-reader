@@ -6,24 +6,24 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-24
-- 运行时间：2026-07-24 20:46:47 UTC
+- 最新运行日期：2026-07-25
+- 运行时间：2026-07-25 19:47:20 UTC
 - 运行状态：成功
 - 本次总论文数：1
 - 精读区：0
 - 速读区：1
 
 ### 今日简报（AI）
-今日研读一篇关于混合专家视觉语言行动模型中涌现的组合技能的论文。最值得关注的是MoE-VLA架构在复杂任务中展现的模块化组合与泛化能力。建议后续深入探究该架构如何通过专家模块实现高效的任务分解与组合推理。
-- 详情：[/202607/24/README](/202607/24/README)
+今天速读了一篇关于机器人操作中组合泛化与偏见评估的论文，评分中等（6.0/10）。核心结论是：数据收集策略（而非仅模型架构）对组合泛化能力影响显著，评估时应引入偏见感知指标。建议普通读者先以此文为入口，后续补充精读更高分的同类研究以验证结论可靠性。
+- 详情：[/202607/25/README](/202607/25/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Emergent Compositional Skills in Mixture-of-Experts VLAs](/202607/24/2607.20771v1-emergent-compositional-skills-in-mixture-of-experts-vlas)  
-   标签：评分：7.0/10、query:zsc-action
-   evidence：混合专家VLA中涌现的组合技能用于任务分解
+1. [Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation](/202607/25/2607.21582v1-scale-up-strategically-learning-compositional-generalization-via-bias-aware-evaluation-and-data-collection-for-robotic-manipulation)  
+   标签：评分：6.0/10、query:zsc-action
+   evidence：组合泛化方法可迁移至动作组合识别
 
 
 <div class="dpr-home-promo-card">

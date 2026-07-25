@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-25 <!--dpr-date:20260725-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/25/2607.21582v1-scale-up-strategically-learning-compositional-generalization-via-bias-aware-evaluation-and-data-collection-for-robotic-manipulation" data-sidebar-item="{&quot;title&quot;: &quot;Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.21582v1-scale-up-strategically-learning-compositional-generalization-via-bias-aware-evaluation-and-data-collection-for-robotic-manipulation&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;组合泛化方法可迁移至动作组合识别&quot;}">Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation</a>
   * 2026-07-24 <!--dpr-date:20260724-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/24/2607.20771v1-emergent-compositional-skills-in-mixture-of-experts-vlas" data-sidebar-item="{&quot;title&quot;: &quot;Emergent Compositional Skills in Mixture-of-Experts VLAs&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.20771v1-emergent-compositional-skills-in-mixture-of-experts-vlas&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;混合专家VLA中涌现的组合技能用于任务分解&quot;}">Emergent Compositional Skills in Mixture-of-Experts VLAs</a>

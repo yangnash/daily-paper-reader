@@ -1,0 +1,61 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-25T19:46:23.542057+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 1,
+    "quick_skim_target": 11,
+    "quick_selected": 1
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.21582v1",
+      "source": "arxiv",
+      "title": "Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation",
+      "abstract": "Compositional generalization is essential for robot to follow diverse instructions. However, pretrained policies are known to take shortcuts, deferring to salient cues rather than grounding language. We introduce a diagnostic framework that localizes this failure to individual \\textit{instruction factors}, \\textit{e.g.,} reusable semantic components such as color, verb, object, size, and spatial attribute. Our framework formalizes instruction factor bias, the tendency of fine-tuned policies to over-rely on dominant factors as shortcuts, and quantifies it through two metrics: Factor Dominance Rate (FDR), capturing pairwise bias between factors, and Factor Dominance Hierarchy (FDH), aggregating these into a global ranking. Evaluation on six foundation policies reveals broadly consistent ordering, \\textit{i.e.}, color $\\geq$ object $\\geq$ spatial $\\geq$ verb $\\geq$ size, with color dominant, and verb and size most under-grounded. We further show the diagnosis is actionable: a bias-aware data collection strategy that reallocates a fixed budget toward under-grounded factors outperforms baselines in simulation and on a real robot using half the demonstrations, thereby enabling more sample-efficient and generalizable policy learning.",
+      "authors": [
+        "Yu Qi",
+        "Zhang Ye",
+        "Xinyi Xu",
+        "Yuxuan Lu",
+        "Amitoj Sandhu",
+        "Boce Hu",
+        "Haojie Huang",
+        "Jonathan Tremblay",
+        "Lawson L. S. Wong"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-23T17:57:09+00:00",
+      "link": "https://arxiv.org/pdf/2607.21582v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "compositional generalization method for instruction factors, relevant to action composition recognition",
+      "llm_evidence_cn": "组合泛化方法可迁移至动作组合识别",
+      "llm_evidence": "组合泛化方法可迁移至动作组合识别",
+      "canonical_evidence": "组合泛化方法可迁移至动作组合识别",
+      "llm_tldr_en": "Introduces a bias-aware diagnostic framework for compositional generalization in robotic manipulation, quantifying instruction factor dominance and enabling strategic data collection to overcome shortcut learning.",
+      "llm_tldr_cn": "机器人操作策略在遵循组合指令时易受显著因素干扰，忽略了语言中的细粒度成分。本文提出偏差感知的诊断框架，形式化指令因素偏差并定义因素主导率和层次指标，用于定位和量化策略对特定因素的依赖。通过战略性数据收集策略缓解偏差，提升组合泛化性能。该方法为组合动作识别中的因素分解与泛化提供了可借鉴的评估和训练策略。",
+      "llm_tldr": "机器人操作策略在遵循组合指令时易受显著因素干扰，忽略了语言中的细粒度成分。本文提出偏差感知的诊断框架，形式化指令因素偏差并定义因素主导率和层次指标，用于定位和量化策略对特定因素的依赖。通过战略性数据收集策略缓解偏差，提升组合泛化性能。该方法为组合动作识别中的因素分解与泛化提供了可借鉴的评估和训练策略。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
