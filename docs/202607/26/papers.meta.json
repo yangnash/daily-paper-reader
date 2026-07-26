@@ -1,0 +1,39 @@
+{
+  "label": "2026-07-26",
+  "date": "2026-07-26",
+  "generated_at": "2026-07-26T20:25:16",
+  "count": 2,
+  "papers": [
+    {
+      "paper_id": "202607/26/2607.19027v1-mitigating-modality-and-language-style-gaps-for-zero-shot-video-moment-retrieval",
+      "section": "quick",
+      "title_en": "Mitigating Modality and Language-Style Gaps for Zero-Shot Video Moment Retrieval",
+      "authors": "Jihyun Lee, Cheol-Ho Cho, Woojin Jun, Woojin Jeong, Jae-Pil Heo",
+      "date": "2026-07-21",
+      "pdf": "https://arxiv.org/pdf/2607.19027v1",
+      "score": "7.0",
+      "evidence": "利用自相似性进行零样本视频时刻检索",
+      "tldr": "零样本视频时刻检索面临模态和语言风格差距，现有方法依赖查询-视频相似性导致结果不稳定。本文提出Self-SiMS，利用视频内在自相似性生成鲁棒提议，并结合查询感知MLLM推理增强对齐。在多个基准上取得最先进性能，有效缓解了模态和语言差距，提升了检索稳定性。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Zero-shot video moment retrieval aims to overcome the limitations of traditional approaches that require large-scale datasets annotated with text and its relevant temporal spans. Despite advances in pre-trained vision-language models and multimodal large language models, existing ZMR methods still heavily depend on query-to-video content similarity, making them vulnerable to modality and language-style gaps. These gaps lead to unreliable span proposals and unstable moment retrieval results. To address this issue, we propose Self-Similarity-based Moment Proposal and Scoring that instead exploits intrinsic relationships within videos, enabling robust span generation and scoring. By deriving self-similarity only from the video content, we circumvent the noisy and mismatched patterns of query-frame or query-caption similarities, thereby mitigating both modality and language-style gaps. Furthermore, we introduce a query-aware MLLM-based reasoning stage to further sharpen alignment between text and video. Extensive experiments demonstrate that Self-SiMS achieves state-of-the-art performance across ZMR benchmarks.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/26/2607.21582v1-scale-up-strategically-learning-compositional-generalization-via-bias-aware-evaluation-and-data-collection-for-robotic-manipulation",
+      "section": "quick",
+      "title_en": "Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation",
+      "authors": "Yu Qi, Zhang Ye, Xinyi Xu, Yuxuan Lu, Amitoj Sandhu, Boce Hu, Haojie Huang, Jonathan Tremblay, Lawson L. S. Wong",
+      "date": "2026-07-23",
+      "pdf": "https://arxiv.org/pdf/2607.21582v1",
+      "score": "6.0",
+      "evidence": "组合泛化方法可迁移至组合动作识别",
+      "tldr": "机器人在遵循复合指令时存在组合泛化失败，原因是策略会依赖颜色等显著因素作为捷径。本文提出诊断框架，通过因子主导率(FDR)和因子主导层级(FDH)量化各语义因素的偏差，发现六种基础策略一致偏好颜色>物体>空间>动词>大小。基于此，设计偏差感知数据收集策略，将固定预算优先分配给弱因素，在仿真和真实机器人上以一半演示量超越基线，显著提升样本效率和泛化能力。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Compositional generalization is essential for robot to follow diverse instructions. However, pretrained policies are known to take shortcuts, deferring to salient cues rather than grounding language. We introduce a diagnostic framework that localizes this failure to individual \\textit{instruction factors}, \\textit{e.g.,} reusable semantic components such as color, verb, object, size, and spatial attribute. Our framework formalizes instruction factor bias, the tendency of fine-tuned policies to over-rely on dominant factors as shortcuts, and quantifies it through two metrics: Factor Dominance Rate (FDR), capturing pairwise bias between factors, and Factor Dominance Hierarchy (FDH), aggregating these into a global ranking. Evaluation on six foundation policies reveals broadly consistent ordering, \\textit{i.e.}, color $\\geq$ object $\\geq$ spatial $\\geq$ verb $\\geq$ size, with color dominant, and verb and size most under-grounded. We further show the diagnosis is actionable: a bias-aware data collection strategy that reallocates a fixed budget toward under-grounded factors outperforms baselines in simulation and on a real robot using half the demonstrations, thereby enabling more sample-efficient and generalizable policy learning.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

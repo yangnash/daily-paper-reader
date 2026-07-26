@@ -1,0 +1,100 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-26T20:23:59.474064+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.19027v1",
+      "source": "arxiv",
+      "title": "Mitigating Modality and Language-Style Gaps for Zero-Shot Video Moment Retrieval",
+      "abstract": "Zero-shot video moment retrieval aims to overcome the limitations of traditional approaches that require large-scale datasets annotated with text and its relevant temporal spans. Despite advances in pre-trained vision-language models and multimodal large language models, existing ZMR methods still heavily depend on query-to-video content similarity, making them vulnerable to modality and language-style gaps. These gaps lead to unreliable span proposals and unstable moment retrieval results. To address this issue, we propose Self-Similarity-based Moment Proposal and Scoring that instead exploits intrinsic relationships within videos, enabling robust span generation and scoring. By deriving self-similarity only from the video content, we circumvent the noisy and mismatched patterns of query-frame or query-caption similarities, thereby mitigating both modality and language-style gaps. Furthermore, we introduce a query-aware MLLM-based reasoning stage to further sharpen alignment between text and video. Extensive experiments demonstrate that Self-SiMS achieves state-of-the-art performance across ZMR benchmarks.",
+      "authors": [
+        "Jihyun Lee",
+        "Cheol-Ho Cho",
+        "Woojin Jun",
+        "Woojin Jeong",
+        "Jae-Pil Heo"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-21T12:16:29+00:00",
+      "link": "https://arxiv.org/pdf/2607.19027v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "zero-shot video moment retrieval using self-similarity",
+      "llm_evidence_cn": "利用自相似性进行零样本视频时刻检索",
+      "llm_evidence": "利用自相似性进行零样本视频时刻检索",
+      "canonical_evidence": "利用自相似性进行零样本视频时刻检索",
+      "llm_tldr_en": "Proposes a self-similarity-based approach for zero-shot video moment retrieval that avoids reliance on query-to-video similarity, relevant to zero-shot action recognition by exploiting intrinsic video structure.",
+      "llm_tldr_cn": "该论文针对零样本视频时刻检索中模态与语言风格差距导致的不稳定问题，提出基于自相似性的时刻提议与评分方法。通过仅利用视频内部固有关系，生成鲁棒的片段提议并评分，从而规避了传统方法对查询-视频相似度的依赖。该方法为零样本动作识别提供了新思路，即利用视频内在结构而非跨模态匹配来识别未知动作。",
+      "llm_tldr": "该论文针对零样本视频时刻检索中模态与语言风格差距导致的不稳定问题，提出基于自相似性的时刻提议与评分方法。通过仅利用视频内部固有关系，生成鲁棒的片段提议并评分，从而规避了传统方法对查询-视频相似度的依赖。该方法为零样本动作识别提供了新思路，即利用视频内在结构而非跨模态匹配来识别未知动作。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.21582v1",
+      "source": "arxiv",
+      "title": "Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation",
+      "abstract": "Compositional generalization is essential for robot to follow diverse instructions. However, pretrained policies are known to take shortcuts, deferring to salient cues rather than grounding language. We introduce a diagnostic framework that localizes this failure to individual \\textit{instruction factors}, \\textit{e.g.,} reusable semantic components such as color, verb, object, size, and spatial attribute. Our framework formalizes instruction factor bias, the tendency of fine-tuned policies to over-rely on dominant factors as shortcuts, and quantifies it through two metrics: Factor Dominance Rate (FDR), capturing pairwise bias between factors, and Factor Dominance Hierarchy (FDH), aggregating these into a global ranking. Evaluation on six foundation policies reveals broadly consistent ordering, \\textit{i.e.}, color $\\geq$ object $\\geq$ spatial $\\geq$ verb $\\geq$ size, with color dominant, and verb and size most under-grounded. We further show the diagnosis is actionable: a bias-aware data collection strategy that reallocates a fixed budget toward under-grounded factors outperforms baselines in simulation and on a real robot using half the demonstrations, thereby enabling more sample-efficient and generalizable policy learning.",
+      "authors": [
+        "Yu Qi",
+        "Zhang Ye",
+        "Xinyi Xu",
+        "Yuxuan Lu",
+        "Amitoj Sandhu",
+        "Boce Hu",
+        "Haojie Huang",
+        "Jonathan Tremblay",
+        "Lawson L. S. Wong"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "published": "2026-07-23T17:57:09+00:00",
+      "link": "https://arxiv.org/pdf/2607.21582v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "compositional generalization method transferable to compositional action recognition",
+      "llm_evidence_cn": "组合泛化方法可迁移至组合动作识别",
+      "llm_evidence": "组合泛化方法可迁移至组合动作识别",
+      "canonical_evidence": "组合泛化方法可迁移至组合动作识别",
+      "llm_tldr_en": "Proposes a diagnostic framework for compositional generalization in robotic manipulation, identifying instruction factor bias, which could be adapted for compositional action recognition.",
+      "llm_tldr_cn": "本文针对机器人操作中的组合泛化问题，提出了一种诊断框架，通过引入指令因子偏差的概念，量化了策略对主导因子的过度依赖。该方法可迁移至组合动作识别任务，用于分析动作中语义成分的偏差。实验表明，该方法能有效识别和缓解组合泛化失败，为可组合的动作识别提供了可借鉴的评估和训练策略。",
+      "llm_tldr": "本文针对机器人操作中的组合泛化问题，提出了一种诊断框架，通过引入指令因子偏差的概念，量化了策略对主导因子的过度依赖。该方法可迁移至组合动作识别任务，用于分析动作中语义成分的偏差。实验表明，该方法能有效识别和缓解组合泛化失败，为可组合的动作识别提供了可借鉴的评估和训练策略。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
