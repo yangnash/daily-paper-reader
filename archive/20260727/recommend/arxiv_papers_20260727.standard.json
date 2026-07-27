@@ -1,0 +1,101 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-27T20:19:58.440455+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.18695v1",
+      "source": "arxiv",
+      "title": "Attributes Should Come from Images, Not Class Names: Distribution-Conditioned Attribute Selection for Vision-Language Models",
+      "abstract": "A popular route to interpretable zero-shot classification asks a large language model (LLM) to describe each class name and prompts CLIP with the resulting descriptors. We show that these descriptors carry little visual evidence of their own: removing the class name from the prompt collapses ImageNet accuracy from 59.5% to 15.5%. The diagnosis is that the descriptors are conditioned on the label rather than on the images, so they describe the concept in general and mislead exactly when the data shifts; an LLM insists that strawberries are red, but every strawberry in ImageNet-Sketch is a colorless line drawing. We therefore select attributes from the target image collection instead: we score a large attribute pool against the images in CLIP's joint embedding space and keep the top-scoring attributes per class. Selected this way, class-name-free attribute prompts reach 23.8% on ImageNet (against 15.5% for LLM descriptors), the gain holds on four shifted ImageNet variants, and reselecting from the LLM's own pool isolates the selection mechanism as the cause. With one image per class, the selected attributes outperform the prompt-tuning method CoOp by 3 points while fitting in under a minute instead of 14 hours, with no learned soft prompt to obscure the decision. Because the attribute set is chosen by the data, it doubles as a readable summary of a dataset, which we use to describe distribution shift in words.",
+      "authors": [
+        "Gautam Rajendrakumar Gare",
+        "Jia Shi",
+        "Zhiqiu Lin",
+        "Deepak Pathak",
+        "John Galeotti",
+        "Deva Ramanan"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG",
+        "eess.IV"
+      ],
+      "published": "2026-07-21T04:34:24+00:00",
+      "link": "https://arxiv.org/pdf/2607.18695v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 7.0,
+      "llm_evidence_en": "zero-shot classification via image-conditioned attribute selection",
+      "llm_evidence_cn": "基于图像条件属性选择的零样本分类",
+      "llm_evidence": "基于图像条件属性选择的零样本分类",
+      "canonical_evidence": "基于图像条件属性选择的零样本分类",
+      "llm_tldr_en": "Proposes distribution-conditioned attribute selection from target images rather than LLM-generated class descriptions, improving zero-shot classification by providing visually grounded attributes.",
+      "llm_tldr_cn": "该论文指出当前流行的零样本分类方法使用大语言模型生成的类描述作为CLIP提示，但这类描述缺乏视觉依据，在数据分布偏移时失效。为此提出从目标图像集合中选择属性：通过评分大量候选属性（如颜色、形状等），选择与CLIP视觉嵌入最匹配的属性作为分类依据。实验表明该方法在多个零样本分类基准上显著优于基于LLM描述的方法，且属性更具可解释性和鲁棒性。该工作提供了一种通用的零样本分类方法，可推广至零样本动作识别任务。",
+      "llm_tldr": "该论文指出当前流行的零样本分类方法使用大语言模型生成的类描述作为CLIP提示，但这类描述缺乏视觉依据，在数据分布偏移时失效。为此提出从目标图像集合中选择属性：通过评分大量候选属性（如颜色、形状等），选择与CLIP视觉嵌入最匹配的属性作为分类依据。实验表明该方法在多个零样本分类基准上显著优于基于LLM描述的方法，且属性更具可解释性和鲁棒性。该工作提供了一种通用的零样本分类方法，可推广至零样本动作识别任务。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero-shot learning for action recognition",
+      "matched_requirement_id": "req-1",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "7"
+    },
+    {
+      "id": "2607.20771v1",
+      "source": "arxiv",
+      "title": "Emergent Compositional Skills in Mixture-of-Experts VLAs",
+      "abstract": "We consider the problem of learning compositional robot policies end-to-end from expert demonstrations, without any pre-specified notion of task decomposition or hierarchy. We ask whether a VLA trained with a simplified Mixture-of-Experts (MoE) action head can emergently learn to decompose tasks into reusable, interpretable primitives. We find that learned experts are heavily reused across tasks and consistently correspond to qualitatively distinct low-level behaviors, suggesting that the router implicitly learns to perform high-level sequencing while experts serve as compositional primitives. Our MoE matches the task performance of a monolithic baseline while demonstrating meaningful expert specialization, a step toward modular, interpretable robot policies that emerge from data alone.",
+      "authors": [
+        "Shlok Shah",
+        "Rhiaan Jhaveri",
+        "Tharun Kumar Tiruppali Kalidoss",
+        "Chirayu Nimonkar",
+        "Ishaan Javali"
+      ],
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "published": "2026-07-22T22:36:52+00:00",
+      "link": "https://arxiv.org/pdf/2607.20771v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "compositional policy learning with emergent primitives",
+      "llm_evidence_cn": "组合式策略学习与涌现式原语",
+      "llm_evidence": "组合式策略学习与涌现式原语",
+      "canonical_evidence": "组合式策略学习与涌现式原语",
+      "llm_tldr_en": "Proposes a Mixture-of-Experts VLA that emergently learns compositional robot policies with reusable primitives, matching monolithic performance while enabling interpretable decomposition.",
+      "llm_tldr_cn": "该论文研究了如何从专家演示中端到端学习组合式机器人策略，无需预先指定任务分解或层次结构。提出一种简化的混合专家(MoE)动作头，使视觉语言动作模型能够涌现式地将任务分解为可重用且可解释的基元。实验表明，学习到的专家在不同任务间高度复用，且对应不同的低级行为，路由模块隐式地学习高层排序。该方法在保持单模型性能的同时，实现了有意义的专家特化，向着模块化、可解释的机器人策略迈出了一步。尽管任务为策略学习而非动作识别，但其组合学习框架对组合动作识别方法具有启发性。",
+      "llm_tldr": "该论文研究了如何从专家演示中端到端学习组合式机器人策略，无需预先指定任务分解或层次结构。提出一种简化的混合专家(MoE)动作头，使视觉语言动作模型能够涌现式地将任务分解为可重用且可解释的基元。实验表明，学习到的专家在不同任务间高度复用，且对应不同的低级行为，路由模块隐式地学习高层排序。该方法在保持单模型性能的同时，实现了有意义的专家特化，向着模块化、可解释的机器人策略迈出了一步。尽管任务为策略学习而非动作识别，但其组合学习框架对组合动作识别方法具有启发性。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "compositional action recognition methods",
+      "matched_requirement_id": "req-2",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}

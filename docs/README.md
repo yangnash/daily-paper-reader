@@ -6,27 +6,29 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-26
-- 运行时间：2026-07-26 20:25:11 UTC
+- 最新运行日期：2026-07-27
+- 运行时间：2026-07-27 20:21:02 UTC
 - 运行状态：成功
 - 本次总论文数：2
 - 精读区：0
 - 速读区：2
 
 ### 今日简报（AI）
-今日收录2篇论文，聚焦零样本视频时刻检索与机器人操作组合泛化两个方向。值得关注的是零样本视频时刻检索中缓解模态与语言风格差距的方法，以及机器人操作中基于偏差评估的组合泛化研究。建议进一步探索零样本视频理解与机器人操作泛化的结合应用。
-- 详情：[/202607/26/README](/202607/26/README)
+1. 今日速读2篇论文，探明视觉语言模型属性选择的“图像优于类名”关键原则与专家混合架构的涌现组合技能。
+2. 最值关注《Attributes Should Come from Images, Not Class Names》——用分布条件化属性选择颠覆传统做法；《Emergent Compositional Skills in Mixture-of-Experts VLAs》则揭示稀疏激活带来的组合能力突破。
+3. 建议优先精读第一篇，其方法论可直接迁移至多模态分类与开放世界识别场景。
+- 详情：[/202607/27/README](/202607/27/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Mitigating Modality and Language-Style Gaps for Zero-Shot Video Moment Retrieval](/202607/26/2607.19027v1-mitigating-modality-and-language-style-gaps-for-zero-shot-video-moment-retrieval)  
+1. [Attributes Should Come from Images, Not Class Names: Distribution-Conditioned Attribute Selection for Vision-Language Models](/202607/27/2607.18695v1-attributes-should-come-from-images-not-class-names-distribution-conditioned-attribute-selection-for-vision-language-models)  
    标签：评分：7.0/10、query:zsc-action
-   evidence：利用自相似性进行零样本视频时刻检索
-2. [Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation](/202607/26/2607.21582v1-scale-up-strategically-learning-compositional-generalization-via-bias-aware-evaluation-and-data-collection-for-robotic-manipulation)  
+   evidence：基于图像条件属性选择的零样本分类
+2. [Emergent Compositional Skills in Mixture-of-Experts VLAs](/202607/27/2607.20771v1-emergent-compositional-skills-in-mixture-of-experts-vlas)  
    标签：评分：6.0/10、query:zsc-action
-   evidence：组合泛化方法可迁移至组合动作识别
+   evidence：组合式策略学习与涌现式原语
 
 
 <div class="dpr-home-promo-card">
