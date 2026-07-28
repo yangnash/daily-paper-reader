@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-28 <!--dpr-date:20260728-->
+    * 速读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/28/2607.20771v2-emergent-compositional-skills-in-mixture-of-experts-vlas" data-sidebar-item="{&quot;title&quot;: &quot;Emergent Compositional Skills in Mixture-of-Experts VLAs&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.20771v2-emergent-compositional-skills-in-mixture-of-experts-vlas&quot;, &quot;score&quot;: &quot;6.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;通过混合专家模型涌现出机器人动作的可重用组合原语&quot;}">Emergent Compositional Skills in Mixture-of-Experts VLAs</a>
   * 2026-07-27 <!--dpr-date:20260727-->
     * 速读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/27/2607.18695v1-attributes-should-come-from-images-not-class-names-distribution-conditioned-attribute-selection-for-vision-language-models" data-sidebar-item="{&quot;title&quot;: &quot;Attributes Should Come from Images, Not Class Names: Distribution-Conditioned Attribute Selection for Vision-Language Models&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.18695v1-attributes-should-come-from-images-not-class-names-distribution-conditioned-attribute-selection-for-vision-language-models&quot;, &quot;score&quot;: &quot;7.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;基于图像条件属性选择的零样本分类&quot;}">Attributes Should Come from Images, Not Class Names: Distribution-Conditioned Attribute Selection for Vision-Language Models</a>
