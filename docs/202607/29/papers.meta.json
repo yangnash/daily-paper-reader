@@ -1,0 +1,24 @@
+{
+  "label": "2026-07-29",
+  "date": "2026-07-29",
+  "generated_at": "2026-07-29T21:23:35",
+  "count": 1,
+  "papers": [
+    {
+      "paper_id": "202607/29/2607.25826v1-prototype-adaptation-for-zero-shot-semg-movement-classification",
+      "section": "deep",
+      "title_en": "Prototype Adaptation for Zero-Shot sEMG Movement Classification",
+      "authors": "Rui Liu, Benjamin Paassen",
+      "date": "2026-07-28",
+      "pdf": "https://arxiv.org/pdf/2607.25826v1",
+      "score": "9.0",
+      "evidence": "基于原型插值的零样本组合动作分类",
+      "tldr": "表面肌电信号（sEMG）用于假肢控制，但组合动作的识别需要大量训练数据。本文提出两种零样本学习方法：组合原型插值（CPI）和原型合成适应（SAP），通过嵌入空间中的线性插值假设，仅用基本动作训练即可识别未见过的组合动作。实验表明，SAP方法在多个数据集上相比现有零样本方法准确率提升超20%，并在在线推理用户研究中保持优势。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Surface electromyography (sEMG) enables the control of prostheses, allowing upper-limb amputees to re-gain some hand function. Most current research focuses on recognizing basic movements for prosthesis control. However, in most daily activities, such as opening a door, combined movements are essential. However, collecting training data for all possible combined movements is time-consuming and requires re-training of the model for any new combination. We propose two novel recognition approaches, Compositional Prototype Interpolation (CPI) and Synthetic Adaptation for Prototypes (SAP), that enable zero-shot learning of combined, novel and unseen movements in Prototype Networks after training only with basic movements. Our methods rest on a linear interpolation assumption in the embedding space, which we study by inspecting the geometry of combined motions in signal and embedding space. In experiments on the NearLab and NinaPro DB3 data sets as well as our newly recorded BasCom dataset, our proposed SAP outperforms prior zero-shot learning methods with accuracy improvements on combined movements of more than 20%. This advantage is maintained in online inference experiments in a user study.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}

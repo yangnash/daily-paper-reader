@@ -1,0 +1,52 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-07-29T21:22:11.092372+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 1,
+    "deep_cap": 6,
+    "deep_selected": 1,
+    "quick_candidates": 0,
+    "quick_skim_target": 11,
+    "quick_selected": 0
+  },
+  "deep_dive": [
+    {
+      "id": "2607.25826v1",
+      "source": "arxiv",
+      "title": "Prototype Adaptation for Zero-Shot sEMG Movement Classification",
+      "abstract": "Surface electromyography (sEMG) enables the control of prostheses, allowing upper-limb amputees to re-gain some hand function. Most current research focuses on recognizing basic movements for prosthesis control. However, in most daily activities, such as opening a door, combined movements are essential. However, collecting training data for all possible combined movements is time-consuming and requires re-training of the model for any new combination. We propose two novel recognition approaches, Compositional Prototype Interpolation (CPI) and Synthetic Adaptation for Prototypes (SAP), that enable zero-shot learning of combined, novel and unseen movements in Prototype Networks after training only with basic movements. Our methods rest on a linear interpolation assumption in the embedding space, which we study by inspecting the geometry of combined motions in signal and embedding space. In experiments on the NearLab and NinaPro DB3 data sets as well as our newly recorded BasCom dataset, our proposed SAP outperforms prior zero-shot learning methods with accuracy improvements on combined movements of more than 20%. This advantage is maintained in online inference experiments in a user study.",
+      "authors": [
+        "Rui Liu",
+        "Benjamin Paassen"
+      ],
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "published": "2026-07-28T15:06:24+00:00",
+      "link": "https://arxiv.org/pdf/2607.25826v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 9.0,
+      "llm_evidence_en": "zero-shot compositional movement classification with prototype interpolation",
+      "llm_evidence_cn": "基于原型插值的零样本组合动作分类",
+      "llm_evidence": "基于原型插值的零样本组合动作分类",
+      "canonical_evidence": "基于原型插值的零样本组合动作分类",
+      "llm_tldr_en": "Proposes Compositional Prototype Interpolation and Synthetic Adaptation for zero-shot recognition of unseen combined movements from basic movements.",
+      "llm_tldr_cn": "该论文针对表面肌电信号中的组合动作识别问题，提出组合原型插值（CPI）和合成适应性原型（SAP）两种方法，仅用基本动作训练即可零样本识别未见组合动作。方法基于线性插值组合原型向量，并在sEMG数据集上验证了有效性。直接对应零样本组合动作识别的需求。",
+      "llm_tldr": "该论文针对表面肌电信号中的组合动作识别问题，提出组合原型插值（CPI）和合成适应性原型（SAP）两种方法，仅用基本动作训练即可零样本识别未见组合动作。方法基于线性插值组合原型向量，并在sEMG数据集上验证了有效性。直接对应零样本组合动作识别的需求。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "zero shot compositional action recognition methods",
+      "matched_requirement_id": "req-4",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "quick_skim": []
+}

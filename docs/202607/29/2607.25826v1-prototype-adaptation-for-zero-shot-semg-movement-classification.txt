@@ -1,0 +1,406 @@
+Title: Prototype Adaptation for Zero-Shot sEMG Movement Classification
+
+URL Source: https://arxiv.org/pdf/2607.25826v1
+
+Published Time: Wed, 29 Jul 2026 01:08:08 GMT
+
+Number of Pages: 19
+
+Markdown Content:
+# Prototype Adaptation for Zero-Shot sEMG Movement Classification 
+
+Rui Liu 1 and Benjamin Paaßen 11Faculty of Technology, Bielefeld University 
+
+> 1
+
+Faculty of Technology, Bielefeld University 27.07.2026 
+
+Abstract 
+
+Surface electromyography (sEMG) enables the control of prostheses, allowing upper-limb amputees to re-gain some hand function. Most current research focuses on recog-nizing basic movements for prosthesis control. However, in most daily activities, such as opening a door, combined movements are essential. However, collecting training data for all possible combined movements is time-consuming and requires re-training of the model for any new combination. We propose two novel recognition approaches, Compo-sitional Prototype Interpolation (CPI) and Synthetic Adaptation for Prototypes (SAP), that enable zero-shot learning of combined, novel and unseen movements in Prototype Networks after training only with basic movements. Our methods rest on a linear inter-polation assumption in the embedding space, which we study by inspecting the geometry of combined motions in signal and embedding space. In experiments on the NearLab and NinaPro DB3 data sets as well as our newly recorded BasCom dataset, our proposed SAP outperforms prior zero-shot learning methods with accuracy improvements on com-bined movements of more than 20%. This advantage is maintained in online inference experiments in a user study. 
+
+# 1 Introduction 
+
+In recent decades, surface electromyography (sEMG) has been widely applied for rehabilitation and prosthesis control Sturma et al. [2018]. Recently, deep learning methods have improved movement classification accuracy compared to pre-existing shallow models Li et al. [2021]. However, deep models require large amounts of sEMG training data for every movement that shall be recognized, and the model has to be re-trained whenever a new movement is added.In clinical application, this need for repeated data collection and re-training is known as the "calibration burden" Wang et al. [2024]. A promising approach to reduce this burden is zero-shot learning (ZSL), meaning the classification of new movements based only on training data for a base set of movements. The foundation for ZSL in movement classification is muscle synergies theory, which suggests that combined movements can be expressed as linear combinations of basic synergies Tresch et al. [2006], Bizzi and Cheung [2013]. Following this theory, we assume that, in a ideal representation space, a combined motion should be a convex combination of its constituent movements. Accordingly, the signal representing the unseen combined movement can be approximated by linear interpolation between the signals of its constituent movements. 1arXiv:2607.25826v1 [cs.LG] 28 Jul 2026 preprint as provided by the authors 2Several prior works have attempted to utilize such linear interpolation approaches, typ-ically generating a sample of a combined movement by a 50%/50% mixture of samples of sEMG signals for basic movements. Unfortunately, the linear interpolation assumption al-most never holds exactly—e.g., due to the physical constraints of signal transmission, such as crosstalk and noise.Non-linearities are particularly severe for amputees in clinical applications, e.g. because amputees employ strategies to compensate for a missing hand by utilizing the arm more, leading to different sEMG signals Hussein Hakami et al. [2026]. Overall, ZSL based on current signal mixup approaches achieves limited performance on combined movements. To improve ZSL performance, we propose two novel strategies: (1) We represent com-bined movements via interpolated prototypes in a learned embedding space of a prototype network (Compositional Prototype Interpolation; CPI). (2) We adapt such prototypes in the embedding space using only synthetic data, achieving decision boundaries that remain robust to some violations of the linearity assumption (Synthetic Adaptation for Prototypes; SAP). In summary, we address the problem of signal non-linearity and calibration burden for prosthetic control with the following contributions: (1) We provide a geometrical analysis in sEMG signal space as well as the embedding space of prototype networks, verifying that combined movements are close to a convex combination of basic movements in embedding space. (2) We perform interpolation in the embedding space of prototype networks which allows us to create new prototypes for unseen, combined movements after training (CPI). (3) We propose a novel synthetic adaptation for prototypes (SAP) method to adjust the location of prototypes for unseen combined movements via synthetic data.(4) We create a novel dataset (BasCom) containing 11 basic movements and 8 combined movements of N = 11 participants, which is larger than comparable, prior datasets Soroushmojdehi et al. [2022]. (5) We evaluate our method on sEMG data from able-bodied participants (NearLab and BasCom data sets), amputees (NinaproDB3 data set), and in an online user study with N = 11 able-bodied participants. The results demonstrate the robustness and effectiveness of our methods and verify the potential for clinical application. All data and software is available at https://gitlab.com/ semg-zeroshot .
+
+# 2 Related Work 
+
+sEMG-based movement classification Using machine learning methods, intended hand movements can be recognized based on biomedical signals, such as near-infrared spectroscopy (NIRS), inertial measurement unit (IMU), and mechanomyographic (MMG) signals. The most common signal source for recognition of hand movement is sEMG Oskoei and Hu [2007]. Recent research on sEMG-based movement recognition has focused on deep learning meth-ods for hand movement recognition, in particular convolutional neural networks (CNNs). For example, Shahid et al. [2022] indicates that 1D-CNN requires less computing resources com-pared to 2D-CNNs, which makes this convolutional layer more suitable for deployment on edge systems like prostheses. Liu and Paaßen [2024] investigates 1D-CNNs for few-shot learning of new movements and Liu and Paaßen [2025] investigates transfer learning schemes against elec-trode shifts with 1D-CNNs. In this paper, we also utilize a 1D-CNN backbone for movement classification but will expand it for zero-shot classification of new movements. 
+
+Zero-shot learning Current prostheses control requires complex calibration for new users and movements, such that users must provide a large amount of sEMG signals for training. By contrast, Zero-shot learning (ZSL) would enable the recognition of unseen users or movements without specific calibration. preprint as provided by the authors 3In recent years, zero-shot learning has achieved remarkable results in computer vision and nature language processing based on natural language-based in-context learning, such as textual descriptions of visual objects. However, such approaches are not applicable for the description and recognition of movements from sEMG data because foundation models for sEMG data that could be conditioned on text are unavailable. To address the cross-user zero-shot problem, Wang et al. developed ReactEMG Wang et al. [2025b], allowing new users to control prostheses without calibration. Another approach Eddy et al. [2024] by Eddy et al. trained models on a large dataset of 612 subjects allowing cross-user myoelectric control without per-user calibration. This work is not applicable in our case because we focus on zero-shot classification of new movements, not generalization to new users. For the zero-shot problem for new movements, Wang et al. [2025a] proposed SeqEMG-GAN to generate synthetic sEMG signals based on sequences of known joint angles in the hand and wrist and train classifiers based on the synthetic data. While this methods has some empiric success, it is limited by the reliance on joint angle data, which are not avialable in our setting. Muscle synergies theory assumes that the neural motor system constructs a combined movement by linear combination of its basic synergies Bizzi and Cheung [2013]. Based on this theoretical assumption, several ZSL methods for the recognition of unseen combined movement have been proposed. Soroushmojdehi et al. [2022] introduced Syn0net for the classification of combined motions by training the model simply on basic movements and classifying high activations for two basic movements as their combination.Similarly, Yazawa et al. [2025] propose a probabilistic scheme to recognize pairwise combinations k&l of ba-sic movements k and l via soft labeling. The classification is performed by minimizing the Kullback-Leibler divergence between predicted probabilities and synthetic soft labels with pairwise combinations where yk = yl = 0 .5.
+
+Signal mixup for synthetic sEMG data To generate synthetic sEMG signals for com-bined movements, signal mixup approaches based on a linear interpolation assumption are widely applied. Input mixup Zhang et al. [2017] interpolates raw signals in the input space to generate unseen combined motions. A fundamental challenge of such signal mixup approaches lies in the discrepancy between the linear neural motor control pattern and non-linearities that affect the recorded sEMG signals. In particular, the representation space of recorded sEMG signals is distorted by different physical factors, such as muscle crosstalk and noise during signal transmission. Thus, the recorded raw sEMG from signal space are highly non-linear and does not conform to the above mentioned linear addition of basic movementOskoei and Hu [2007]. The challenge is even more severe for amputees. Due to the physical loss of a hand, clinical studies have noted that the residual proximal arm muscle of amputees often dominate the sEMG signal when attempting combined movements, obscuring concurrent hand activity. Thus, movement classification approaches with high accuracy on able-bodied subjects may not generalize to amputeesAtzori et al. [2014]. As an alternative to signal mixup in the input space, manifold mixup has been proposed Verma et al. [2019] which performs the interpolation in the embedding space of a deep neural network. A theoretical basis for interpolating in the embedding space rather than the input space is provided by manifold disentanglement. Brahma et al. [2015] argue that deep neural networks tend to unfold individual class manifolds, measured by a decrease of manifold cur-vature for deeper layers. This effect appears both for supervised and unsupervised machine learning, indicating that it is due to network depth itself. preprint as provided by the authors 4Yazawa et al. [2025] compared mixup both in the input and in the embedding space with an MLP classifier and found that mixup in the embedding space performs worse. This is, perhaps, because the embedding space of an MLP is too simplistic and the hidden layers are unstable during training. The authors recommend improving synthetic data accuracy by projecting signals to a better, non-linear embedding space, enabling better data generation competence. This is one of our goals in this work. 
+
+Prototype networks Among different deep learning architectures, prototype networks (PN) Snell et al. [2017] are particularly interesting for few-shot settings. The PN method assumes that each class can be represented in embedding space by a single prototype and that samples can be classified via nearest-neighbor classification using these prototypes. However, PNs traditionally use the class mean to compute the prototype, which may be unduly influ-enced by outliers and suboptimal for classification. In order to get a better decision boundary, Sharma et al. [2023] proposes a Learning Prototype Classifier. It treats prototypes as train-able parameters of the model, adjusting the locations of prototypes via backpropagation. It is noted that learning vector quantization approaches have trained prototypes for decades before Sato and Yamada [1995], Paaßen et al. [2018]. 
+
+# 3 Method 
+
+This work develops novel zero-shot, incremental learning methods to classify unseen combined movements without forgetting the basic movements in the training data. In more detail, we provide the following algorithmic contributions: 
+
+• Geometric Analysis: We provide a geometrical analysis of the sEMG embedding space, measuring the non-linearity of combined movements in relation to basic move-ments, either in signal space and embedding space. It provides the theoretical basis for the following embedding space interpolation. 
+
+• Compositional Prototype Interpolation (CPI): We propose a novel interpolation method named Compositional Prototype Interpolation (CPI). Different from Mixup methods Zhang et al. [2017], Verma et al. [2019], we generate synthetic samples and new prototypes in the learned embedding space of a convolutional neural network, enabling zero-shot recognition. This approach eliminates the need for synthetic samples during training as the prototypes can be interpolated after training and directly be used for inference. 
+
+• Synthetic Adaptation for Prototypes (SAP): We develop a novel Synthetic Adap-tation for Prototypes (SAP) scheme, which optimizes the locations of prototypes for classification using the synthetic data. 
+
+• Baseline Extension (Syn0net+): To make the baseline approach of Syn0net Soroush-mojdehi et al. [2022] comparable to our work, we extend it to classify both basic and combined movements. We begin by describing the geometrical analysis of representation space as well as the CNN backbone of our architecture, and then introduce CPI, SAP, and Syn0net in turn. preprint as provided by the authors 5Zk Zl     
+
+> Zk&l
+> || P k&l -Zl||
+> ||Z k-Zl||
+> Pk&l
+> || ( Zk&l  - P k&l  ||
+
+Figure 1: An illustration of the geometry between two basic movements K and L and a combined movement KL. 
+
+3.1 Geometrical Analysis 
+
+The foundational assumption behind our approach is that combined movements can be re-garded as convex combinations of their constituent basic movements in the embedding space of a convolutional neural network. More precisely, let ϕ denote the convolutional neural net-work, and let xk and xl be samples of basic movements k and l. Then, we assume that a sample of the combined movement k&l can be generated as 
+
+ϕ(xk&l) ≈ α · ϕ(xk) + (1 − α) · ϕ(xl) (1) for an appropriate mixing coefficient α ∈ [0 , 1] . In geometric terms, we make two assumptions: (1) Convexity Assumption: The mixing ratio α should lie within the convex interval [0 , 1] ,meaning that the combined movement lies between the basic movements in embedding space. (2) Linearity Assumption: The linear interpolation assumes that the combined movement lies approximately on a line connecting the basic movements. However, if the actual data manifold is highly curved, linearly interpolated signals will deviate from the true distribution. Therefore, the representation space should be sufficiently flattened to ensure that combined movements are close to linear combinations of their con-stituent basic movements. To quantify how closely data conforms to the convexity and linearity assumption respec-tively, we propose two metrics, namely the mixing ratio α and the linearity error δ. In more detail, let zk and zl denote the prototypes of the movements k and l, let zk&l denote the prototype of the combined movement k&l, and let pk&l be the projection of zk&l onto zl − zk.Then, we define the mixing ratio α as the ratio of the distances ∥pk&l − zl∥ and ∥zk − zl∥2
+
+(also refer to Fig. 1). α can be computed via the equation: 
+
+αk&l = ∥pk&l − zl∥2
+
+∥zk − zl∥2
+
+= (zk − zl)T · (zk&l − zl)(zk − zl)T · (zk − zl) . (2) Note that α lies in the range [0 , 1] if zk&l lies between zk and zl, where smaller values indicate closeness to zl and higher values indicate closeness to zk. Values smaller than zero or larger than 1 indicate that the convexity assumption is violated. Also note that the mixing ratio preprint as provided by the authors 6Conv1d(32) 
+
+> BN
+> RReLU
+> Maxpooling
+> Conv1d(64)
+> BN
+> RReLU
+> Maxpooling
+> Conv1d(128)
+> BN
+> RReLU
+> AdaptAvgpooling
+> Linear layer
+> BN
+
+Figure 2: The structure of CNN backbone. 
+
+α also corresponds to the interpolation coefficient between the basic movements when we generate synthetic data. In addition, we define the linearity Error δ as the ratio between the distance ∥zk&l −pk&l∥2
+
+and the distance ∥zk − zl∥2, i.e. the distance of zk&l from the connecting line between zk and 
+
+zl, relative to the length of the connecting line. δ can be computed via: 
+
+δk&l = ∥zk&l − pk&l∥2
+
+∥zk − zl∥2
+
+= ∥(zk&l − zl) − αk&l(zk − zl)∥2
+
+∥zk − zl∥2
+
+. (3) Here, values close to zero indicate that the combined prototype zk&l is very close to the connecting line between the basic prototypes zk and zl, whereas large values indicate that 
+
+zk&l lies far away and a linear approximation may be inaccurate. The experimental results of this analysis are shown in Sec. 4.3. 
+
+3.2 CNN backbone 
+
+Based on prior work Liu and Paaßen [2024, 2025], we employ a 1D-CNN backbone to map input windows of multichannel sEMG signals into an embedding space. Each input time win-dow xt ∈ RN ·C where N is the number of samples and C is the number of channels, is mapped to a vectorial representation ϕ(xt) ∈ Rn. Fig. 2 shows the CNN backbone architecture, it consists two blocks of 1D convolutions, followed by batch normalization, Random Rectified Linear Unit (RReLU) and MaxPooling, followed by a final 1D convolution, batch normaliza-tion, RReLU and average pooling, followed finally by a linear layer and batch normalization. The three 1D convolutional layers are configured with 32, 64, and 128 neurons, respectively. The kernel sizes are 11, 9, and 7 for the Nearlab data set, 9, 5, and 3 for our newly recorded BasCom data set, and 11, 5, 3 for amputee dataset NinaproDB3. The kernel size adjustment is chosen based on the number of samples in each time window. 
+
+3.3 Prototype Networks 
+
+To classify input sEMG signals into movements, we utilize prototype networks Snell et al. [2017], Sharma et al. [2023], Sato and Yamada [1995]. In particular, let ϕ(xt) ∈ Rn be the embedded input signal and let z1, . . . , zK ∈ Rn be the prototypes for the movements 
+
+1, . . . , K . Then, we classify the signal by computing the Euclidean distance ∥ϕ(xt) − zk∥ to all prototypes and assigning the class of the closest prototype. To train the CNN backbone (and the prototype positions), we use the negative Euclidean distance as a logit and plug this into a cross-entropy loss: 
+
+pt,k := exp( −∥ ϕ(xt) − zk∥)
+
+PKl=1 exp( −∥ ϕ(xt) − zl∥) (4) 
+
+Lcrossent = −
+
+> T
+
+X
+
+> t=1
+
+yt,k · log[ pt,k ], (5) preprint as provided by the authors 7
+
+Figure 3: The distribution of synthetic combined movements generated via linear interpolation in embedding space (dimensionality reduction via t-SNE). where yt,k is a one-hot coding of the ground-truth label for the signal time window t. This loss is optimized via standard deep learning techniques (Adam and backpropagation). Importantly, we only train the prototype network on basic movements. In the next step, we describe our method to train prototypes for combined movements in a zero-shot, incremental learning setup. 
+
+3.4 Compositional Prototype Interpolation (CPI): 
+
+After the prototype network has been trained on seen basic movements, we wish to construct novel prototypes for pairwise combinations of movements k and l. To do so, we first generate synthetic samples of such combined movements via linear interpolations in the embedding space. Let xk and xl be two random samples from the training data for classes k and l,respectively. Then, we construct the embedding for a combined movement k&l by uniformly sampling a mixture coefficient α ∈ [0 , 1] and linearly interpolating between ϕ(xk) and ϕ(xl)
+
+via Eq. (1). We then initialize the prototype zk&l as the mean of all synthetic samples for for the combined movement k&l. Fig. 3 shows a t-SNE visualization of the embeddings for two basic movements (green and blue) and the synthetic data for their combination (red). In contrast to prior work on synthetic data combinations via mixup Zhang et al. [2017], Verma et al. [2019], our method does not require mixup during training. We keep the em-bedding neural network ϕ fixed during this process and merely construct novel prototypes in the embedding space. Hence, we keep the computational overhead of zero-shot learning extremely low and we avoid catastrophic forgetting effects for the seen basic movements. 
+
+3.5 Synthetic Adaptation for Prototypes (SAP) 
+
+The synthetic generated embeddings can be further utilized to adapt the prototypes for classi-fication, without any need for newly recorded sEMG data (meaning: this remains a zero-shot method). In CPI, the prototypes of combined movements are computed as the mean of syn-thetic data, which may be suboptimal for classification and inconsistent with the learned prototypes for basic movements. Fig. 4 illustrates this inconsistency: The learned prototypes for basic movements are sometimes at the margins of their respective class to optimize deci-sion boundaries, whereas the prototypes of combined movements remain (by construction) in preprint as provided by the authors 8
+
+Figure 4: The inconsistency between basic movement and combined movement prototypes (dimensionality reduction via t-SNE). the mean, leading to misclassifications. We investigate two zero shot adaptation methods to optimize the locations of prototypes with synthetic data. 
+
+SAP-full: In the SAP-full method, we simply concatenate the training data for basic move-ments with the synthetic training data for combined movements and then adapt the location of all prototypes (for basic and combined movements) to minimize the crossentropy loss (5). Importantly, we do not train the CNN backbone ϕ at this point, such that learning occurs purely in the embedding space and is thus an efficient, convex optimization problem Paaßen et al. [2018]. 
+
+SAP-Specialized: SAP-full optimizes the overall crossentropy loss across all classes. How-ever, this may overemphasize the accuracy on basic movements, which are easier to classify. For amputees in particular, the embedding space tends to be more distorted and non-linear (refer to Section 4.3 for experimental results), such that additional algorithmic changes may be needed. We propose a combination of three loss functions: 
+
+Ltotal = Lcrossent + λm · L margin + λs · L stability , (6) where the λm and λs are hyper-parameters to emphasize different parts of the loss. The crossentropy loss Lcrossent from Eq. (5) is computed only for the combined movements, forcing the optimization to put more emphasis on them. The term Lmargin is intended to push the prototypes of basic and combined movements apart and is defined as: 
+
+Lmargin = 1
+
+NB · NCNBX
+
+> b=1
+> NC
+
+X
+
+> c=1
+
+exp − ∥z(b) 
+
+> basic
+
+− z(c)
+
+> comb
+
+∥
+
+τ
+
+!
+
+, (7) where NB and NC are the number of basic movement prototypes and combined movement prototypes, respectively, and τ is a learnable parameter that adaptively adjusts the separation scale, finding the optimal inter-class interval to separate the prototypes. The third term, Lstability , is a stability loss to prevent the basic movement prototypes from preprint as provided by the authors 90.01  0.01 a1  0.01 a2 0.01 ...  ...     
+
+> a1 a2
+> if a1 and a2 ≥ threshold
+> combined
+> movement Supination
+> and Grip
+> Yes
+> No
+> argmax(a1, a2)
+> Supination Grip Labels:
+> basic movement
+> Supination or Grip
+
+Figure 5: The new inference framework for zero-shot incremental learning moving too far from their original positions, thus preventing catastrophic forgetting. 
+
+Lstability := 1
+
+NBNBX
+
+> b=1
+
+z(b, after)  
+
+> basic
+
+− z(b, before)  
+
+> basic
+> 22
+
+. (8) 
+
+3.6 Extended threshold-based zero-shot classification 
+
+As baseline for our experiments, we consider the zero-shot classification methods Syn0net proposed by Soroushmojdehi et al. [2022]. The Syn0net inference scheme for zero-shot classi-fication assumes a linear layer for movement classification, then takes the two most activated movements k and l and predicts their combination k&l. However, this method always pre-dicts combined movements and can, hence, not be used in an incremental learning setup where basic movements should also be predicted. We extend their scheme in two ways: 
+
+Extended inference schema (e-Syn0net): Similar to Soroushmojdehi et al. [2022], we investigate the maximum activation among all hand movements k and among all wrist move-ments l. If either is below a threshold, we predict a basic movement (namely the most activated movement). However, if both are above a threshold, we predict their combination 
+
+k&l (see Fig. 5). 
+
+Signal mixup: Simply selecting a threshold between basic and combined movements may be insufficient for good classification accuracy on both basic and combined movements because the model is only trained on basic movements. Accordingly, we also investigate a signal mixup scheme Zhang et al. [2017], where synthetic training data for the combined movement k&l
+
+is generated via linear interpolation in the input space. In particular, we randomly sample training data points xk and xl as well as an interpolation factor α ∈ [0 , 1] and then construct a combined training data point xk&l as well as its label yk&l via: 
+
+xk&l ≈ α · xk + (1 − α) · xl (9) 
+
+yk&l ≈ α · yk + (1 − α) · yl, (10) preprint as provided by the authors 10 yielding a data set with soft labels. Then, the neural net (the CNN as well as the final classification layer) is trained on this combined training data set via the crossentropy loss. We acquire a novel data set and perform online evaluation experiments via a user study, which we describe in the following. 
+
+3.7 Participants information 
+
+We recruited 11 participants, 5 female and 6 male, via a convenience sample of students and researchers at Bielefeld University. The metadata of all participants is provided in Tab. 1. All participants provided informed consent after receiving a participant information sheet. The study was approved by the Bielefeld University ethics review board under application number 2025-304 on August 05, 2025. Table 1: Demographic information of participants. 
+
+ID Age (years) Gender Handedness 
+
+P1 30-40 Male Right P2 20-30 Female Right P3 20-30 Male Right P4 20-30 Female Right P5 20-30 Female Right P6 20-30 Female Right P7 20-30 Male Right P8 20-30 Male Right P9 20-30 Female Right P10 20-30 Male Right P11 Missing Female Right 
+
+3.8 Hardware 
+
+The sEMG signal is collected by using MindRove armband (MindRove, https://www.mindrove.com), which collects sEMG signals around the forearm with 8 channels. The sampling frequency is 500Hz, resolution is 24 bit and data transmission is realized via WIFI and the Mindrove SDK. For our dataset, the data acquisition and real-time inference is done on a Laptop with AMD Ryzen 5 5500U with Radeon Graphics, 8 GB RAM. To enable fast training times during the study, model training is performed via the Kaggle Cloud platform with a Intel(R) Xeon(R) CPU @ 2.00GHz and Nvidia Tesla P100-PCIE-16GB. 
+
+3.9 User Interface 
+
+The user interface for the study is programmed in Python and Tkinter. During training data acquisition, the movement that shall be performed and the current signal is shown to participants (Fig. 6). The signal is visualized as a radar chart, displaying the current sEMG amplitude in each of the 8 channels. During online evaluation, the currently desired movement as well as the prediction of the model is shown (Fig. 7). preprint as provided by the authors 11 
+
+Figure 6: The radar chart of 8 sEMG channels 
+
+Figure 7: The GUI of inference process 
+
+3.10 Study protocol 
+
+Participants are first asked to collect data for both basic and combined movements. The basic movements include 4 wrist movements (extension, flexion, supination, and pronation) as well as 6 hand movements (pinch, lateral pinch, tripod, hook, hand open and grip), and rest. The combined movements are 8 pairwise combinations of wrist and hand movements, namely extension & open, extension & hook, extension & pinch, flexion & pinch, pronation & hook, supination & grip, supination & open, and supination & hook (Fig. 9). The combined movements are chosen to align with everyday activities, such as pulling out a drawer or opening a door. Overall, we cover 11 basic and 8 combined movements, so 19 movements overall. During online evaluation, the currently desired movement as well as the prediction of the model is shown (Fig. 7). The protocol begins with a waiting phase for 6 seconds in which no data is recorded and in which participants can prepare for the first movement. Participants are asked to perform preprint as provided by the authors 12 waiting (6s)  Gesture 1 (10s)  Rest (6s)  Gesture 2 (10s)  Rest (6s) 
+
+Figure 8: An illustration of the data collection process the movement for 10 seconds, during which data is recorded, then rest for 6 seconds, which is recorded as well (Fig. 8). Movement and rest phases are interleaved until all movements are recorded. This is repeated 3 times for all basic and combined movements, then 7 more times for only the basic movements. Based on the recorded data, three models are trained, namely e-Syn0net, e-Syn0net + signal mixup and our proposed SAP-full scheme. Then, the online evaluation is performed. For each movement (basic and combined), participants have 6 seconds to practice the movement and observe the prediction of the model, after which the predictions are recorded for 4 seconds. 
+
+# 4 Experiments 
+
+We compare the performance of baseline and proposed models on three data sets offline (Nearlab, BasCom, our new data set, and NinaPro DB3), as well as in an online user study. 
+
+4.1 Datasets 
+
+For our offline evaluation, we use three datasets: Nearlab, our newly recorded BasCom data set, and NinaPro DB3. 
+
+Nearlab The Nearlab dataset includes sEMG data from 11 participants performing 8 basic movements (flexion, extension, supination, pronation, hand open, pinch, lateral pinch, and grip) and 6 combined movements (pronation or supination combined with pinch, lateral pinch, and grip). Each basic movement is repeated 5 times in 3 different positions of the hand, while 6 combined movements are repeated 5 times in one position. 10 differential sEMG channels are recorded by electrode pairs placed around the forearm. The sampling frequency is 2,048 Hz. The dataset is pre-processed with a 10-500 Hz bandpass filter and a 50 Hz notch filter, segmented into 512-sample windows with strides of 128 samples. In our experiment, we split the basic movement data according to different repetitions in the dataset. The first and second basic movement rounds are used for training, while the third round is for testing. Furthermore, all combined movements test the dataset. 
+
+BasCom Our BasCom dataset contains 19 different movements, consisting of 11 basic move-ments and 8 combined movements (Fig. 9). The dataset consists of 10 round repetitions; the first 3 rounds have all 19 movements, and the last 7 rounds contain only 11 basic movements. The dataset is collected by Mindrove, an armband placed on the forearm. Its sampling fre-quency is 500 Hz with 8 channels. The signals are filtered with a 20-250 Hz bandpass filter and a 50 Hz notch filter and then segmented into 128-sample windows with a sliding step size of 25 samples. 
+
+NinaPro DB3 NinaPro DB3 dataset is a benchmark database for investigating sEMG recognition in amputees Atzori et al. [2014]. The NinaPro DB3 dataset contains 11 amputees with different percent remaining forearm and experience of prosthesis. The NinaPro DB3 dataset includes 3 exercises: Exercise B (9 basic wrist motions and 8 isometric and isotonis hand configuration), Exercise C (23 grasping and functional motions) and Exercise D (9 force preprint as provided by the authors 13 
+
+Figure 9: The basic and combined movements included in the study patterns). For our task, we selected 15 motions to evaluate our models. The seen motion set consists of 14 seen classes, separated into training and test datasets according to repetitions: 
+
+• Rest 
+
+• Basic motions: 7 basic hand from the Exercise B, such as Fist, Wrist Flextion and Wrist Extension. 
+
+• Force Patterns: 6 force patterns selected from the Exercise D. For unseen set, we selected the "Wrist Extension with Closed Hand" motion from Exercise B. This motion can be viewed as the combination of two basic motions: "Fist" and "Wrist Extension". This combined motion is completely excluded from the training. Across data set, the "Rest" movement is subsampled to be balanced with the other movement classes. 
+
+4.2 Models 
+
+For all models, we use the same 1D-CNN backbone as described in Sec. 3.2 but different classification layers, training, and inference schemes. To our best knowledge, only a few relevant sEMG studies have addressed to recognize unseen combined movements using only seen basic movements. 
+
+Syn0net is the zero-shot classification scheme of Soroushmojdehi et al. [2022]. The model uses a linear classification layer trained via crossentropy loss on seen basic movements. For inference in the incremental setting (where seen basic and unseen combined movements occur), we use the extended inference scheme (e-Syn0net) described in Sec. 3.6. 
+
+KL inference is the method proposed by Yazawa et al. [2025] but with the CNN backbone instead of an MLP. The model uses a classification layer for basic movements but the inference is performed via the KL divergence between the prediction and target label vectors for each single class and class combination. The training is performed by combining signals for basic movements with synthetic combined signals via linear interpolation in the input space (refer to Sec. 3.6). preprint as provided by the authors 14 0.0 0.2 0.4 0.6 0.8 1.0  
+
+> Mixing Ratio Mean ( )
+> 0.0
+> 0.2
+> 0.4
+> 0.6
+> 0.8
+> 1.0
+> Linearity Error Mean (  )
+> C8
+> C8
+> C9
+> C9
+> C10
+> C10
+> C11
+> C11
+> C12
+> C12
+> C13
+> C13
+> Geometric Analysis: Signal vs. Embedding Space
+> Ideal Ratio (0.5)
+> Signal Space (Baseline)
+> Embedding Space
+
+Figure 10: The geometric analysis on Nearlab. 
+
+e-Syn0net+Mixup is e-Syn0net (see above) combined with a training on synthetic com-bined movements as described in Sec. 3.6. 
+
+SAP-full is our proposed prototype network architecture where prototypes for combined movements are initialized as the mean of synthetic data in the embedding space (CPI) and then all prototypes are adapt (SAP) to reduce the crossentropy loss while keeping the CNN backbone fixed, as described in Sec. 3.5. 
+
+SAP-specialized refers to different variants of prototype adaptation as described in Sec. 3.5. To train the models, we use 100 epochs of AdamW with a learning rate of 0.001 , weight decay of 0.001 , and minibatch size of 32. Training on the Kaggle platform ran within 5 minutes for all models. Offline experiments were repeated 5 times with different random seeds to enhance robustness of results. 
+
+4.3 Geometric Analysis 
+
+Before presenting classification results, we study the geometric relation of unseen combined and seen basic movements using the aforementioned mixing ration α from Eq. (2) and the linearity error δ from Eq. (3). Fig. 10 shows α on the x axis and δ on the y axis for the Nearlab data set. Each marker represents one combined prototype. Triangles indicate prototypes in the signal space, circles in the embedding space. We observe that mixing ratios α always lie well between 0 and 1, as desired. However, the linearity error δ is notably higher in signal space with values above 0.8, whereas values are smaller 0.5 in the embedding space, indicating that the prototype network is able to flatten the data manifold to some degree and suggesting that a liner interpolation of combined movements between basic movements is possible. Values are notably worse for amputees (NinaPro DB3 data set), as shown in Table 2. Here, the median linearity error remains relatively high at 0.76 even in embedding space. Further, mixing ratios are closer to the extremes with 0.39 in signal and 0.78 in the embedding space, indicating that one type of movement (either hand or arm) dominates combines movements. 
+
+4.4 Zero-shot classification 
+
+To evaluate zero-shot classification performance, we first train models on seen basic movements and evaluate them on unseen combined movements. Table 3 shows the results, indicating that preprint as provided by the authors 15 Table 2: Mean linearity error ( δ) and mixing ratio ( α) across data sets for both signal and embedding space.                      
+
+> Dataset Subject Type Signal Space Embedding Space
+> δraw αraw δemb αemb
+> Nearlab Able-bodied 0.88 0.50 0.32 0.60 BasCom Able-bodied 0.81 0.49 0.29 0.65 NinaPro DB3 ∗Amputee 0.83 0.39 0.76 0.78
+> ∗Reported as median values to counteract the impact of outliers.
+
+Table 3: Mean accuracy ( ± std.) across participants of all methods on the Nearlab and BasCom datasets (only contains unseen movements for evaluation).                           
+
+> Method Nearlab BasCom
+> Syn0net 0.67 ±0.13 0.49 ±0.07
+> KL inference 0.73 ±0.09 0.66 ±0.08
+> Syn0net+Signal mixup 0.72 ±0.09 0.59 ±0.09
+> SAP-full 0.75 ±0.11 0.65 ±0.07
+
+SAP-full outperforms all baselines on the Nearlab data set and performs comparably to the best model, KL inference, on the BasCom data set. However, this evaluation only refers to unseen combined movements, whereas any practical system would still need to perform well on basic movements, as well, meaning an incremental learning setup. Tab. 4 shows the results when seen basic movements are included and where the extended inference scheme for Syn0net is needed. In this case, Syn0net performs best for the seen basic movements but accuracy breaks down dramatically for unseen combined movements, where SAP-full performs best. SAP-full retains much more accuracy in the zero-shot incremental setting compared to the baselines. We also note that the performance difference between SAP-full and the next-best model (e-Syn0net+Signal mixup) on unseen combined movements is significant ( p < 0.005 in a Wilcoxon signed-rank test) in the zero-shot incremental setting. We observe the same qualitative pattern for the BasCom data set. Tab. 5 shows the results, where SAP-full, once more, performs best for unseen combined and all movements in the zero-shot incremental setting. The difference to the second-best model (KL inference) is significant on both combined movement and all movement ( p < 0.0005 in a Wilcoxon signed-rank test). While SAP-full does perform best across methods, we still observe low accuracy in the zero-shot incremental setting for unseen combined movements. Hence, we explore further adaptation variants to resolve this problem. 
+
+4.4.1 Synthetic Adaptation experiments 
+
+To evaluate the impact of different synthetic adaptation methods, we compare the initial-ized prototypes without adaptation (CPI) with SAP-full and SAP-specialized using only the margin loss from Eq. (7) and SAP-specialized using both the margin and stability loss from Eq. (8). Table 4: Mean accuracy ( ± std.) across participants of all methods on the Nearlab dataset                                        
+
+> Method Seen Unseen All
+> e-Syn0net 0.78 ±0.08 0.12 ±0.05 0.51 ±0.06
+> KL inference 0.74 ±0.07 0.27 ±0.13 0.55 ±0.09
+> e-Syn0net+Signal mixup 0.70 ±0.08 0.36 ±0.16 0.56 ±0.10
+> SAP-full 0.63 ±0.07 0.51 ±0.12 0.58 ±0.08
+
+preprint as provided by the authors 16 Table 5: Mean accuracy ( ± std.) across participants of all methods on BasCom dataset                                        
+
+> Method Seen Unseen All
+> e-Syn0net 0.86 ±0.05 0.09 ±0.04 0.54 ±0.04
+> KL inference 0.86 ±0.06 0.17 ±0.05 0.57 ±0.05
+> e-Syn0net+Signal mixup 0.82 ±0.06 0.21 ±0.05 0.56 ±0.05
+> SAP-full 0.81 ±0.07 0.40 ±0.09 0.64 ±0.06
+
+Table 6: Mean accuracy ( ± std.) across participants of adaptation methods on the Nearlab dataset Method Seen Unseen All                                      
+
+> CPI 0.65 ±0.08 0.43 ±0.10 0.56 ±0.08
+> SAP-full 0.63 ±0.07 0.51 ±0.11 0.58 ±0.08
+> SAP-Spec. w/o Lstability 0.47 ±0.09 0.58 ±0.10 0.52 ±0.09
+> SAP-Specialized 0.55 ±0.09 0.56 ±0.11 0.55 ±0.09
+
+Tab. 6 shows the results on the Nearlab data set. We observe that no adaptation yields the best results for seen basic movements but SAP-full yields the best results for all movements. However, if a more balanced accuracy between seen basic and unseen combined movements is desired, SAP-specialized with margin and stability loss may be the method of choice. The difference between SAP-Specialized and CPI on combined movements is significant ( p < 
+
+0.0005 ). Tab. 7 shows a similar pattern for the BasCom data set. Here, SAP-full achieves the best results both for seen basic and all movements, whereas SAP-specialized without stability loss achieves the highest accuracy for unseen combined movements only. SAP-specialized with both margin and stability loss achieves significantly better results on combined movements compared to CPI ( p < 0.0005 ) and may offer a compromise in maintaining reasonable accuracy on basic movements as well as combined movements. 
+
+4.4.2 Amputee Evaluation 
+
+Both NearLab and BasCom are limited to able-bodied participants. As shown in Sec. 4.3, the embedding space for amputees tends to be more non-linear, suggesting that zero-shot movement classification may be more difficult for amputees. Therefore, we also evaluate on the NinaProDB3 dataset. We select 14 basic movements as training data and consider the combined movement "Wrist Extension with Closed Hand" (as combination of "Fist" and "Wrist Extension") to evaluate zero-shot classification performance. Tab. 8 presents the evaluation results.The baseline methods relying on signal mixup, such as KL inference and e-Syn0net, fail to recognize unseen combined movements.Even SAP-full achieves only 14% median accuracy on combined movements. By contrast, the SAP-specialized achieves 43% median accuracy. This confirms the effectiveness of our proposed SAP-specialized method, which is designed for recognizing unseen combined motion in chal-lenging environments. Table 7: Mean accuracy ( ± std.) across participants of adaptation methods on BasCom dataset Method Seen Unseen All                                      
+
+> CPI 0.74 ±0.11 0.46 ±0.08 0.62 ±0.06
+> SAP-full 0.81 ±0.07 0.40 ±0.09 0.64 ±0.06
+> SAP-Spec. w/o Lstability 0.58 ±0.11 0.57 ±0.08 0.58 ±0.08
+> SAP-Specialized 0.66 ±0.12 0.53 ±0.07 0.61 ±0.08
+
+preprint as provided by the authors 17 Table 8: Median accuracy (IQR) across amputees                
+
+> Method Seen Unseen All
+> KL Inference 0.48(0 .18) 0.04(0 .05) 0.46(0 .18)
+> e-Syn0net + Mixup 0.48(0 .20) 0.01(0 .06) 0.47(0 .20)
+> SAP-full 0.51(0 .22) 0.17(0 .20) 0.50(0 .20)
+> SAP-Specialized 0.44(0 .22) 0.43(0 .30) 0.45(0 .21)
+
+Table 9: Mean accuracy ( ± std.) across participants of Real-time inference with Mindrove armband Method Seen Unseen All                            
+
+> e-Syn0net 0.88 ±0.07 0.08 ±0.06 0.54 ±0.05
+> e-Syn0net + Mixup 0.80 ±0.09 0.19 ±0.09 0.55 ±0.07
+> SAP-full 0.76 ±0.08 0.47 ±0.11 0.63 ±0.08
+
+4.4.3 Online Evaluation 
+
+To gauge the performance of models in a more realistic setup where real-world disturbances may occur, we also performed online movement classification with e-Syn0net, e-Syn0net + Signal Mixup and SAP-full following the protocol described in Sec. 3.10. Tab. 9 shows the results of the experiments. We observe essentially the same pattern as in the offline incremental zero-shot classification setup: e-Syn0net achieves better results on seen basic movements, but SAP-full performs much better on unseen combined and all movements. 
+
+# 5 Discussion and Conclusion 
+
+In this work, we proposed a new scheme to perform zero-shot classification for unseen com-bined movements from sEMG data. We began with a geometric analysis method to verify that the embedding space derived from a prototype network makes the relationship between unseen combined and seen basic movements more linear compared to signal space. Thereby, we have established a foundation for our approach of approximating unseen combined move-ments via linear interpolation in the embedding space. To arrive at a zero-shot classifier for unseen combined movements, we trained a prototype network on basic movements only and then interpolated the prototypes for combined movements from the basic movements in embedding space (which we call compositional prototype interpolation, CPI). Further, we adapt these prototypes in the embedding space based on synthetic, interpolated training data points for combined movements (synthetic adaptation for prototypes). We showed that the resulting network outperforms prior zero-shot classification schemes for combined movements by a large margin across data sets: On able-bodied subjects in both the pre-existing NearLab and our novel BasCom data set, on amputees in the NinaPro DB3 data set, and in an online user study. As such, our results suggest that prototype networks have a strong potential as zero-shot classifiers for combined movements. 
+
+5.1 Limitations 
+
+Although we achieved notable successes with prototype networks, some limitations persist. First, we still observe a tradeoff between basic and combined movement accuracy, where the latter can only be enhanced at expense of the former. Second, due to the CNN backbone, the prototypes themselves lack interpretability: we can not directly show prototypes in the input space. Further explainability methods are required. Finally, our online evaluation only preprint as provided by the authors 18 includes able-bodied participants, such that pre-clinical and clinical trials for zero-shot sEMG movement classification with amputees would still be required. 
+
+# References 
+
+Manfredo Atzori, Arjan Gijsberts, Claudio Castellini, Barbara Caputo, Anne-Gabrielle Mittaz Hager, Simone Elsig, Giorgio Giatsidis, Franco Bassetto, and Henning Müller. Electromyo-graphy data for non-invasive naturally-controlled robotic hand prostheses. Scientific data ,1(1):140053, 2014. Emilio Bizzi and Vincent CK Cheung. The neural origin of muscle synergies. Frontiers in computational neuroscience , 7:51, 2013. Pratik Prabhanjan Brahma, Dapeng Wu, and Yiyuan She. Why deep learning works: Amanifold disentanglement perspective. IEEE transactions on neural networks and learning systems , 27(10):1997–2008, 2015. doi:10.1109/TNNLS.2015.2496947. Ethan Eddy, Evan Campbell, Scott Bateman, and Erik Scheme. Big data in myoelectric control: large multi-user models enable robust zero-shot emg-based discrete gesture recog-nition. Frontiers in Bioengineering and Biotechnology , 12:1463377, 2024. Halla Hussein Hakami, Bruno Grandi Sgambato, Matthew S Banger, Dario Farina, and Al-ison H McGregor. Upper limb compensatory strategies across tasks with an ultrasound-controlled prosthesis. Scientific Reports , 2026. Wei Li, Ping Shi, and Hongliu Yu. Gesture recognition using surface electromyography and deep learning for prostheses hand: state-of-the-art, challenges, and future. Frontiers in neuroscience , 15:621885, 2021. Rui Liu and Benjamin Paaßen. Few-shot similarity learning for motion classification via electromyography. In Michel Verleysen, editor, Proceedings of the ESANN , 2024. doi:10.14428/esann/2024.ES2024-43. Rui Liu and Benjamin Paaßen. Linear domain adaptation for robustness to elec-trode shifts. In Michel Verleysen, editor, Proceedings of the ESANN , 2025. doi:10.14428/esann/2025.ES2025-99. Mohammadreza Asghari Oskoei and Huosheng Hu. Myoelectric control systems—a survey. 
+
+Biomedical signal processing and control , 2(4):275–294, 2007. Benjamin Paaßen, Alexander Schulz, Janne Hahne, and Barbara Hammer. Expectation max-imization transfer learning and its application for bionic hand prostheses. Neurocomputing ,298:122–133, 2018. doi:10.1016/j.neucom.2017.11.072. Atshushi Sato and Keiji Yamada. Generalized learning vector quantization. In G. Tesauro, D. Touretzky, and T. Leen, editors, Proceedings of the NeurIPS , pages 423–429, 1995. Syed Maaz Shahid, Sunghoon Ko, and Sungoh Kwon. Performance comparison of 1d and 2d convolutional neural networks for real-time classification of time series sensor data. In 
+
+Proceedings of the ICOIN , pages 507–511. IEEE, 2022. Saurabh Sharma, Yongqin Xian, Ning Yu, and Ambuj Singh. Learning prototype classifiers for long-tailed recognition. arXiv preprint arXiv:2302.00491 , 2023. preprint as provided by the authors 19 Jake Snell, Kevin Swersky, and Richard Zemel. Prototypical networks for few-shot learning. In Proceedings of the NeurIPS , 2017. Rahil Soroushmojdehi, Sina Javadzadeh, Alessandra Pedrocchi, and Marta Gandolla. Transfer learning in hand movement intention detection based on surface electromyography signals. 
+
+Frontiers in Neuroscience , 16:977328, 2022. Agnes Sturma, Laura A Hruby, Cosima Prahm, Johannes A Mayer, and Oskar C Aszmann. Rehabilitation of upper extremity nerve injuries using surface emg biofeedback: protocols for clinical application. Frontiers in neuroscience , 12:906, 2018. Matthew C Tresch, Vincent CK Cheung, and Andrea d’Avella. Matrix factorization algorithms for the identification of muscle synergies: evaluation on simulated and experimental data sets. Journal of neurophysiology , 95(4):2199–2212, 2006. Vikas Verma, Alex Lamb, Christopher Beckham, Amir Najafi, Ioannis Mitliagkas, David Lopez-Paz, and Yoshua Bengio. Manifold mixup: Better representations by interpolating hidden states. In Proceedings of the ICML , pages 6438–6447, 2019. Nana Wang, Gen Li, Pengfei Ren, Hao Su, and Suli Wang. New synthetic goldmine: Hand joint angle-driven emg data generation framework for micro-gesture recognition. arXiv preprint arXiv:2509.23359 , 2025a. Runsheng Wang, Xinyue Zhu, Ava Chen, Jingxi Xu, Lauren Winterbottom, Dawn M Nilsen, Joel Stein, and Matei Ciocarlie. ReactEMG: Zero-shot, low-latency intent detection via sEMG. arXiv preprint arXiv:2506.19815 , 2025b. Xiang Wang, Di Ao, and Le Li. Robust myoelectric pattern recognition methods for re-ducing users’ calibration burden: challenges and future. Frontiers in bioengineering and biotechnology , 12:1329209, 2024. Itsuki Yazawa, Seitaro Yoneda, and Akira Furui. Recognition of unseen combined motions via convex combination-based emg pattern synthesis for myoelectric control. arXiv preprint arXiv:2505.15218 , 2025. Hongyi Zhang, Moustapha Cisse, Yann N Dauphin, and David Lopez-Paz. mixup: Beyond empirical risk minimization. arXiv preprint arXiv:1710.09412 , 2017.

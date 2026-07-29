@@ -6,24 +6,28 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-28
-- 运行时间：2026-07-28 20:21:38 UTC
+- 最新运行日期：2026-07-29
+- 运行时间：2026-07-29 21:23:28 UTC
 - 运行状态：成功
 - 本次总论文数：1
-- 精读区：0
-- 速读区：1
+- 精读区：1
+- 速读区：0
 
 ### 今日简报（AI）
-今日速读1篇关于混合专家视觉语言模型组合技能的论文。最值得关注的是MoE-VLA中涌现的组合技能机制，探究了专家路由与视觉推理的协同。建议先快速浏览摘要和结论，再决定是否深入。
-- 详情：[/202607/28/README](/202607/28/README)
+今日精读1篇高分论文，聚焦零样本表面肌电信号动作分类的原型适应方法。
+
+该研究针对未见动作类别提出原型适应策略，在零样本分类上取得突出效果（评分9.0/10）。
+
+建议关注零样本学习与肌电信号的交叉应用，可尝试将原型适应思路迁移至其他生物信号场景。
+- 详情：[/202607/29/README](/202607/29/README)
 
 ### 精读区论文标签
-- 本次无精读推荐。
+1. [Prototype Adaptation for Zero-Shot sEMG Movement Classification](/202607/29/2607.25826v1-prototype-adaptation-for-zero-shot-semg-movement-classification)  
+   标签：评分：9.0/10、query:zsc-action
+   evidence：基于原型插值的零样本组合动作分类
 
 ### 速读区论文标签
-1. [Emergent Compositional Skills in Mixture-of-Experts VLAs](/202607/28/2607.20771v2-emergent-compositional-skills-in-mixture-of-experts-vlas)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：通过混合专家模型涌现出机器人动作的可重用组合原语
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">
