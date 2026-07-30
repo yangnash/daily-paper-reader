@@ -6,25 +6,23 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-29
-- 运行时间：2026-07-29 21:23:28 UTC
+- 最新运行日期：2026-07-30
+- 运行时间：2026-07-30 21:35:27 UTC
 - 运行状态：成功
 - 本次总论文数：1
 - 精读区：1
 - 速读区：0
 
 ### 今日简报（AI）
-今日精读1篇高分论文，聚焦零样本表面肌电信号动作分类的原型适应方法。
-
-该研究针对未见动作类别提出原型适应策略，在零样本分类上取得突出效果（评分9.0/10）。
-
-建议关注零样本学习与肌电信号的交叉应用，可尝试将原型适应思路迁移至其他生物信号场景。
-- 详情：[/202607/29/README](/202607/29/README)
+今日精读《Zero-Fi》，探索零样本Wi-Fi人体活动识别新方法。  
+最值得关注的是通过对比信号-语言对齐实现零样本识别，无需标注数据即可泛化到新活动类别。  
+建议关注如何将类似对比学习框架迁移到其他传感器模态的少样本场景。
+- 详情：[/202607/30/README](/202607/30/README)
 
 ### 精读区论文标签
-1. [Prototype Adaptation for Zero-Shot sEMG Movement Classification](/202607/29/2607.25826v1-prototype-adaptation-for-zero-shot-semg-movement-classification)  
-   标签：评分：9.0/10、query:zsc-action
-   evidence：基于原型插值的零样本组合动作分类
+1. [Zero-Fi: Zero-Shot Wi-Fi-Based Human Activity Recognition via Contrastive Signal-Language Alignment](/202607/30/2607.26381v1-zero-fi-zero-shot-wi-fi-based-human-activity-recognition-via-contrastive-signal-language-alignment)  
+   标签：评分：8.0/10、query:zsc-action
+   evidence：基于Wi-Fi的零样本人体活动识别
 
 ### 速读区论文标签
 - 本次无速读推荐。

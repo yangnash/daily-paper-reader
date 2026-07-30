@@ -1,6 +1,9 @@
 * <a class="dpr-sidebar-root-link" href="#/">首页</a>
 * <a class="dpr-sidebar-root-link dpr-sidebar-noactive-link" href="javascript:void(0)" data-dpr-hash="#/tutorial/README">使用教程</a>
 * Daily Papers
+  * 2026-07-30 <!--dpr-date:20260730-->
+    * 精读区
+      * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/30/2607.26381v1-zero-fi-zero-shot-wi-fi-based-human-activity-recognition-via-contrastive-signal-language-alignment" data-sidebar-item="{&quot;title&quot;: &quot;Zero-Fi: Zero-Shot Wi-Fi-Based Human Activity Recognition via Contrastive Signal-Language Alignment&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.26381v1-zero-fi-zero-shot-wi-fi-based-human-activity-recognition-via-contrastive-signal-language-alignment&quot;, &quot;score&quot;: &quot;8.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;基于Wi-Fi的零样本人体活动识别&quot;}">Zero-Fi: Zero-Shot Wi-Fi-Based Human Activity Recognition via Contrastive Signal-Language Alignment</a>
   * 2026-07-29 <!--dpr-date:20260729-->
     * 精读区
       * <a class="dpr-sidebar-item-link dpr-sidebar-item-structured" href="#/202607/29/2607.25826v1-prototype-adaptation-for-zero-shot-semg-movement-classification" data-sidebar-item="{&quot;title&quot;: &quot;Prototype Adaptation for Zero-Shot sEMG Movement Classification&quot;, &quot;link&quot;: &quot;https://arxiv.org/abs/2607.25826v1-prototype-adaptation-for-zero-shot-semg-movement-classification&quot;, &quot;score&quot;: &quot;9.0&quot;, &quot;tags&quot;: [{&quot;kind&quot;: &quot;query&quot;, &quot;label&quot;: &quot;zsc-action&quot;}], &quot;evidence&quot;: &quot;基于原型插值的零样本组合动作分类&quot;}">Prototype Adaptation for Zero-Shot sEMG Movement Classification</a>
