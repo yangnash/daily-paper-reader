@@ -6,26 +6,29 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-07-30
-- 运行时间：2026-07-30 21:35:27 UTC
+- 最新运行日期：2026-07-31
+- 运行时间：2026-07-31 21:01:48 UTC
 - 运行状态：成功
-- 本次总论文数：1
+- 本次总论文数：3
 - 精读区：1
-- 速读区：0
+- 速读区：2
 
 ### 今日简报（AI）
-今日精读《Zero-Fi》，探索零样本Wi-Fi人体活动识别新方法。  
-最值得关注的是通过对比信号-语言对齐实现零样本识别，无需标注数据即可泛化到新活动类别。  
-建议关注如何将类似对比学习框架迁移到其他传感器模态的少样本场景。
-- 详情：[/202607/30/README](/202607/30/README)
+今日精读1篇、速读2篇，聚焦动作识别与人机交互的表示学习。最值得关注的是知识引导原子动作解耦提升动作识别，以及面向边缘部署的RAG-HAR+降本方案。建议优先精读动作识别论文，并结合边缘部署思路验证实际效果。
+- 详情：[/202607/31/README](/202607/31/README)
 
 ### 精读区论文标签
-1. [Zero-Fi: Zero-Shot Wi-Fi-Based Human Activity Recognition via Contrastive Signal-Language Alignment](/202607/30/2607.26381v1-zero-fi-zero-shot-wi-fi-based-human-activity-recognition-via-contrastive-signal-language-alignment)  
+1. [Knowledge-guided Disentanglement with Atomic Actions for Action Recognition](/202607/31/2607.26097v1-knowledge-guided-disentanglement-with-atomic-actions-for-action-recognition)  
    标签：评分：8.0/10、query:zsc-action
-   evidence：基于Wi-Fi的零样本人体活动识别
+   evidence：通过大语言模型分解原子动作并解耦的动作识别
 
 ### 速读区论文标签
-- 本次无速读推荐。
+1. [Controlling Embedding Spaces with Text-Conditioned Transformations](/202607/31/2607.22919v1-controlling-embedding-spaces-with-text-conditioned-transformations)  
+   标签：评分：7.0/10、query:zsc-action
+   evidence：基于文本条件变换的嵌入空间控制，面向零样本分类与属性组合
+2. [RAG-HAR+: Towards Cost-Efficient LLM-Based Human Activity Recognition for Edge Deployment](/202607/31/2607.26631v1-rag-har-towards-cost-efficient-llm-based-human-activity-recognition-for-edge-deployment)  
+   标签：评分：7.0/10、query:zsc-action
+   evidence：提出基于检索增强的免训练人体活动识别方法，与零样本动作识别目标一致
 
 
 <div class="dpr-home-promo-card">

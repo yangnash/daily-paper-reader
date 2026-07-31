@@ -1,0 +1,54 @@
+{
+  "label": "2026-07-31",
+  "date": "2026-07-31",
+  "generated_at": "2026-07-31T21:01:53",
+  "count": 3,
+  "papers": [
+    {
+      "paper_id": "202607/31/2607.26097v1-knowledge-guided-disentanglement-with-atomic-actions-for-action-recognition",
+      "section": "deep",
+      "title_en": "Knowledge-guided Disentanglement with Atomic Actions for Action Recognition",
+      "authors": "Tianci Wu, Siqi Cao, Guangming Zhu, Jiang Lu, Siyuan Wang, Longfei Zhang, Jincai Huang, Jun Sheng, Liang Zhang",
+      "date": "2026-07-28",
+      "pdf": "https://arxiv.org/pdf/2607.26097v1",
+      "score": "8.0",
+      "evidence": "通过大语言模型分解原子动作并解耦的动作识别",
+      "tldr": "复杂场景中动作识别常包含多个并发细粒度动作，现有整体表示方法难以捕捉内部结构和语义交互。为此提出知识引导的原子动作解缠方法KDA，利用大语言模型将动作标签分解为原子动作以提供显式时空语义，并通过知识注入模块将其融入视频特征，再由知识解缠模块精确分离各动作成分，配合解缠损失增强判别力。实验表明KDA在多标签动作识别基准上达到先进水平，且模块可即插即用。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Action recognition in complex scenes often involves multiple concurrent fine-grained actions, making it challenging to model internal action structures. Most existing methods rely on holistic representations, which are insufficient for capturing subtle interactions and fine-grained semantics. While recent prompt-based approaches introduce disentanglement, they lack explicit semantic guidance, and methods based solely on visual or structured cues remain coarse-grained. In this paper, we propose Knowledge-guided Disentanglement with Atomic Actions (KDA), which leverages fine-grained semantic knowledge to enhance action representations and enable more precise disentanglement. Specifically, we use Large Language Models (LLMs) to decompose action labels into atomic actions, providing explicit spatial-temporal semantics. A Knowledge Injection Module (KIM) first integrates atomic action knowledge into video features. Based on this enhanced representation, a Knowledge Disentanglement Module (KDM) further disentangles atomic action knowledge to produce more precise semantic guidance for action disentanglement. A Knowledge Disentanglement Loss (KD Loss) is introduced to encourage clearer disentanglement of knowledge components within KDM. Extensive experiments demonstrate that KDA improves feature discriminability and achieves state-of-the-art performance on multi-label action recognition benchmarks. Moreover, KIM and KDM can be readily integrated into other methods, demonstrating strong generality.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/31/2607.22919v1-controlling-embedding-spaces-with-text-conditioned-transformations",
+      "section": "quick",
+      "title_en": "Controlling Embedding Spaces with Text-Conditioned Transformations",
+      "authors": "Joseph Fioresi, Fabian Caba Heilbron, Pankaj Nathani, Mubarak Shah, Kushal Kafle",
+      "date": "2026-07-24",
+      "pdf": "https://arxiv.org/pdf/2607.22919v1",
+      "score": "7.0",
+      "evidence": "基于文本条件变换的嵌入空间控制，面向零样本分类与属性组合",
+      "tldr": "CLIP等多模态嵌入将语义压缩为单一向量，但只能表达主导语义，忽略颜色、视角等属性。本文提出文本条件变换，根据自然语言描述生成仿射变换，强调目标属性。该网络将变换嵌入与冻结空间对齐，无需重新编码即可检索，并支持多属性解缠。在检索和多聚类任务上达到SOTA，推理开销极低。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Multimodal embedding spaces in models like CLIP enable powerful capabilities such as semantic similarity retrieval and cross-modal zero-shot classification. These embeddings compress high-level semantics into a single vector, which comes at the cost of primarily expressing a dominant semantics like main object while suppressing other important attributes such as camera angle or color tone. We propose a text-conditioned transformation of visual embeddings that makes such attributes explicitly accessible. Given a natural language description of an attribute category (e.g., \"color\" or \"art style\"), a network generates an affine transformation that emphasizes the specified attribute. Conditioning on text enables it to learn many attributes simultaneously, accessing them at inference time through an intuitive interface. The network is trained to align transformed embeddings with the frozen latent space, enabling retrieval using existing large-scale embeddings without any re-encoding. When applied to a full set, the same mechanism transforms the latent space for attribute disentanglement tasks such as multi-clustering. By operating directly in latent space, our method provides a unified and efficient framework for controlling embedding spaces, demonstrating state-of-the-art performance across both attribute-based retrieval and multi-attribute organization tasks with near-zero inference cost. Project page: https://joefioresi718.github.io/ControlEmbed_webpage/",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    },
+    {
+      "paper_id": "202607/31/2607.26631v1-rag-har-towards-cost-efficient-llm-based-human-activity-recognition-for-edge-deployment",
+      "section": "quick",
+      "title_en": "RAG-HAR+: Towards Cost-Efficient LLM-Based Human Activity Recognition for Edge Deployment",
+      "authors": "Hansi Karunarathna, Nirhoshan Sivaroopan, Chamara Madarasingha, Anura Jayasumana, Kanchana Thilakarathna",
+      "date": "2026-07-29",
+      "pdf": "https://arxiv.org/pdf/2607.26631v1",
+      "score": "7.0",
+      "evidence": "提出基于检索增强的免训练人体活动识别方法，与零样本动作识别目标一致",
+      "tldr": "现有基于深度学习的人体活动识别依赖数据集训练与标注，难以适应新场景。RAG-HAR+将活动识别重构为免训练的检索增强任务，设计离线特征组和多数投票机制，仅对不确定样本调用大模型，在六个基准上保持性能的同时显著降低LLM开销，并验证了移动端部署可行性。",
+      "tags": "query:zsc-action",
+      "abstract_en": "Human Activity Recognition (HAR) from wearable sensors supports applications in healthcare, rehabilitation, fitness tracking, and smart environments. Yet, existing deep learning approaches require dataset-specific training, large labeled corpora, and repeated adaptation to new sensor settings or activity taxonomies. Retrieval-Augmented Generation for Human Activity Recognition (RAG-HAR) addresses this by framing HAR as a training-free, retrieval-augmented task, in which statistical descriptions of sensor windows are used to retrieve similar labeled examples that guide LLM-based classification. We introduce RAG-HAR+, a retrieval-first and cost-optimized extension that strengthens retrieval while reducing dependence on LLM-based inference. RAG-HAR+ uses an offline Retrieval Designer Agent to design dataset-specific feature groups from a diverse pool of motion descriptors, enabling sensor windows to be compared using features better aligned with dataset-specific activity patterns. During inference, RAG-HAR+ uses majority voting over retrieved neighbors for samples with strong retrieval evidence and defers only uncertain cases to an LLM-based Ambiguity Resolver Agent. Across six HAR benchmarks, RAG-HAR+ maintains competitive or improved performance while reducing LLM usage, token consumption, and inference time. We further extend the RAG-HAR mobile prototype to demonstrate the practical feasibility of retrieval-first, LLM-assisted HAR in mobile sensing scenarios.",
+      "source": "arxiv",
+      "selection_source": "fresh_fetch"
+    }
+  ],
+  "errors": []
+}
