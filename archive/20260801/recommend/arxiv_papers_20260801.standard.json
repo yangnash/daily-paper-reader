@@ -1,0 +1,97 @@
+{
+  "mode": "standard",
+  "generated_at": "2026-08-01T20:46:56.484573+00:00",
+  "stats": {
+    "mode": "standard",
+    "tag_count": 1,
+    "deep_divecandidates": 0,
+    "deep_cap": 6,
+    "deep_selected": 0,
+    "quick_candidates": 2,
+    "quick_skim_target": 11,
+    "quick_selected": 2
+  },
+  "deep_dive": [],
+  "quick_skim": [
+    {
+      "id": "2607.22919v1",
+      "source": "arxiv",
+      "title": "Controlling Embedding Spaces with Text-Conditioned Transformations",
+      "abstract": "Multimodal embedding spaces in models like CLIP enable powerful capabilities such as semantic similarity retrieval and cross-modal zero-shot classification. These embeddings compress high-level semantics into a single vector, which comes at the cost of primarily expressing a dominant semantics like main object while suppressing other important attributes such as camera angle or color tone. We propose a text-conditioned transformation of visual embeddings that makes such attributes explicitly accessible. Given a natural language description of an attribute category (e.g., \"color\" or \"art style\"), a network generates an affine transformation that emphasizes the specified attribute. Conditioning on text enables it to learn many attributes simultaneously, accessing them at inference time through an intuitive interface. The network is trained to align transformed embeddings with the frozen latent space, enabling retrieval using existing large-scale embeddings without any re-encoding. When applied to a full set, the same mechanism transforms the latent space for attribute disentanglement tasks such as multi-clustering. By operating directly in latent space, our method provides a unified and efficient framework for controlling embedding spaces, demonstrating state-of-the-art performance across both attribute-based retrieval and multi-attribute organization tasks with near-zero inference cost. Project page: https://joefioresi718.github.io/ControlEmbed_webpage/",
+      "authors": [
+        "Joseph Fioresi",
+        "Fabian Caba Heilbron",
+        "Pankaj Nathani",
+        "Mubarak Shah",
+        "Kushal Kafle"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-07-24T21:14:29+00:00",
+      "link": "https://arxiv.org/pdf/2607.22919v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "Text-conditioned embedding transformation enables zero-shot recognition of attribute combinations, transferable to unseen action compositions.",
+      "llm_evidence_cn": "文本条件嵌入变换支持属性组合的零样本识别，可迁移到未见动作组合",
+      "llm_evidence": "文本条件嵌入变换支持属性组合的零样本识别，可迁移到未见动作组合",
+      "canonical_evidence": "文本条件嵌入变换支持属性组合的零样本识别，可迁移到未见动作组合",
+      "llm_tldr_en": "This paper proposes text-conditioned affine transformations of visual embeddings to make specific attributes explicitly accessible, enabling cross-modal zero-shot classification. This is transferable to unseen action compositions by conditioning on verb and object attributes.",
+      "llm_tldr_cn": "针对多模态嵌入空间中主要语义掩盖其他属性导致零样本分类受限的问题，本文提出文本条件变换方法，通过自然语言描述生成仿射变换以强调指定属性，使颜色、艺术风格等属性显式可访问。该方法可与CLIP等模型结合，实现属性级别的零样本识别，也为组合动作识别中未见过组合的泛化提供了可行的嵌入控制手段。",
+      "llm_tldr": "针对多模态嵌入空间中主要语义掩盖其他属性导致零样本分类受限的问题，本文提出文本条件变换方法，通过自然语言描述生成仿射变换以强调指定属性，使颜色、艺术风格等属性显式可访问。该方法可与CLIP等模型结合，实现属性级别的零样本识别，也为组合动作识别中未见过组合的泛化提供了可行的嵌入控制手段。",
+      "llm_tags": [
+        "query:zsc-action"
+      ],
+      "matched_query_tag": "query:zsc-action",
+      "matched_query_text": "learning to recognize unseen action compositions",
+      "matched_requirement_id": "req-5",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    },
+    {
+      "id": "2607.23052v1",
+      "source": "arxiv",
+      "title": "Similarity Is Not Logic: Factored Inference for Dual-Encoder Vision-Language Models",
+      "abstract": "Dual-encoder vision-language models (VLMs) expose a similarity interface that enables zero-shot retrieval but fails compositional constraints: queries like \"umbrella and no person\" retrieve images containing both, even when concept detection is reliable. We trace this to an interface-level Bag-of-Concepts effect, where similarity scores approximate mean pooling of concept evidence regardless of operators. Although operator-dependent signals exist in text embeddings, they are too weak or misaligned to affect rankings. Fine-tuning does not reliably resolve this failure because the dominant bottleneck is how similarity aggregates evidence rather than what encoders represent. We propose factored inference, which separates evidence extraction from constraint execution, and introduce LCSE (Logic-Constrained Score Editing), a training-free method that executes constraints externally using concept scores from frozen encoders. We also introduce FACTOR-Bench, where LCSE achieves 85.5% accuracy versus 73.2% for the best fine-tuned baseline, 90.7% when applied to SigLIP 2, and improves NegBench COCO MCQ accuracy from 27.2% to 65.2% while preserving retrieval performance.",
+      "authors": [
+        "Sultan Alshehri",
+        "Zhantao Yang",
+        "Han Zhang",
+        "Marios Savvides"
+      ],
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "published": "2026-07-25T05:39:51+00:00",
+      "link": "https://arxiv.org/pdf/2607.23052v1",
+      "tags": [
+        "keyword:zsc-action",
+        "query:zsc-action"
+      ],
+      "llm_score": 6.0,
+      "llm_evidence_en": "proposes factored inference to handle compositional zero-shot VLM queries, transferable to compositional action recognition",
+      "llm_evidence_cn": "提出因子化推理以处理组合零样本VLM查询，可迁移至组合动作识别",
+      "llm_evidence": "提出因子化推理以处理组合零样本VLM查询，可迁移至组合动作识别",
+      "canonical_evidence": "提出因子化推理以处理组合零样本VLM查询，可迁移至组合动作识别",
+      "llm_tldr_en": "Proposes factored inference to separate evidence extraction from logical composition in dual-encoder VLMs, improving zero-shot retrieval of compositional queries. The method transfers to zero-shot compositional action recognition.",
+      "llm_tldr_cn": "该论文针对双编码器视觉-语言模型在组合约束推理上的缺陷，指出相似度评分存在概念袋效应，无法正确处理伞且无人等组合逻辑。作者提出因子化推理，将证据提取与逻辑组合分离，从而在不重新微调的情况下提升组合零样本检索能力。该方法可直接迁移到零样本组合动作识别任务，帮助组合动词与物体的视觉证据，提升未见过组合的识别能力。",
+      "llm_tldr": "该论文针对双编码器视觉-语言模型在组合约束推理上的缺陷，指出相似度评分存在概念袋效应，无法正确处理伞且无人等组合逻辑。作者提出因子化推理，将证据提取与逻辑组合分离，从而在不重新微调的情况下提升组合零样本检索能力。该方法可直接迁移到零样本组合动作识别任务，帮助组合动词与物体的视觉证据，提升未见过组合的识别能力。",
+      "llm_tags": [
+        "query:zsc-action:composite"
+      ],
+      "matched_query_tag": "query:zsc-action:composite",
+      "matched_query_text": "Papers central to 零样本组合动作识别, especially work that connects or combines: zero-shot learning for action recognition; compositional action recognition methods; zero-shot action recognition with composition; zero shot compositional action recognition methods; learning to recognize unseen action compositions; compositional action recognition without training samples.",
+      "matched_requirement_id": "req-composite-zsc-action",
+      "selection_source": "fresh_fetch",
+      "quick_tier": "6"
+    }
+  ]
+}
