@@ -6,29 +6,22 @@
 </div>
 
 ## 每次日报
-- 最新运行日期：2026-08-01
-- 运行时间：2026-08-01 20:48:11 UTC
+- 最新运行日期：2026-08-02
+- 运行时间：2026-08-02 19:51:34 UTC
 - 运行状态：成功
-- 本次总论文数：2
+- 本次总论文数：0
 - 精读区：0
-- 速读区：2
+- 速读区：0
 
 ### 今日简报（AI）
-今日速读2篇论文，聚焦文本条件控制嵌入空间与双编码器视觉语言模型的推理短板，均获6.0分。  
-值得关注的方向：嵌入空间的可控变换，以及“相似性≠逻辑”对视觉语言模型推理能力的警示。  
-下一步建议：可深入探索文本条件变换在生成任务中的应用，同时留意双编码器模型在逻辑推理上的局限。
-- 详情：[/202608/01/README](/202608/01/README)
+> 今日无新推荐，系统未产出可展示论文。
+- 详情：[/202608/02/README](/202608/02/README)
 
 ### 精读区论文标签
 - 本次无精读推荐。
 
 ### 速读区论文标签
-1. [Controlling Embedding Spaces with Text-Conditioned Transformations](/202608/01/2607.22919v1-controlling-embedding-spaces-with-text-conditioned-transformations)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：文本条件嵌入变换支持属性组合的零样本识别，可迁移到未见动作组合
-2. [Similarity Is Not Logic: Factored Inference for Dual-Encoder Vision-Language Models](/202608/01/2607.23052v1-similarity-is-not-logic-factored-inference-for-dual-encoder-vision-language-models)  
-   标签：评分：6.0/10、query:zsc-action
-   evidence：提出因子化推理以处理组合零样本VLM查询，可迁移至组合动作识别
+- 本次无速读推荐。
 
 
 <div class="dpr-home-promo-card">
