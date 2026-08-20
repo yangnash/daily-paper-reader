@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-19T20:05:51.881948+00:00",
-  "updated_date": "20260819",
+  "generated_at": "2026-08-20T20:00:18.766408+00:00",
+  "updated_date": "20260820",
   "carryover_days": 9,
   "tag_states": {
     "zsc-action": {
-      "updated_date": "20260819",
+      "updated_date": "20260820",
       "carryover_days": 9,
       "items": []
     }
